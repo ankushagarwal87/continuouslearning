@@ -3,7 +3,5 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
-
-
+I like to keep myself updated with the latest trends & enjoy exploring new tecnologies.
+Feel free to reach out at https://www.linkedin.com/in/ankushagarwal87/ 
