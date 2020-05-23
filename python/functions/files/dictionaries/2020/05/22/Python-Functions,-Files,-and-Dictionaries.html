@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python Functions, Files &amp; Dictionaries | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python Functions, Files &amp; Dictionaries" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cover basic around Functions, Files &amp; Dictionaries" />
+<meta property="og:description" content="Cover basic around Functions, Files &amp; Dictionaries" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-22T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Cover basic around Functions, Files &amp; Dictionaries","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html","headline":"Python Functions, Files &amp; Dictionaries","dateModified":"2020-05-22T00:00:00-05:00","datePublished":"2020-05-22T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python Functions, Files &amp; Dictionaries | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python Functions, Files &amp; Dictionaries" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cover basic around Functions, Files &amp; Dictionaries" />
+<meta property="og:description" content="Cover basic around Functions, Files &amp; Dictionaries" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-22T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Cover basic around Functions, Files &amp; Dictionaries","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html","headline":"Python Functions, Files &amp; Dictionaries","dateModified":"2020-05-22T00:00:00-05:00","datePublished":"2020-05-22T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python Functions, Files &amp; Dictionaries</h1><p class="page-description">Cover basic around Functions, Files & Dictionaries</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-22T00:00:00-05:00" itemprop="datePublished">
+        May 22, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Python">Python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Functions">Functions</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Files">Files</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Dictionaries">Dictionaries</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Files">Files </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Reading-a-file">Reading a file </a></li>
+<li class="toc-entry toc-h4"><a href="#Finding-a-file">Finding a file </a></li>
+<li class="toc-entry toc-h4"><a href="#Writing-a-file">Writing a file </a></li>
+<li class="toc-entry toc-h4"><a href="#Using-with-for">Using with for </a></li>
+<li class="toc-entry toc-h4"><a href="#CSV-Output">CSV Output </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Dictionaries">Dictionaries </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Operations">Operations </a></li>
+<li class="toc-entry toc-h4"><a href="#Methods">Methods </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Function">Function </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Basics">Basics </a></li>
+<li class="toc-entry toc-h4"><a href="#Local-&-Global-Variables">Local &amp; Global Variables </a></li>
+<li class="toc-entry toc-h4"><a href="#Mutable-Objects-&-Side-Effects">Mutable Objects &amp; Side Effects </a></li>
+<li class="toc-entry toc-h4"><a href="#Tuples-Packing">Tuples Packing </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Iteration-and-Advanced-Functions">Iteration and Advanced Functions </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#While-Statement">While Statement </a></li>
+<li class="toc-entry toc-h4"><a href="#Advance-Function">Advance Function </a></li>
+<li class="toc-entry toc-h4"><a href="#Anonymous-Function-with-Lambda-Expression">Anonymous Function with Lambda Expression </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Sorting">Sorting </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Basics">Basics </a></li>
+<li class="toc-entry toc-h4"><a href="#Sorting-Dictionaries">Sorting Dictionaries </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/Python Functions, Files, and Dictionaries.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Files">
+<a class="anchor" href="#Files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files<a class="anchor-link" href="#Files"> </a>
+</h3>
+<h4 id="Reading-a-file">
+<a class="anchor" href="#Reading-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading a file<a class="anchor-link" href="#Reading-a-file"> </a>
+</h4>
+<pre><code>fileref = open("filename","r")
+content = fileref.read()  -- Single String
+content = fileref.readlines() -- list of strings 
+for instance in fileref:
+    print(instance)
+fileref.close()
+
+</code></pre>
+<h4 id="Finding-a-file">
+<a class="anchor" href="#Finding-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding a file<a class="anchor-link" href="#Finding-a-file"> </a>
+</h4>
+<pre><code>open("../dir/file","r") - relative path - preferred
+open("C://dir/file","r") - absolute
+
+</code></pre>
+<h4 id="Writing-a-file">
+<a class="anchor" href="#Writing-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a file<a class="anchor-link" href="#Writing-a-file"> </a>
+</h4>
+<pre><code>fileref = open("filename","w")
+fileref.write("SSSSS")
+fileref.close()
+
+</code></pre>
+<h4 id="Using-with-for">
+<a class="anchor" href="#Using-with-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using with for<a class="anchor-link" href="#Using-with-for"> </a>
+</h4>
+<pre><code>with open("file","r") as md:
+    for line in md:
+        print(line)
+
+</code></pre>
+<h4 id="CSV-Output">
+<a class="anchor" href="#CSV-Output" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSV Output<a class="anchor-link" href="#CSV-Output"> </a>
+</h4>
+<pre><code>Read
+Write  </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dictionaries">
+<a class="anchor" href="#Dictionaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dictionaries<a class="anchor-link" href="#Dictionaries"> </a>
+</h3>
+<h4 id="Operations">
+<a class="anchor" href="#Operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operations<a class="anchor-link" href="#Operations"> </a>
+</h4>
+<pre><code>del xx['y']
+len(dict)
+
+</code></pre>
+<h4 id="Methods">
+<a class="anchor" href="#Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods<a class="anchor-link" href="#Methods"> </a>
+</h4>
+<pre><code>dict.keys()
+list(dict.items())
+list(dict.values())
+dict.get("y")
+dict.get("y",0)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Function">
+<a class="anchor" href="#Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function<a class="anchor-link" href="#Function"> </a>
+</h3>
+<h4 id="Basics">
+<a class="anchor" href="#Basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics<a class="anchor-link" href="#Basics"> </a>
+</h4>
+<pre><code>Definition
+Parameter Passing
+Returning Values
+
+</code></pre>
+<h4 id="Local-&amp;-Global-Variables">
+<a class="anchor" href="#Local-&amp;-Global-Variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local &amp; Global Variables<a class="anchor-link" href="#Local-&amp;-Global-Variables"> </a>
+</h4>
+<pre><code>If variable assigned value in a funtion before read - local 
+    If variable assigned value in a funtion after read - global (global variable)
+
+</code></pre>
+<h4 id="Mutable-Objects-&amp;-Side-Effects">
+<a class="anchor" href="#Mutable-Objects-&amp;-Side-Effects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mutable Objects &amp; Side Effects<a class="anchor-link" href="#Mutable-Objects-&amp;-Side-Effects"> </a>
+</h4>
+<pre><code>Object will pass as a reference &amp; any changes will alter passed object
+
+</code></pre>
+<h4 id="Tuples-Packing">
+<a class="anchor" href="#Tuples-Packing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tuples Packing<a class="anchor-link" href="#Tuples-Packing"> </a>
+</h4>
+<pre><code>When need to pass more than one resultset</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Iteration-and-Advanced-Functions">
+<a class="anchor" href="#Iteration-and-Advanced-Functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration and Advanced Functions<a class="anchor-link" href="#Iteration-and-Advanced-Functions"> </a>
+</h3>
+<h4 id="While-Statement">
+<a class="anchor" href="#While-Statement" aria-hidden="true"><span class="octicon octicon-link"></span></a>While Statement<a class="anchor-link" href="#While-Statement"> </a>
+</h4>
+<pre><code>while {cond}
+    statement
+    continue
+    break
+
+</code></pre>
+<h4 id="Advance-Function">
+<a class="anchor" href="#Advance-Function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advance Function<a class="anchor-link" href="#Advance-Function"> </a>
+</h4>
+<pre><code>Optional Parameter
+    def f(a,l=[]):
+Keyword argument
+    f(a=5,l=['hello'])
+    Keyword argument to come after non keyword argument
+
+</code></pre>
+<h4 id="Anonymous-Function-with-Lambda-Expression">
+<a class="anchor" href="#Anonymous-Function-with-Lambda-Expression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anonymous Function with Lambda Expression<a class="anchor-link" href="#Anonymous-Function-with-Lambda-Expression"> </a>
+</h4>
+<pre><code>def func(args):
+    return ret_val
+
+func = lambda args:ret value</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sorting">
+<a class="anchor" href="#Sorting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sorting<a class="anchor-link" href="#Sorting"> </a>
+</h3>
+<h4 id="Basics">
+<a class="anchor" href="#Basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics<a class="anchor-link" href="#Basics"> </a>
+</h4>
+<pre><code>list.sort()
+newlist = sorted(list)
+newString = sorted(string)
+
+Reverse order
+    list.sort(reverse=True)
+
+Optional Key
+    newlist = sorted(list,key=function)
+    newlist = sorted(list,key=lambda expression)
+        Call function for each value &amp; sort on the basis of function return value
+
+</code></pre>
+<h4 id="Sorting-Dictionaries">
+<a class="anchor" href="#Sorting-Dictionaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sorting Dictionaries<a class="anchor-link" href="#Sorting-Dictionaries"> </a>
+</h4>
+<pre><code>Sorting Dictionary
+    sorted(dict.keys())
+    sorted(dict.keys(),key=lambda x:dict[x])  -- sort by values
+    sorted(dict.keys(),key=lambda x:dict[x],reverse=True)
+
+Breaking Ties
+    sorted(list,key = lambda fruit_name:(len(fruit_name),fruit_name))</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/python/functions/files/dictionaries/2020/05/22/Python-Functions,-Files,-and-Dictionaries.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
