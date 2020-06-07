@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon S3 | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon S3" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS S3 &amp; Glacier" />
+<meta property="og:description" content="Introduction to AWS S3 &amp; Glacier" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS S3 &amp; Glacier","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html","headline":"Amazon S3","dateModified":"2020-06-06T00:00:00-05:00","datePublished":"2020-06-06T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon S3 | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon S3" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS S3 &amp; Glacier" />
+<meta property="og:description" content="Introduction to AWS S3 &amp; Glacier" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS S3 &amp; Glacier","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html","headline":"Amazon S3","dateModified":"2020-06-06T00:00:00-05:00","datePublished":"2020-06-06T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Amazon S3</h1><p class="page-description">Introduction to AWS S3 & Glacier</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-06T00:00:00-05:00" itemprop="datePublished">
+        Jun 6, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#S3">S3</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Glacier">Glacier</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h3"><a href="#Access-Control">Access Control </a></li>
+<li class="toc-entry toc-h3"><a href="#Encryption">Encryption </a></li>
+<li class="toc-entry toc-h3"><a href="#Pointers">Pointers </a></li>
+<li class="toc-entry toc-h3"><a href="#Amazon-Glacier">Amazon Glacier </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/Amazon Simple Storage Service and Amazon Glacier Storage.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h3>
+<pre><code>Amazon S3 serves as the durable target storage for Amazon Kinesis and Amazon Elastic MapReduce (Amazon EMR),
+    it is used as the storage for Amazon Elastic Block Store (Amazon EBS) and Amazon Relational Database
+    Service (Amazon RDS) snapshots, and it is used as a data staging or loading storage mechanism for 
+    Amazon Redshift and Amazon DynamoDB.
+
+Amazon S3 objects are automatically replicated on multiple devices in multiple facilities within a region.
+You can create and use multiple buckets; you can have up to 100 per account by default.
+Objects can range in size from 0 bytes upto 5TB,and a single bucket can store an unlimited number of objects
+
+The native interface for Amazon S3 is a REST (Representational State Transfer) API. 
+    With the REST interface, you use standard HTTP or HTTPS requests to create and delete buckets, 
+    list keys, and read and write objects.
+
+Amazon S3 achieves high durability by automatically storing data redundantly on multiple devices in
+    multiple facilities within a region. It is designed to sustain the concurrent loss of data in two
+    facilities without loss of user data. </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Access-Control">
+<a class="anchor" href="#Access-Control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access Control<a class="anchor-link" href="#Access-Control"> </a>
+</h3>
+<pre><code>Amazon S3 is secure by default; when you create a bucket or object in Amazon S3, only you have access. 
+    To allow you to give controlled access to others, Amazon S3 provides both coarse-grained access 
+    controls (Amazon S3 Access Control Lists [ACLs]), and fine-grained access controls (Amazon S3 
+    bucket policies, AWS Identity and Access Management [IAM] policies, and query-string authentication).
+
+Using an Amazon S3 bucket policy, you can specify who can access the bucket, from where (by Classless 
+    Inter-Domain Routing [CIDR] block or IP address), and during what time of day.
+
+Finally, IAM policies may be associated directly with IAM principals that grant access to an Amazon 
+    S3 bucket, just as it can grant access to any AWS service and resource. 
+
+Lifecycle configurations are attached to the bucket and can apply to all objects in the bucket or 
+    only to objects specified by a prefix.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Encryption">
+<a class="anchor" href="#Encryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encryption<a class="anchor-link" href="#Encryption"> </a>
+</h3>
+<pre><code>To encrypt your Amazon S3 data in flight, you can use the Amazon S3 Secure Sockets Layer (SSL) API 
+    endpoints. This ensures that all data sent to and from Amazon S3 is encrypted while in transit 
+    using the HTTPS protocol.
+
+To encrypt your Amazon S3 data at rest, you can use several variations of Server-Side Encryption (SSE). 
+    Amazon S3 encrypts your data at the object level as it writes it to disks in its data centers and 
+    decrypts it for you when you access it. All SSE performed by Amazon S3 and AWS Key Management Service
+    (Amazon KMS) uses the 256-bit Advanced Encryption Standard (AES). You can also encrypt your Amazon 
+    S3 data at rest using Client-Side Encryption, encrypting your data on the client before sending it 
+    to Amazon S3.
+
+SSE-S3 (AWS-Managed Keys)
+    This is a fully integrated “check-box-style” encryption solution where AWS handles the key management 
+    and key protection for Amazon S3. Every object is encrypted with a unique key. The actual object key 
+    itself is then further encrypted by a separate master key. A new master key is issued at least monthly, 
+    with AWS rotating the keys. Encrypted data, encryption keys, and master keys are all stored separately
+    on secure hosts, further enhancing protection.
+
+SSE-KMS (AWS KMS Keys)
+    This is a fully integrated solution where Amazon handles your key management and protection for 
+    Amazon S3, but where you manage the keys. SSE-KMS offers several additional benefits compared to SSE-S3.
+    Using SSE-KMS, there are separate permissions for using the master key, which provide protection against
+    unauthorized access to your objects stored in Amazon S3 and an additional layer of control.
+
+SSE-C (Customer-Provided Keys)
+    This is used when you want to maintain your own encryption keys but don’t want to manage or implement 
+    your own client-side encryption library. With SSE-C, AWS will do the encryption/decryption of your 
+    objects while you maintain full control of the keys used to encrypt/decrypt the objects in Amazon S3.
+
+Client-Side Encryption
+    Client-side encryption refers to encrypting data on the client side of your application before sending 
+    it to Amazon S3. </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pointers">
+<a class="anchor" href="#Pointers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pointers<a class="anchor-link" href="#Pointers"> </a>
+</h3>
+<pre><code>Pre-Signed URLs
+    All Amazon S3 objects by default are private, meaning that only the owner has access. However, the 
+    object owner can optionally share objects with others by creating a pre-signed URL, using their own
+    security credentials to grant time-limited permission to download the objects. When you create a 
+    pre-signed URL for your object, you must provide your security credentials and specify a bucket name, 
+    an object key, the HTTP method (GET to download the object), and an expiration date and time. The 
+    pre-signed URLs are valid only for the specified duration. This is particularly useful to protect 
+    against “content scraping” of web content such as media files stored in Amazon S3.
+
+Multipart Upload
+    To better support uploading or copying of large objects, Amazon S3 provides the Multipart Upload API. 
+    This allows you to upload large objects as a set of parts, which generally gives better network 
+    utilization (through parallel transfers), the ability to pause and resume, and the ability to 
+    upload objects where the size is initially unknown.
+
+Range GETs
+    It is possible to download (GET) only a portion of an object in both Amazon S3 and Amazon Glacier by 
+    using something called a Range GET. Using the Range HTTP header in the GET request or equivalent 
+    parameters in one of the SDK wrapper libraries, you specify a range of bytes of the object. This can 
+    be useful in dealing with large objects when you have poor connectivity or to download only a known 
+    portion of a large Amazon Glacier backup.
+
+Cross-Region Replication
+    Cross-region replication is a feature of Amazon S3 that allows you to asynchronously replicate all 
+    new objects in the source bucket in one AWS region to a target bucket in another region. Any metadata 
+    and ACLs associated with the object are also part of the replication. After you set up cross-region
+    replication on your source bucket, any changes to the data, metadata, or ACLs on an object trigger a 
+    new replication to the destination bucket. To enable cross-region replication, versioning must be 
+    turned on for both source and destination buckets, and you must use an IAM policy to give Amazon 
+    S3 permission to replicate objects on your behalf.
+
+Logging
+    In order to track requests to your Amazon S3 bucket, you can enable Amazon S3 server access logs. 
+    Logging is off by default, but it can easily be enabled.
+
+Event Notifications
+    Amazon S3 event notifications can be sent in response to actions taken on objects uploaded or stored 
+    in Amazon S3. Event notifications enable you to run workflows, send alerts, or perform other actions 
+    in response to changes in your objects stored in Amazon S3. You can use Amazon S3 event notifications 
+    to set up triggers to perform actions, such as transcoding media files when they are uploaded,processing
+    data files when they become available, and synchronizing Amazon S3 objects with other data stores.
+
+Another common pattern is to use Amazon S3 as bulk “blob” storage for data, while keeping an index to 
+    that data in another service, such as Amazon DynamoDB or Amazon RDS. This allows quick searches and 
+    complex queries on key names without listing keys continually.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Amazon-Glacier">
+<a class="anchor" href="#Amazon-Glacier" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Glacier<a class="anchor-link" href="#Amazon-Glacier"> </a>
+</h3>
+<pre><code>Archives
+    In Amazon Glacier, data is stored in archives. An archive can contain up to 40TB of data, and you 
+    can have an unlimited number of archives. 
+
+Vaults
+    Vaults are containers for archives. Each AWS account can have up to 1,000 vaults. You can control 
+    access to your vaults and the actions allowed using IAM policies or vault access policies.
+
+Vaults Locks
+    You can easily deploy and enforce compliance controls for individual Amazon Glacier vaults with a 
+    vault lock policy. You can specify controls such as Write Once Read Many (WORM) in a vault lock 
+    policy and lock the policy from future edits. Once locked, the policy can no longer be changed.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/s3/glacier/2020/06/06/Amazon-Simple-Storage-Service-and-Amazon-Glacier-Storage.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
