@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon EC2 &amp; EBS | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon EC2 &amp; EBS" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS EC2 &amp; EBS" />
+<meta property="og:description" content="Introduction to AWS EC2 &amp; EBS" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS EC2 &amp; EBS","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html","headline":"Amazon EC2 &amp; EBS","dateModified":"2020-06-20T00:00:00-05:00","datePublished":"2020-06-20T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon EC2 &amp; EBS | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon EC2 &amp; EBS" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS EC2 &amp; EBS" />
+<meta property="og:description" content="Introduction to AWS EC2 &amp; EBS" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS EC2 &amp; EBS","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html","headline":"Amazon EC2 &amp; EBS","dateModified":"2020-06-20T00:00:00-05:00","datePublished":"2020-06-20T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Amazon EC2 &amp; EBS</h1><p class="page-description">Introduction to AWS EC2 & EBS</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-20T00:00:00-05:00" itemprop="datePublished">
+        Jun 20, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#EC2">EC2</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#EBS">EBS</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Amazon-Elastic-Compute-Cloud-(Amazon-EC2)">Amazon Elastic Compute Cloud (Amazon EC2) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Compute-Basics">Compute Basics </a></li>
+<li class="toc-entry toc-h4"><a href="#Securely-Using-an-Instance">Securely Using an Instance </a></li>
+<li class="toc-entry toc-h4"><a href="#The-Lifecycle-of-Instances">The Lifecycle of Instances </a></li>
+<li class="toc-entry toc-h4"><a href="#Options">Options </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Amazon-Elastic-Block-Store-(Amazon-EBS)">Amazon Elastic Block Store (Amazon EBS) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Protecting-Data">Protecting Data </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/Amazon Elastic Compute Cloud (EC2) and Amazon Elastic Block Store (EBS).ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Amazon-Elastic-Compute-Cloud-(Amazon-EC2)">
+<a class="anchor" href="#Amazon-Elastic-Compute-Cloud-(Amazon-EC2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Elastic Compute Cloud (Amazon EC2)<a class="anchor-link" href="#Amazon-Elastic-Compute-Cloud-(Amazon-EC2)"> </a>
+</h3>
+<h4 id="Compute-Basics">
+<a class="anchor" href="#Compute-Basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compute Basics<a class="anchor-link" href="#Compute-Basics"> </a>
+</h4>
+<pre><code>Instance Types
+    Sample Instance Family
+        c4  Compute optimized—For workloads requiring significant processing
+        r3  Memory optimized—For memory-intensive workloads
+        i2  Storage optimized—For workloads requiring high amounts of fast SSD storage
+        g2  GPU-based instances—Intended for graphics and general-purpose GPU compute workloads
+
+Enhanced Networking
+    For workloads requiring greater network performance, many instance types support enhanced networking. 
+        Enhanced networking reduces the impact of virtualization on network performance by enabling a 
+        capability called Single Root I/O Virtualization (SR-IOV). 
+        This results in more Packets Per Second (PPS), lower latency, and less jitter.
+
+Four sources of AMIs
+    Published by AWS
+    The AWS Marketplace
+    Generated from Existing Instances
+    Uploaded Virtual Servers</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Securely-Using-an-Instance">
+<a class="anchor" href="#Securely-Using-an-Instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Securely Using an Instance<a class="anchor-link" href="#Securely-Using-an-Instance"> </a>
+</h4>
+<pre><code>Addressing an Instance
+    Public Domain Name System (DNS) Name
+    Public IP
+    Elastic IP
+
+Initial Access
+Virtual Firewall Protection
+    Type of Security Group  Capabilities
+    EC2-Classic Security Groups     Control outgoing instance traffic
+    VPC Security Groups             Control outgoing and incoming instance traffic</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Lifecycle-of-Instances">
+<a class="anchor" href="#The-Lifecycle-of-Instances" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Lifecycle of Instances<a class="anchor-link" href="#The-Lifecycle-of-Instances"> </a>
+</h4>
+<pre><code>Bootstraping 
+    One of the parameters when an instance is launched is a string value called UserData. 
+        This string is passed to the operating system to be executed as part of the launch process 
+        the first time the instance is booted. On Linux instances this can be shell script, 
+        and on Windows instances this can be a batch style script or a PowerShell script. 
+
+VM Import/Export 
+Instance Metadata
+    http://169.254.169.254/latest/meta-data/
+Managing Instances
+    Tags can help you manage not just your Amazon EC2 instances
+Monitoring Instances
+    AWS offers a service called Amazon CloudWatch that provides monitoring and alerting
+Modifying an Instance
+    Instance Type
+        Instances can be resized using the AWS Management Console, CLI, or API
+    Security Groups 
+        If an instance is running in an Amazon VPC, you can change which security groups 
+            are associated with an instance while the instance is running. 
+            For instances outside of an Amazon VPC (called EC2-Classic), the association of 
+            the security groups cannot be changed after launch.
+
+ Termination Protection
+     In order to prevent termination via the AWS Management Console, CLI, or API, 
+         termination protection can be enabled for an instance. While enabled, calls 
+         to terminate the instance will fail until termination protection is disabled.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Options">
+<a class="anchor" href="#Options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options<a class="anchor-link" href="#Options"> </a>
+</h4>
+<pre><code>Pricing Options
+    On-Demand Instances
+        The price per hour for each instance type
+    Reserved Instances 
+        The Reserved Instance pricing option enables customers to make capacity 
+            reservations for predictable workloads.
+    Spot Instances 
+        For workloads that are not time critical and are tolerant of interruption, 
+            Spot Instances offer the greatest discount.
+
+Tenancy Options
+    Shared Tenancy 
+        Shared tenancy is the default tenancy model for all Amazon EC2 instances, regardless 
+            of instance type, pricing model, and so forth. Shared tenancy means that a single 
+            host machine may house instances from different customers. As AWS does not use 
+            overprovisioning and fully isolates instances from other instances on the same host, 
+            this is a secure tenancy model.
+
+    Dedicated Instances 
+        Dedicated Instances run on hardware that’s dedicated to a single customer. 
+            As a customer runs more Dedicated Instances, more underlying hardware may be dedicated 
+            to their account. Other instances in the account (those not designated as dedicated) 
+            will run on shared tenancy and will be isolated at the hardware level from the 
+            Dedicated Instances in the account.
+
+    Dedicated Host 
+        An Amazon EC2 Dedicated Host is a physical server with Amazon EC2 instance capacity fully 
+            dedicated to a single customer’s use. Dedicated Hosts can help you address licensing 
+            requirements and reduce costs by allowing you to use your existing server-bound 
+            software licenses. The customer has complete control over which specific host runs 
+            an instance at launch. This differs from Dedicated Instances in that a Dedicated 
+            Instance can launch on any hardware that has been dedicated to the account.
+
+Placement Groups
+    A placement group is a logical grouping of instances within a single Availability Zone 
+
+Instance Stores
+    An instance store (sometimes referred to as ephemeral storage) provides temporary block-level 
+        storage for your instance. </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Amazon-Elastic-Block-Store-(Amazon-EBS)">
+<a class="anchor" href="#Amazon-Elastic-Block-Store-(Amazon-EBS)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Elastic Block Store (Amazon EBS)<a class="anchor-link" href="#Amazon-Elastic-Block-Store-(Amazon-EBS)"> </a>
+</h3>
+<pre><code>Elastic Block Store Basics
+    Each Amazon EBS volume is automatically replicated within its Availability Zone to protect 
+        you from component failure, offering high availability and durability
+    Multiple Amazon EBS volumes can be attached to a single Amazon EC2 instance, 
+        although a volume can only be attached to a single instance at a time.
+
+Types of Amazon EBS Volumes
+    Magnetic Volumes
+        Magnetic volumes have the lowest performance characteristics of all Amazon EBS volume types. 
+        As such, they cost the lowest per gigabyte. 
+        They are an excellent, cost-effective solution for appropriate workloads.
+        A magnetic Amazon EBS volume can range in size from 1 GB to 1 TB and will average 100 IOPS, 
+            but has the ability to burst to hundreds of IOPS.
+        Cold workloads where data is infrequently accessed.
+
+    General-Purpose SSD
+        General-purpose SSD volumes offer cost-effective storage that is ideal for a broad range 
+            of workloads. 
+        They deliver strong performance at a moderate price point that is suitable for a wide 
+            range of workloads.
+        A general-purpose SSD volume can range in size from 1 GB to 16 TB and provides a 
+            baseline performance of three IOPS per gigabyte provisioned, capping at 10,000 IOPS
+
+    Provisioned IOPS SSD
+        Provisioned IOPS SSD volumes are designed to meet the needs of I/O-intensive workloads, 
+            particularly database workloads that are sensitive to storage performance and 
+            consistency in random access I/O throughput. 
+        While they are the most expensive Amazon EBS volume type per gigabyte, they provide the 
+            highest performance of any Amazon EBS volume type in a predictable manner.
+        A Provisioned IOPS SSD volume can range in size from 4 GB to 16 TB. 
+        When you provision a Provisioned IOPS SSD volume, you specify not just the size, 
+            but also the desired number of IOPS, up to the lower of the maximum of 30 times 
+            the number of GB of the volume, or 20,000 IOPS
+
+    Throughput-Optimized 
+        HDD volumes are low-cost HDD volumes designed for frequent-access, throughput-intensive 
+            workloads such as big data, data warehouses, and log processing. 
+        Volumes can be up to 16 TB with a maximum IOPS of 500 and maximum throughput of 500 MB/s. 
+        These volumes are significantly less expensive than general-purpose SSD volumes. 
+
+    Cold HDD 
+        Volumes are designed for less frequently accessed workloads, such as colder data requiring 
+            fewer scans per day. 
+        Volumes can be up to 16 TB with a maximum IOPS of 250 and maximum throughput of 250 MB/s. 
+        These volumes are significantly less expensive than Throughput-Optimized HDD volumes.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Protecting-Data">
+<a class="anchor" href="#Protecting-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Protecting Data<a class="anchor-link" href="#Protecting-Data"> </a>
+</h4>
+<pre><code>Backup/Recovery (Snapshots)
+    Snapshots are incremental backups, which means that only the blocks on the device that have
+        changed since your most recent snapshot are saved.
+
+Taking Snapshots
+    Through the AWS Management Console
+    Through the CLI
+    Through the API
+    By setting up a schedule of regular snapshots
+
+     Snapshots are constrained to the region in which they are created, meaning you can use them to 
+         create new volumes only in the same region. 
+     If you need to restore a snapshot in a different region, you can copy a snapshot to another region.
+
+Creating a Volume from a Snapshot
+Recovering Volumes
+Encryption Options</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/ec2/ebs/2020/06/20/Amazon-Elastic-Compute-Cloud-(EC2)-and-Amazon-Elastic-Block-Store-(EBS).html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
