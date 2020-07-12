@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Spring Boot Microservices | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Spring Boot Microservices" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Microservices using Spring Boot" />
+<meta property="og:description" content="Microservices using Spring Boot" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Microservices using Spring Boot","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html","headline":"Spring Boot Microservices","dateModified":"2020-06-10T00:00:00-05:00","datePublished":"2020-06-10T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Spring Boot Microservices | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Spring Boot Microservices" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Microservices using Spring Boot" />
+<meta property="og:description" content="Microservices using Spring Boot" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Microservices using Spring Boot","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html","headline":"Spring Boot Microservices","dateModified":"2020-06-10T00:00:00-05:00","datePublished":"2020-06-10T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Spring Boot Microservices</h1><p class="page-description">Microservices using Spring Boot</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-10T00:00:00-05:00" itemprop="datePublished">
+        Jun 10, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Spring Boot">Spring Boot</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#Microservices">Microservices</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h4"><a href="#Microservices-vs-Service-Oriented-Architecture">Microservices vs Service Oriented Architecture </a></li>
+<li class="toc-entry toc-h4"><a href="#Spring-Boot-Dependencies">Spring Boot Dependencies </a></li>
+<li class="toc-entry toc-h4"><a href="#Annotation">Annotation </a></li>
+<li class="toc-entry toc-h4"><a href="#Project-lombok">Project lombok </a></li>
+<li class="toc-entry toc-h4"><a href="#Calling-API">Calling API </a></li>
+<li class="toc-entry toc-h4"><a href="#Returing-response-from-API">Returing response from API </a></li>
+<li class="toc-entry toc-h4"><a href="#Service-Discovery">Service Discovery </a></li>
+<li class="toc-entry toc-h4"><a href="#Eureka-Discovery-Server">Eureka Discovery Server </a></li>
+<li class="toc-entry toc-h3"><a href="#Fault-Tolerance-&-Resilience">Fault Tolerance &amp; Resilience </a></li>
+<li class="toc-entry toc-h3"><a href="#Configuration">Configuration </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#YAML-Yet-Another-Markup-Language">YAML Yet Another Markup Language </a></li>
+<li class="toc-entry toc-h4"><a href="#Profile">Profile </a></li>
+<li class="toc-entry toc-h4"><a href="#Config-as-a-Service">Config as a Service </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-06-10-Spring Boot Microservices.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Microservices-vs-Service-Oriented-Architecture">
+<a class="anchor" href="#Microservices-vs-Service-Oriented-Architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Microservices vs Service Oriented Architecture<a class="anchor-link" href="#Microservices-vs-Service-Oriented-Architecture"> </a>
+</h4>
+<pre><code>Patterns
+    Make microservices work well together
+Technologies
+    Libraries &amp; framework to solve common problems
+Service Oriented Architecture
+    Intention is to create reusable utility 
+    Consumer are not known in start
+Microservices
+    Intention is to fulfil application needs
+    Not designed for reuse
+
+</code></pre>
+<h4 id="Spring-Boot-Dependencies">
+<a class="anchor" href="#Spring-Boot-Dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spring Boot Dependencies<a class="anchor-link" href="#Spring-Boot-Dependencies"> </a>
+</h4>
+<pre><code>spring-boot-starter-web  --simple REST API
+
+</code></pre>
+<h4 id="Annotation">
+<a class="anchor" href="#Annotation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Annotation<a class="anchor-link" href="#Annotation"> </a>
+</h4>
+<pre><code>@SpringBootApplication - Main class
+@Bean - creating a singleton bean
+@Autowired - Access singleton bean
+@RestController - On class which is going to address request
+@RequestMapping("/catalog")  - resource name on class
+@RequestMapping("/{userId}") - resource instance on method
+@PathVariable("userId") - resource instance in method parameter
+
+</code></pre>
+<h4 id="Project-lombok">
+<a class="anchor" href="#Project-lombok" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project lombok<a class="anchor-link" href="#Project-lombok"> </a>
+</h4>
+<pre><code>org.projectlombok  -dependency
+Add plugin in IDE 
+@Data - Create getter/setter
+@AllArgsConstructor - Argument costructor
+@NoArgsConstructor - Default constructor
+    Needed while unmarshalling response from other API 
+    By deault first default object gets created then attribute maps in Rest Template
+
+</code></pre>
+<h4 id="Calling-API">
+<a class="anchor" href="#Calling-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling API<a class="anchor-link" href="#Calling-API"> </a>
+</h4>
+<pre><code>Sync - restTemplate.getForObject(url,ClassName) - return response &amp; map it corresponding object
+Asycn - webClientBuilder.build()
+                .get()    -- type of operation
+                .uri(url) 
+                .retrieve()
+                .bodyToMono(ClassName.class)   -- Promise that object will be return 
+                .block()   -- Thread will be block till response is received
+
+</code></pre>
+<h4 id="Returing-response-from-API">
+<a class="anchor" href="#Returing-response-from-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Returing response from API<a class="anchor-link" href="#Returing-response-from-API"> </a>
+</h4>
+<pre><code>Why you should avoid returning lists in APIs
+    If any changes done in API then consumer can also be impacted
+    ParameterizedTypeReference need to be used in consumer for response
+
+</code></pre>
+<h4 id="Service-Discovery">
+<a class="anchor" href="#Service-Discovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Service Discovery<a class="anchor-link" href="#Service-Discovery"> </a>
+</h4>
+<pre><code>Client Side - Spring Cloud uses this
+    Client check for service url from Discovery server
+Server Side
+    Discovery server does the operation asked 
+
+</code></pre>
+<h4 id="Eureka-Discovery-Server">
+<a class="anchor" href="#Eureka-Discovery-Server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Eureka Discovery Server<a class="anchor-link" href="#Eureka-Discovery-Server"> </a>
+</h4>
+<pre><code>Spring Boot application
+&lt;spring-cloud.version&gt;Hoxton.SR5&lt;/spring-cloud.version&gt; - properties
+&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+&lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;  --dependency
+@EnableEurekaServer - on server
+@EnableEurekaClient - on client
+@LoadBalanced - RestTemplate - Client discovery &amp; load balancing - Give service name as url</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fault-Tolerance-&amp;-Resilience">
+<a class="anchor" href="#Fault-Tolerance-&amp;-Resilience" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fault Tolerance &amp; Resilience<a class="anchor-link" href="#Fault-Tolerance-&amp;-Resilience"> </a>
+</h3>
+<pre><code>Fault
+    Service is down
+        Multiple Instance
+    Service is slow
+        Impact on another services
+        Resolution 
+            Timeout
+            Circuit Breaker - Deactivate the slow service
+                Check last n request
+                Find how many out n failed
+                Timeout duration
+                How long to wait - sleep 
+                Hystrix (open source by Netflix) implements Circuit Breaker
+                    spring-cloud-starter-netflix-hystrix
+                    @EnableCircuitBreaker on application class
+                    @HystrixCommand to method that needs Circuit Breaker
+                    Configure Hystrix Behaviour</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Configuration">
+<a class="anchor" href="#Configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration<a class="anchor-link" href="#Configuration"> </a>
+</h3>
+<pre><code>@Value(${id}) - return parameter value
+@Value(${my.list.values}) - return parameter list values
+@Value(#{${my.map.values}}) - return parameter map values
+@ConfigurationProperties("db") - On bean class for mapping member variable with propery file values
+
+spring-boot-starter-actuator  -- dependency to expose configuration properties </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="YAML-Yet-Another-Markup-Language">
+<a class="anchor" href="#YAML-Yet-Another-Markup-Language" aria-hidden="true"><span class="octicon octicon-link"></span></a>YAML Yet Another Markup Language<a class="anchor-link" href="#YAML-Yet-Another-Markup-Language"> </a>
+</h4>
+<pre><code>property: value --format
+db:
+    connection: 
+    user:
+    password:</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Profile">
+<a class="anchor" href="#Profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Profile<a class="anchor-link" href="#Profile"> </a>
+</h4>
+<pre><code>Set of configuration value
+default profile is always used 
+application-&lt;profileName&gt;.extension
+spring.profile.active=profileName
+set environment specific values in custom profile</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Config-as-a-Service">
+<a class="anchor" href="#Config-as-a-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config as a Service<a class="anchor-link" href="#Config-as-a-Service"> </a>
+</h4>
+<pre><code>Apache Zookeeper
+ETCD Distributed key value store
+Hashicorp Consul
+Spring Cloud Configuration Server    
+    &lt;spring-cloud-config-server&gt;  -- Add dependency
+    @EnableConfigServer -- main class
+    spring.cloud.config.server.git.uri=X  in application.properties
+
+    &lt;spring-cloud-config-client&gt;  -- on client applications
+    spring.cloud.config.uri   -- application.properties
+
+    Real time update of service
+        use actuator - it gives endpoint to refresh changes in configuration properties
+        @RefreshScope - Bean for which refresh need to be done</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/spring%20boot/microservices/2020/06/10/Spring-Boot-Microservices.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

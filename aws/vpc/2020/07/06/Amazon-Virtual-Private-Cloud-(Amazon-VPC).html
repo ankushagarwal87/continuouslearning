@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon VPC | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon VPC" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS VPC" />
+<meta property="og:description" content="Introduction to AWS VPC" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS VPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html","headline":"Amazon VPC","dateModified":"2020-07-06T00:00:00-05:00","datePublished":"2020-07-06T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon VPC | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon VPC" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS VPC" />
+<meta property="og:description" content="Introduction to AWS VPC" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS VPC","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html","headline":"Amazon VPC","dateModified":"2020-07-06T00:00:00-05:00","datePublished":"2020-07-06T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Amazon VPC</h1><p class="page-description">Introduction to AWS VPC</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-06T00:00:00-05:00" itemprop="datePublished">
+        Jul 6, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#vpc">vpc</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Amazon-Virtual-Private-Cloud-(Amazon-VPC)">Amazon Virtual Private Cloud (Amazon VPC) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Subnets">Subnets </a></li>
+<li class="toc-entry toc-h4"><a href="#Route-Tables">Route Tables </a></li>
+<li class="toc-entry toc-h4"><a href="#Internet-Gateways">Internet Gateways </a></li>
+<li class="toc-entry toc-h4"><a href="#Dynamic-Host-Configuration-Protocol-(DHCP)-Option-Sets">Dynamic Host Configuration Protocol (DHCP) Option Sets </a></li>
+<li class="toc-entry toc-h4"><a href="#Elastic-IP-Addresses-(EIPs)">Elastic IP Addresses (EIPs) </a></li>
+<li class="toc-entry toc-h4"><a href="#Elastic-Network-Interfaces-(ENIs)">Elastic Network Interfaces (ENIs) </a></li>
+<li class="toc-entry toc-h4"><a href="#Endpoints">Endpoints </a></li>
+<li class="toc-entry toc-h4"><a href="#Peering">Peering </a></li>
+<li class="toc-entry toc-h4"><a href="#Security-Groups">Security Groups </a></li>
+<li class="toc-entry toc-h4"><a href="#Network-Access-Control-Lists-(ACLs)">Network Access Control Lists (ACLs) </a></li>
+<li class="toc-entry toc-h4"><a href="#Network-Address-Translation-(NAT)-Instances-and-NAT-Gateways">Network Address Translation (NAT) Instances and NAT Gateways </a></li>
+<li class="toc-entry toc-h4"><a href="#Virtual-Private-Gateways-(VPGs),-Customer-Gateways-(CGWs),-and-Virtual-Private-Networks-(VPNs)">Virtual Private Gateways (VPGs), Customer Gateways (CGWs), and Virtual Private Networks (VPNs) </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-06-Amazon Virtual Private Cloud (Amazon VPC).ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Amazon-Virtual-Private-Cloud-(Amazon-VPC)">
+<a class="anchor" href="#Amazon-Virtual-Private-Cloud-(Amazon-VPC)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Virtual Private Cloud (Amazon VPC)<a class="anchor-link" href="#Amazon-Virtual-Private-Cloud-(Amazon-VPC)"> </a>
+</h3>
+<pre><code>Amazon VPC is the networking layer for Amazon Elastic Compute Cloud (Amazon EC2), and it allows 
+you to build your own virtual network within AWS. 
+You control various aspects of your Amazon VPC, including selecting your own IP address range; 
+creating your own subnets; and configuring your own route tables, network gateways, and security 
+settings. Within a region, you can create multiple Amazon VPCs, and each Amazon VPC is logically 
+isolated even if it shares its IP address space.
+
+When you create an Amazon VPC, you must specify the IPv4 address range by choosing a Classless 
+Inter-Domain Routing (CIDR) block, such as 10.0.0.0/16. 
+The address range of the Amazon VPC cannot be changed after the Amazon VPC is created. 
+An Amazon VPC address range may be as large as /16 (65,536 available addresses) or as small as /28 
+(16 available addresses) and should not overlap any other network with which they are to be connected.
+
+An Amazon VPC consists of the following components:
+    Subnets
+    Route tables
+    Dynamic Host Configuration Protocol (DHCP) option sets
+    Security groups
+    Network Access Control Lists (ACLs)
+An Amazon VPC has the following optional components:
+    Internet Gateways (IGWs)
+    Elastic IP (EIP) addresses
+    Elastic Network Interfaces (ENIs)
+    Endpoints
+    Peering
+    Network Address Translation (NATs) instances and NAT gateways
+    Virtual Private Gateway (VPG), Customer Gateways (CGWs), and Virtual Private Networks (VPNs)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Subnets">
+<a class="anchor" href="#Subnets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subnets<a class="anchor-link" href="#Subnets"> </a>
+</h4>
+<pre><code>A subnet is a segment of an Amazon VPC’s IP address range where you can launch Amazon EC2 instances, 
+    Amazon Relational Database Service (Amazon RDS) databases, and other AWS resources.        
+AWS reserves the first four IP addresses and the last IP address of every subnet for internal 
+    networking purposes
+After creating an Amazon VPC, you can add one or more subnets in each Availability Zone. 
+Subnets reside within one Availability Zone and cannot span zones. 
+You can, however, have multiple subnets in one Availability Zone.    
+
+Subnets can be classified as public, private, or VPN-only. 
+A public subnet is one in which the associated route table (discussed later) directs the 
+    subnet’s traffic to the Amazon VPC’s IGW (also discussed later). 
+A private subnet is one in which the associated route table does not direct the 
+    subnet’s traffic to the Amazon VPC’s IGW. 
+A VPN-only subnet is one in which the associated route table directs the 
+    subnet’s traffic to the Amazon VPC’s VPG (discussed later) and does not have a route to the IGW.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Route-Tables">
+<a class="anchor" href="#Route-Tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Route Tables<a class="anchor-link" href="#Route-Tables"> </a>
+</h4>
+<pre><code>A route table is a logical construct within an Amazon VPC that contains a set of rules (called routes)
+    that are applied to the subnet and used to determine where network traffic is directed. 
+A route table’s routes are what permit Amazon EC2 instances within different subnets within 
+    an Amazon VPC to communicate with each other.
+You can also use route tables to specify which subnets are public (by directing Internet 
+    traffic to the IGW) and which subnets are private (by not having a route that directs 
+    traffic to the IGW).
+Each subnet must be associated with a route table, which controls the routing for the subnet. 
+If you don’t explicitly associate a subnet with a particular route table, 
+    the subnet uses the main route table.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Internet-Gateways">
+<a class="anchor" href="#Internet-Gateways" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internet Gateways<a class="anchor-link" href="#Internet-Gateways"> </a>
+</h4>
+<pre><code>An Internet Gateway (IGW) is a horizontally scaled, redundant, and highly available Amazon VPC 
+    component that allows communication between instances in your Amazon VPC and the Internet. 
+An IGW provides a target in your Amazon VPC route tables for Internet-routable traffic, and it 
+    performs network address translation for instances that have been assigned public IP addresses.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Dynamic-Host-Configuration-Protocol-(DHCP)-Option-Sets">
+<a class="anchor" href="#Dynamic-Host-Configuration-Protocol-(DHCP)-Option-Sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Host Configuration Protocol (DHCP) Option Sets<a class="anchor-link" href="#Dynamic-Host-Configuration-Protocol-(DHCP)-Option-Sets"> </a>
+</h4>
+<pre><code>Dynamic Host Configuration Protocol (DHCP) provides a standard for passing configuration information 
+    to hosts on a TCP/IP network. 
+The options field of a DHCP message contains the configuration parameters.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Elastic-IP-Addresses-(EIPs)">
+<a class="anchor" href="#Elastic-IP-Addresses-(EIPs)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic IP Addresses (EIPs)<a class="anchor-link" href="#Elastic-IP-Addresses-(EIPs)"> </a>
+</h4>
+<pre><code>AWS maintains a pool of public IP addresses in each region and makes them available for you to
+    associate to resources within your Amazon VPCs. 
+An Elastic IP Addresses (EIP) is a static, public IP address in the pool for the region that you 
+    can allocate to your account (pull from the pool) and release (return to the pool). 
+EIPs allow you to maintain a set of IP addresses that remain fixed while the underlying infrastructure
+    may change over time.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Elastic-Network-Interfaces-(ENIs)">
+<a class="anchor" href="#Elastic-Network-Interfaces-(ENIs)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic Network Interfaces (ENIs)<a class="anchor-link" href="#Elastic-Network-Interfaces-(ENIs)"> </a>
+</h4>
+<pre><code>An Elastic Network Interface (ENI) is a virtual network interface that you can attach to an instance
+    in an Amazon VPC. 
+ENIs are only available within an Amazon VPC, and they are associated with a subnet upon creation. 
+They can have one public IP address and multiple private IP addresses.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Endpoints">
+<a class="anchor" href="#Endpoints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Endpoints<a class="anchor-link" href="#Endpoints"> </a>
+</h4>
+<pre><code>An Amazon VPC endpoint enables you to create a private connection between your Amazon VPC and 
+    another AWS service without requiring access over the Internet or through a NAT instance, 
+    VPN connection, or AWS Direct Connect. 
+You can create multiple endpoints for a single service, and you can use different route tables to 
+    enforce different access policies from different subnets to the same service.
+Amazon VPC endpoints currently support communication with Amazon Simple Storage Service (Amazon S3)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Peering">
+<a class="anchor" href="#Peering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Peering<a class="anchor-link" href="#Peering"> </a>
+</h4>
+<pre><code>An Amazon VPC peering connection is a networking connection between two Amazon VPCs that enables 
+    instances in either Amazon VPC to communicate with each other as if they are within the same network. 
+You can create an Amazon VPC peering connection between your own Amazon VPCs or with an Amazon VPC in 
+    another AWS account within a single region.
+A peering connection is neither a gateway nor an Amazon VPN connection and does not introduce a 
+    single point of failure for communication.
+Peering connections do not support transitive routing</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Security-Groups">
+<a class="anchor" href="#Security-Groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security Groups<a class="anchor-link" href="#Security-Groups"> </a>
+</h4>
+<pre><code>A security group is a virtual stateful firewall that controls inbound and outbound network traffic to 
+    AWS resources and Amazon EC2 instances. 
+All Amazon EC2 instances must be launched into a security group. 
+If a security group is not specified at launch, then the instance will be launched into the default 
+    security group for the Amazon VPC. 
+The default security group allows communication between all resources within the security group, 
+    allows all outbound traffic, and denies all other traffic
+
+You can create up to 500 security groups for each Amazon VPC.
+You can add up to 50 inbound and 50 outbound rules to each security group
+You can specify allow rules, but not deny rules. 
+    This is an important difference between security groups and ACLs.
+You can specify separate rules for inbound and outbound traffic.
+Security groups are stateful. This means that responses to allowed inbound traffic are allowed 
+    to flow outbound regardless of outbound rules and vice versa. 
+    This is an important difference between security groups and network ACLs.
+Instances associated with the same security group can’t talk to each other unless you 
+    add rules allowing it (with the exception being the default security group).</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Network-Access-Control-Lists-(ACLs)">
+<a class="anchor" href="#Network-Access-Control-Lists-(ACLs)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network Access Control Lists (ACLs)<a class="anchor-link" href="#Network-Access-Control-Lists-(ACLs)"> </a>
+</h4>
+<pre><code>A network access control list (ACL) is another layer of security that acts as a stateless firewall 
+    on a subnet level. 
+A network ACL is a numbered list of rules that AWS evaluates in order, starting with the lowest 
+    numbered rule, to determine whether traffic is allowed in or out of any subnet associated with 
+    the network ACL. 
+Amazon VPCs are created with a modifiable default network ACL associated with every subnet that 
+    allows all inbound and outbound traffic. 
+When you create a custom network ACL, its initial configuration will deny all inbound and 
+    outbound traffic until you create rules that allow otherwise</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Network-Address-Translation-(NAT)-Instances-and-NAT-Gateways">
+<a class="anchor" href="#Network-Address-Translation-(NAT)-Instances-and-NAT-Gateways" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network Address Translation (NAT) Instances and NAT Gateways<a class="anchor-link" href="#Network-Address-Translation-(NAT)-Instances-and-NAT-Gateways"> </a>
+</h4>
+<pre><code>If the instances within private subnets need direct access to the Internet from the Amazon VPC in 
+    order to apply security updates, download patches, or update application software. 
+    AWS provides NAT instances and NAT gateways to allow instances deployed in private subnets 
+    to gain Internet access. 
+For common use cases, we recommend that you use a NAT gateway instead of a NAT instance. 
+The NAT gateway provides better availability and higher bandwidth, and requires less 
+    administrative effort than NAT instances.
+
+NAT Instance
+    A network address translation (NAT) instance is an Amazon Linux Amazon Machine Image (AMI) 
+        that is designed to accept traffic from instances within a private subnet, translate the source 
+        IP address to the public IP address of the NAT instance, and forward the traffic to the IGW.        
+    Create a security group for the NAT with outbound rules that specify the needed Internet 
+        resources by port, protocol, and IP address.
+    Launch an Amazon Linux NAT AMI as an instance in a public subnet and associate it with the 
+        NAT security group.
+    Disable the Source/Destination Check attribute of the NAT.
+    Configure the route table associated with a private subnet to direct Internet-bound 
+        traffic to the NAT instance (for example, i-1a2b3c4d).
+    Allocate an EIP and associate it with the NAT instance.
+
+NAT Gateway        
+    Configure the route table associated with the private subnet to direct Internet-bound traffic 
+        to the NAT gateway (for example, nat-1a2b3c4d).
+    Allocate an EIP and associate it with the NAT gateway.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Virtual-Private-Gateways-(VPGs),-Customer-Gateways-(CGWs),-and-Virtual-Private-Networks-(VPNs)">
+<a class="anchor" href="#Virtual-Private-Gateways-(VPGs),-Customer-Gateways-(CGWs),-and-Virtual-Private-Networks-(VPNs)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Virtual Private Gateways (VPGs), Customer Gateways (CGWs), and Virtual Private Networks (VPNs)<a class="anchor-link" href="#Virtual-Private-Gateways-(VPGs),-Customer-Gateways-(CGWs),-and-Virtual-Private-Networks-(VPNs)"> </a>
+</h4>
+<pre><code>A virtual private gateway (VPG) is the virtual private network (VPN) concentrator on the AWS side 
+    of the VPN connection between the two networks. 
+A customer gateway (CGW) represents a physical device or a software application on the customer’s 
+    side of the VPN connection. 
+After these two elements of an Amazon VPC have been created, the last step is to create a VPN tunnel. 
+The VPN tunnel is established after traffic is generated from the customer’s side of the VPN connection
+
+If you will be using static routing, you must enter the routes for your network that should be 
+    communicated to the VPG. Routes will be propagated to the Amazon VPC to allow your resources to 
+    route network traffic back to the corporate network through the VGW and across the VPN tunnel.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/vpc/2020/07/06/Amazon-Virtual-Private-Cloud-(Amazon-VPC).html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

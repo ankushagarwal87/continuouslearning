@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon ELB, CloudWatch, Auto Scaling | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon ELB, CloudWatch, Auto Scaling" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS ELB, CloudWatch, Auto Scaling" />
+<meta property="og:description" content="Introduction to AWS ELB, CloudWatch, Auto Scaling" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-07T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS ELB, CloudWatch, Auto Scaling","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html","headline":"Amazon ELB, CloudWatch, Auto Scaling","dateModified":"2020-07-07T00:00:00-05:00","datePublished":"2020-07-07T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Amazon ELB, CloudWatch, Auto Scaling | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Amazon ELB, CloudWatch, Auto Scaling" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS ELB, CloudWatch, Auto Scaling" />
+<meta property="og:description" content="Introduction to AWS ELB, CloudWatch, Auto Scaling" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-07T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS ELB, CloudWatch, Auto Scaling","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html","headline":"Amazon ELB, CloudWatch, Auto Scaling","dateModified":"2020-07-07T00:00:00-05:00","datePublished":"2020-07-07T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Amazon ELB, CloudWatch, Auto Scaling</h1><p class="page-description">Introduction to AWS ELB, CloudWatch, Auto Scaling</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-07T00:00:00-05:00" itemprop="datePublished">
+        Jul 7, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#elb">elb</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#cloudwatch">cloudwatch</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#auto scaling">auto scaling</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h3"><a href="#Elastic-Load-Balancing">Elastic Load Balancing </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Types-of-Load-Balancers">Types of Load Balancers </a></li>
+<li class="toc-entry toc-h4"><a href="#Listeners">Listeners </a></li>
+<li class="toc-entry toc-h4"><a href="#Configuring-Elastic-Load-Balancing">Configuring Elastic Load Balancing </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Amazon-CloudWatch">Amazon CloudWatch </a></li>
+<li class="toc-entry toc-h3"><a href="#Auto-Scaling">Auto Scaling </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Auto-Scaling-Plans">Auto Scaling Plans </a></li>
+<li class="toc-entry toc-h4"><a href="#Auto-Scaling-Components">Auto Scaling Components </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-07-Elastic Load Balancing, Amazon CloudWatch, and Auto Scaling.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h3>
+<pre><code>Elastic Load Balancing is a highly available service that distributes traffic across Amazon Elastic 
+    Compute Cloud (Amazon EC2) instances and includes options that provide flexibility and control 
+    of incoming requests to Amazon EC2 instances.
+
+Amazon CloudWatch is a service that monitors AWS Cloud resources and applications running on AWS. 
+    It collects and tracks metrics, collects and monitors log files, and sets alarms. 
+    Amazon CloudWatch has a basic level of monitoring for no cost and a more detailed level of 
+    monitoring for an additional cost.
+
+Auto Scaling is a service that allows you to maintain the availability of your applications by 
+    scaling Amazon EC2 capacity up or down in accordance with conditions you set.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Elastic-Load-Balancing">
+<a class="anchor" href="#Elastic-Load-Balancing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic Load Balancing<a class="anchor-link" href="#Elastic-Load-Balancing"> </a>
+</h3>
+<pre><code>The Elastic Load Balancing service allows you to distribute traffic across a group of Amazon EC2 instances 
+    in one or more Availability Zones, enabling you to achieve high availability in your applications. 
+Elastic Load Balancing supports routing and load balancing of Hypertext Transfer Protocol (HTTP), 
+    Hypertext Transfer Protocol Secure (HTTPS), Transmission Control Protocol (TCP), and Secure Sockets 
+    Layer (SSL) traffic to Amazon EC2 instances. 
+Elastic Load Balancing provides a stable, single Canonical Name record (CNAME) entry point for Domain Name
+    System (DNS) configuration and supports both Internet-facing and internal application-facing load
+    balancers. 
+Elastic Load Balancing supports health checks for Amazon EC2 instances to ensure traffic is not routed 
+    to unhealthy or failing instances.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Types-of-Load-Balancers">
+<a class="anchor" href="#Types-of-Load-Balancers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types of Load Balancers<a class="anchor-link" href="#Types-of-Load-Balancers"> </a>
+</h4>
+<pre><code>Internet-Facing Load Balancers
+    An Internet-facing load balancer is, as the name implies, a load balancer that takes requests from 
+        clients over the Internet and distributes them to Amazon EC2 instances that are registered with 
+        the load balancer.
+    When you configure a load balancer, it receives a public DNS name that clients can use to send requests 
+        to your application. The DNS servers resolve the DNS name to your load balancer’s public IP 
+        address, which can be visible to client applications.
+
+Internal Load Balancers
+    In a multi-tier application, it is often useful to load balance between the tiers of the application. 
+    You can use internal load balancers to route traffic to your Amazon EC2 instances in VPCs with 
+        private subnets.
+
+HTTPS Load Balancers
+    You can create a load balancer that uses the SSL/Transport Layer Security (TLS) protocol for 
+        encrypted connections (also known as SSL offload). 
+    This feature enables traffic encryption between your load balancer and the clients that initiate 
+        HTTPS sessions, and for connections between your load balancer and your back-end instances.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Listeners">
+<a class="anchor" href="#Listeners" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listeners<a class="anchor-link" href="#Listeners"> </a>
+</h4>
+<pre><code>Every load balancer must have one or more listeners configured. 
+A listener is a process that checks for connection requests—for example, a CNAME configured to the 
+    A record name of the load balancer. 
+Every listener is configured with a protocol and a port (client to load balancer) for a front-end 
+    connection and a protocol and a port for the back-end (load balancer to Amazon EC2 instance) connection.
+
+Elastic Load Balancing supports the following protocols:
+HTTP
+HTTPS
+TCP
+SSL
+
+Elastic Load Balancing supports protocols operating at two different Open System Interconnection (OSI) layer
+In the OSI model, Layer 4 is the transport layer that describes the TCP connection between the client 
+    and your back-end instance through the load balancer. 
+Layer 4 is the lowest level that is configurable for your load balancer. 
+Layer 7 is the application layer that describes the use of HTTP and HTTPS connections from clients to 
+    the load balancer and from the load balancer to your back-end instance.
+
+The SSL protocol is primarily used to encrypt confidential data over insecure networks such as the Internet.
+The SSL protocol establishes a secure connection between a client and the back-end server and ensures 
+    that all the data passed between your client and your server is private.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Configuring-Elastic-Load-Balancing">
+<a class="anchor" href="#Configuring-Elastic-Load-Balancing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuring Elastic Load Balancing<a class="anchor-link" href="#Configuring-Elastic-Load-Balancing"> </a>
+</h4>
+<pre><code>Elastic Load Balancing allows you to configure many aspects of the load balancer, including idle 
+    connection timeout, cross-zone load balancing, connection draining, proxy protocol, sticky sessions, 
+    and health checks</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Amazon-CloudWatch">
+<a class="anchor" href="#Amazon-CloudWatch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon CloudWatch<a class="anchor-link" href="#Amazon-CloudWatch"> </a>
+</h3>
+<pre><code>Amazon CloudWatch offers either basic or detailed monitoring for supported AWS products. 
+Basic monitoring sends data points to Amazon CloudWatch every five minutes for a limited number of 
+    preselected metrics at no charge. 
+Detailed monitoring sends data points to Amazon CloudWatch every minute and allows data aggregation for 
+    an additional charge. If you want to use detailed monitoring, you must enable it—basic is the default.
+
+Amazon CloudWatch does not aggregate data across regions but can aggregate across Availability Zones 
+    within a region.
+
+AWS provides a rich set of metrics included with each service, but you can also define custom metrics to
+    monitor resources and events AWS does not have visibility into—for example, Amazon EC2 instance memory
+    consumption and disk metrics that are visible to the operating system of the Amazon EC2 instance but 
+    not visible to AWS or application-specific thresholds running on instances that are not known to AWS. 
+
+Amazon CloudWatch supports an Application Programming Interface (API) that allows programs and scripts to 
+    PUT metrics into Amazon CloudWatch as name-value pairs that can then be used to create events and 
+    trigger alarms in the same manner as the default Amazon CloudWatch metrics.
+
+A CloudWatch Logs agent is available that provides an automated way to send log data to CloudWatch Logs 
+    for Amazon EC2 instances running Amazon Linux or Ubuntu. 
+You can use the Amazon CloudWatch Logs agent installer on an existing Amazon EC2 instance to install and
+    configure the CloudWatch Logs agent. 
+After installation is complete, the agent confirms that it has started and it stays running until you 
+    disable it.
+
+Each AWS account is limited to 5,000 alarms per AWS account, and metrics data is retained for two weeks 
+    by default (at the time of this writing). 
+If you want to keep the data longer, you will need to move the logs to a persistent store like Amazon S3</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Auto-Scaling">
+<a class="anchor" href="#Auto-Scaling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto Scaling<a class="anchor-link" href="#Auto-Scaling"> </a>
+</h3>
+<pre><code>Auto Scaling is a service that allows you to scale your Amazon EC2 capacity automatically by scaling out 
+    and scaling in according to criteria that you define. With Auto Scaling, you can ensure that the number 
+    of running Amazon EC2 instances increases during demand spikes or peak demand periods to maintain
+    application performance and decreases automatically during demand lulls or troughs to minimize costs.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Auto-Scaling-Plans">
+<a class="anchor" href="#Auto-Scaling-Plans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto Scaling Plans<a class="anchor-link" href="#Auto-Scaling-Plans"> </a>
+</h4>
+<pre><code>Maintain Current Instance Levels
+Manual Scaling
+Scheduled Scaling
+Dynamic Scaling
+    For example, you might create a policy that adds more Amazon EC2 instances to the web tier when the 
+        network bandwidth, measured by Amazon CloudWatch, reaches a certain threshold.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Auto-Scaling-Components">
+<a class="anchor" href="#Auto-Scaling-Components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto Scaling Components<a class="anchor-link" href="#Auto-Scaling-Components"> </a>
+</h4>
+<pre><code>Launch Configuration
+    A launch configuration is the template that Auto Scaling uses to create new instances,and it is composed
+        of the configuration name, Amazon Machine Image (AMI), Amazon EC2 instance type, security group, 
+        and instance key pair. 
+    Each Auto Scaling group can have only one launch configuration at a time.
+
+Auto Scaling Group
+    An Auto Scaling group is a collection of Amazon EC2 instances managed by the Auto Scaling service.
+    Each Auto Scaling group contains configuration options that control when Auto Scaling should launch 
+        new instances and terminate existing instances. 
+    An Auto Scaling group can use either On-Demand or Spot Instances as the Amazon EC2 instances it manages.
+    On-Demand is the default, but Spot Instances can be used by referencing a maximum bid price in the 
+        launch configuration (—spot-price "0.15") associated with the Auto Scaling group.
+
+Scaling Policy
+    You can associate Amazon CloudWatch alarms and scaling policies with an Auto Scaling group to adjust
+        Auto Scaling dynamically. 
+    When a threshold is crossed, Amazon CloudWatch sends alarms to trigger changes (scaling in or out) 
+        to the number of Amazon EC2 instances currently receiving traffic behind a load balancer. 
+    After the Amazon CloudWatch alarm sends a message to the Auto Scaling group, Auto Scaling executes 
+        the associated policy to scale your group. 
+    The policy is a set of instructions that tells Auto Scaling whether to scale out, launching new 
+        Amazon EC2 instances referenced in the associated launch configuration, or to scale in and 
+        terminate nstances.
+    You can associate more than one scaling policy with an Auto Scaling group. 
+    For example, you can create a policy using the trigger for CPU utilization, called CPULoad, and the
+        CloudWatch metric CPUUtilization to specify scaling out if CPU utilization is greater than 75 
+        percent for two minutes. 
+    You could attach another policy to the same Auto Scaling group to scale in if CPU utilization is less 
+        than 40 percent for 20 minutes.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/elb/cloudwatch/auto%20scaling/2020/07/07/Elastic-Load-Balancing,-Amazon-CloudWatch,-and-Auto-Scaling.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

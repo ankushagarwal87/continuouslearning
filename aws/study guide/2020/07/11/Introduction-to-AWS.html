@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Basics | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Basics" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Basics" />
+<meta property="og:description" content="Introduction to AWS Basics" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Basics","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html","headline":"AWS Basics","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Basics | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Basics" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Basics" />
+<meta property="og:description" content="Introduction to AWS Basics" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Basics","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html","headline":"AWS Basics","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AWS Basics</h1><p class="page-description">Introduction to AWS Basics</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-11T00:00:00-05:00" itemprop="datePublished">
+        Jul 11, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#study guide">study guide</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Assessment-Test">Assessment Test </a></li>
+<li class="toc-entry toc-h3"><a href="#Compute-and-Networking-Services">Compute and Networking Services </a></li>
+<li class="toc-entry toc-h3"><a href="#Storage-and-Content-Delivery">Storage and Content Delivery </a></li>
+<li class="toc-entry toc-h3"><a href="#Database-Services">Database Services </a></li>
+<li class="toc-entry toc-h3"><a href="#Management-Tools">Management Tools </a></li>
+<li class="toc-entry toc-h3"><a href="#Security-and-Identity">Security and Identity </a></li>
+<li class="toc-entry toc-h3"><a href="#Application-Services">Application Services </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/20-06-06-Introduction to AWS.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Assessment-Test">
+<a class="anchor" href="#Assessment-Test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assessment Test<a class="anchor-link" href="#Assessment-Test"> </a>
+</h3>
+<pre><code>Default Amazon EC2 instance limit of 20 per region.
+The ELB service allows you to distribute traffic across a group of EC2 instances in one or more 
+    Availability Zones within a region
+An Amazon Elastic Compute Cloud (Amazon EC2) instance in an Amazon Virtual Private Cloud 
+    (Amazon VPC) subnet can send and receive traffic from the Internet when
+    Network ACLs and security group rules allow relevant Internet traffic
+    Attach an Internet Gateway (IGW) to the Amazon VPC and create a subnet route table to
+        send all non-local traffic to that IGW.
+    The Amazon EC2 instance has a public IP address or Elastic IP (EIP) address.
+ If a security group is not specified at launch, then an Amazon EC2 instance will be launched 
+     into the default security group for the Amazon VPC. 
+     The default security group allows communication between all resources within the security group,
+     allows all outbound traffic, and denies all other traffic.
+ An environment tier whose web application runs background jobs is known as a worker tier. 
+     An environment tier whose web application processes web requests is known as a web server tier. 
+ There can be one secondary index per table, and it must be created when the table is created.
+ The Amazon Kinesis family of services provides functionality to ingest large streams of data. 
+     Amazon Kinesis Firehose is specifically designed to ingest a stream and save it to 
+     Amazon Simple Storage Service (Amazon S3), Amazon Redshift, or Amazon Elasticsearch Service.
+  Server access logs provide a record of any access to an object in Amazon S3.
+  AWS will never transfer data between regions unless directed to by you. 
+      Durability in Amazon S3 is achieved by replicating your data geographically to 
+      different Availability Zones regardless of the versioning configuration. AWS doesn't use tapes.
+  The data in an instance store persists only during the lifetime of its associated instance. 
+      If an instance is stopped or terminated, then the instance store does not persist.
+  In an Amazon VPC, an instance's Elastic IP address remains associated with an instance 
+      when the instance is stopped.
+  An activity worker is a process or thread that performs the activity tasks that 
+      are part of your workflow.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Compute-and-Networking-Services">
+<a class="anchor" href="#Compute-and-Networking-Services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compute and Networking Services<a class="anchor-link" href="#Compute-and-Networking-Services"> </a>
+</h3>
+<pre><code>Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity 
+    in the cloud. It allows organizations to obtain and configure virtual servers in 
+    Amazon’s data centers and to harness those resources to build and host software systems.
+
+AWS Lambda is a zero-administration compute platform for back-end web developers that runs your code 
+    for you on the AWS Cloud and provides you with a fine-grained pricing structure
+
+Auto Scaling allows organizations to scale Amazon EC2 capacity up or down automatically according 
+    to conditions defined for the particular workload
+
+Elastic Load Balancing automatically distributes incoming application traffic across multiple 
+    Amazon EC2 instances in the cloud.It enables organizations to achieve greater levels of 
+    fault tolerance in their applications,seamlessly providing the required amount of load balancing 
+    capacity needed to distribute application traffic.
+
+AWS Elastic Beanstalk is the fastest and simplest way to get a web application up and running on AWS.
+    Developers can simply upload their application code, and the service automatically handles all 
+    the details, such as resource provisioning, load balancing, Auto Scaling, and monitoring.
+
+Amazon Virtual Private Cloud (Amazon VPC) lets organizations provision a logically isolated section 
+    of the AWS Cloud where they can launch AWS resources in a virtual network that they define. 
+
+AWS Direct Connect allows organizations to establish a dedicated network connection from their data 
+    center to AWS. Using AWS Direct Connect, organizations can establish private connectivity between 
+    AWS and their data center, office, or colocation environment.
+
+Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. 
+    It is designed to give developers and businesses an extremely reliable and cost-effective way 
+    to route end users to Internet applications by translating human readable names, such as 
+    www.example.com, into the numeric IP addresses, such as 192.0.2.1, 
+    that computers use to connect to each other.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Storage-and-Content-Delivery">
+<a class="anchor" href="#Storage-and-Content-Delivery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storage and Content Delivery<a class="anchor-link" href="#Storage-and-Content-Delivery"> </a>
+</h3>
+<pre><code>Amazon Simple Storage Service (Amazon S3) provides developers and IT teams with highly durable and 
+    scalable object storage that handles virtually unlimited amounts of data and large numbers 
+    of concurrent users.
+
+Amazon Glacier is a secure, durable, and extremely low-cost storage service for data archiving 
+    and long-term backup. Organizations can reliably store large or small amounts of data for a very 
+    low cost per gigabyte per month.
+
+Amazon Elastic Block Store (Amazon EBS) provides persistent block-level storage volumes for use 
+    with Amazon EC2 instances. Each Amazon EBS volume is automatically replicated within its 
+    Availability Zone to protect organizations from component failure, offering high availability 
+    and durability.
+
+AWS Storage Gateway is a service connecting an on-premises software appliance with cloud-based storage 
+    to provide seamless and secure integration between an organization’s on-premises IT environment 
+    and the AWS storage infrastructure.
+
+Amazon CloudFront is a content delivery web service. It integrates with other AWS Cloud services to 
+    give developers and businesses an easy way to distribute content to users across the world 
+    with low latency, high data transfer speeds, and no minimum usage commitments.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Database-Services">
+<a class="anchor" href="#Database-Services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Services<a class="anchor-link" href="#Database-Services"> </a>
+</h3>
+<pre><code>Amazon Relational Database Service (Amazon RDS) provides a fully managed relational database with 
+    support for many popular open source and commercial database engines. It’s a cost-efficient 
+    service that allows organizations to launch secure, highly available, fault-tolerant, 
+    production-ready databases in minutes.
+
+Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need 
+    consistent, single-digit millisecond latency at any scale.
+
+Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it 
+    simple and cost effective to analyze structured data. Amazon Redshift provides a standard 
+    SQL interface that lets organizations use existing business intelligence tools. By leveraging 
+    columnar storage technology that improves I/O efficiency and parallelizing queries across 
+    multiple nodes, Amazon Redshift is able to deliver fast query performance
+
+Amazon ElastiCache is a web service that simplifies deployment, operation, and scaling of an 
+    in-memory cache in the cloud. The service improves the performance of web applications by 
+    allowing organizations to retrieve information from fast, managed, in-memory caches, instead
+    of relying entirely on slower, disk-based databases. As of this writing, Amazon ElastiCache
+    supports Memcached and Redis cache engines.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Management-Tools">
+<a class="anchor" href="#Management-Tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Management Tools<a class="anchor-link" href="#Management-Tools"> </a>
+</h3>
+<pre><code>Amazon CloudWatch is a monitoring service for AWS Cloud resources and the applications running on AWS.
+    It allows organizations to collect and track metrics, collect and monitor log files, and set alarms. 
+
+AWS CloudFormation gives developers and systems administrators an effective way to create and 
+    manage a collection of related AWS resources, provisioning and updating them in an orderly 
+    and predictable fashion. AWS CloudFormation defines a JSON-based templating language that 
+    can be used to describe all the AWS resources that are necessary for a workload. Templates 
+    can be submitted to AWS CloudFormation and the service will take care of provisioning and 
+    configuring those resources in appropriate order.
+
+AWS CloudTrail is a web service that records AWS API calls for an account and delivers log files 
+    for audit and review. 
+
+AWS Config is a fully managed service that provides organizations with an AWS resource inventory, 
+    configuration history, and configuration change notifications to enable security and governance. 
+    With AWS Config, organizations can discover existing AWS resources, export an inventory of their 
+    AWS resources with all configuration details, and determine how a resource was configured 
+    at any point in time. These capabilities enable compliance auditing, security analysis, 
+    resource change tracking, and troubleshooting.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Security-and-Identity">
+<a class="anchor" href="#Security-and-Identity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security and Identity<a class="anchor-link" href="#Security-and-Identity"> </a>
+</h3>
+<pre><code>AWS Identity and Access Management (IAM) enables organizations to securely control access to 
+    AWS Cloud services and resources for their users. 
+
+AWS Key Management Service (KMS) is a managed service that makes it easy for organizations to 
+    create and control the encryption keys used to encrypt their data and uses 
+    Hardware Security Modules (HSMs) to protect the security of your keys.
+
+AWS Directory Service allows organizations to set up and run Microsoft Active Directory on the 
+    AWS Cloud or connect their AWS resources with an existing on-premises Microsoft Active Directory. 
+
+AWS Certificate Manager is a service that lets organizations easily provision, manage, and deploy 
+    Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS Cloud services.
+
+AWS Web Application Firewall (WAF) helps protect web applications from common attacks and exploits 
+    that could affect application availability, compromise security, or consume excessive resources. 
+    AWS WAF gives organizations control over which traffic to allow or block to their web 
+    applications by defining customizable web security rules.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Application-Services">
+<a class="anchor" href="#Application-Services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Services<a class="anchor-link" href="#Application-Services"> </a>
+</h3>
+<pre><code>Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, 
+    maintain, monitor, and secure APIs at any scale. Organizations can create an API that acts 
+    as a “front door” for applications to access data, business logic, or functionality from back-end 
+    services, such as workloads running on Amazon EC2, code running on AWS Lambda, or any web application.
+
+Amazon Elastic Transcoder is media transcoding in the cloud.
+
+Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages 
+    the delivery or sending of messages to recipients.
+
+Amazon Simple Email Service (Amazon SES) is a cost-effective email service that organizations can
+    use to send transactional email, marketing messages, or any other type of content to their customers.
+
+Amazon Simple Workflow Service (Amazon SWF) helps developers build, run, and scale background
+    jobs that have parallel or sequential steps. 
+
+Amazon Simple Queue Service (Amazon SQS) is a fast, reliable, scalable, fully managed message queuing 
+    service.Amazon SQS makes it simple and cost effective to decouple the components of a cloud application.    </code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/study%20guide/2020/07/11/Introduction-to-AWS.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
