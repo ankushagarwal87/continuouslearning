@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      21 min read
+      29 min read
     
 </span></p>
 
@@ -136,10 +136,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Security-&-Encryption">Security &amp; Encryption </a></li>
 <li class="toc-entry toc-h4"><a href="#Version-Control">Version Control </a></li>
 <li class="toc-entry toc-h4"><a href="#Lifecycle-Management">Lifecycle Management </a></li>
+<li class="toc-entry toc-h4"><a href="#Lock-Policy">Lock Policy </a></li>
+<li class="toc-entry toc-h4"><a href="#S3-Performance">S3 Performance </a></li>
+<li class="toc-entry toc-h4"><a href="#S3-Select-&-Glacier-Select">S3 Select &amp; Glacier Select </a></li>
 <li class="toc-entry toc-h4"><a href="#AWS-Organizations-&-Consolidated-Billing">AWS Organizations &amp; Consolidated Billing </a></li>
 <li class="toc-entry toc-h4"><a href="#Sharing-S3-buckets-across-Accounts">Sharing S3 buckets across Accounts </a></li>
 <li class="toc-entry toc-h4"><a href="#Cross-Region-Replication">Cross Region Replication </a></li>
 <li class="toc-entry toc-h4"><a href="#Transfer-Acceleration">Transfer Acceleration </a></li>
+<li class="toc-entry toc-h4"><a href="#Data-Sync">Data Sync </a></li>
 <li class="toc-entry toc-h4"><a href="#CloudFront">CloudFront </a></li>
 <li class="toc-entry toc-h4"><a href="#Snowball">Snowball </a></li>
 <li class="toc-entry toc-h4"><a href="#Storage-Gateway">Storage Gateway </a></li>
@@ -154,6 +158,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#AMI-Types---Amazon-Machine-Image">AMI Types - Amazon Machine Image </a></li>
 <li class="toc-entry toc-h4"><a href="#ENI-vs-ENA-vs-EFA">ENI vs ENA vs EFA </a></li>
 <li class="toc-entry toc-h4"><a href="#Encrypted-Root-Device-Volumes-&-Snapshots">Encrypted Root Device Volumes &amp; Snapshots </a></li>
+<li class="toc-entry toc-h4"><a href="#Spot-Instances-&-Spot-Fleets">Spot Instances &amp; Spot Fleets </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-Hibernate">EC2 Hibernate </a></li>
 <li class="toc-entry toc-h4"><a href="#CloudWatch">CloudWatch </a></li>
 <li class="toc-entry toc-h4"><a href="#CloudTrail">CloudTrail </a></li>
 <li class="toc-entry toc-h4"><a href="#AWS-Command-Line">AWS Command Line </a></li>
@@ -163,6 +169,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#FSx-for-Windows">FSx for Windows </a></li>
 <li class="toc-entry toc-h4"><a href="#FSx-for-Lustre">FSx for Lustre </a></li>
 <li class="toc-entry toc-h4"><a href="#EC2-Placement-Group">EC2 Placement Group </a></li>
+<li class="toc-entry toc-h4"><a href="#HPC-on-AWS">HPC on AWS </a></li>
 <li class="toc-entry toc-h4"><a href="#WAF---Web-Application-Firewall">WAF - Web Application Firewall </a></li>
 </ul>
 </li>
@@ -177,8 +184,20 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Backup">Backup </a></li>
 <li class="toc-entry toc-h4"><a href="#Encryption">Encryption </a></li>
 <li class="toc-entry toc-h4"><a href="#DynamoDB">DynamoDB </a></li>
+<li class="toc-entry toc-h4"><a href="#Advanced-DynamoDB">Advanced DynamoDB </a></li>
 <li class="toc-entry toc-h4"><a href="#Redshift">Redshift </a></li>
 <li class="toc-entry toc-h4"><a href="#Aurora">Aurora </a></li>
+<li class="toc-entry toc-h4"><a href="#Database-Migration-Service">Database Migration Service </a></li>
+<li class="toc-entry toc-h4"><a href="#Caching-Strategies-on-AWS">Caching Strategies on AWS </a></li>
+<li class="toc-entry toc-h4"><a href="#EMR-Overview">EMR Overview </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Advanced-IAM">Advanced IAM </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#AWS-Directory-Service">AWS Directory Service </a></li>
+<li class="toc-entry toc-h4"><a href="#IAM-Policies">IAM Policies </a></li>
+<li class="toc-entry toc-h4"><a href="#Resource-Access-Manager">Resource Access Manager </a></li>
+<li class="toc-entry toc-h4"><a href="#AWS-Single-Sign-On">AWS Single Sign On </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#DNS">DNS </a>
@@ -202,6 +221,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Direct-Connect">Direct Connect </a></li>
 <li class="toc-entry toc-h4"><a href="#Global-Accelerator">Global Accelerator </a></li>
 <li class="toc-entry toc-h4"><a href="#VPC-End-Points">VPC End Points </a></li>
+<li class="toc-entry toc-h4"><a href="#VPC-Private-Link">VPC Private Link </a></li>
+<li class="toc-entry toc-h4"><a href="#Transit-Gateway">Transit Gateway </a></li>
+<li class="toc-entry toc-h4"><a href="#VPN-CloudHub">VPN CloudHub </a></li>
+<li class="toc-entry toc-h4"><a href="#Network-Cost-Diagram">Network Cost Diagram </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#HA-Architecture">HA Architecture </a>
@@ -213,6 +236,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#HA-Architecture">HA Architecture </a></li>
 <li class="toc-entry toc-h4"><a href="#Cloud-Formation">Cloud Formation </a></li>
 <li class="toc-entry toc-h4"><a href="#Elastic-Beanstalk">Elastic Beanstalk </a></li>
+<li class="toc-entry toc-h4"><a href="#HA-with-Bastions-Hosts">HA with Bastions Hosts </a></li>
+<li class="toc-entry toc-h4"><a href="#On-Premise-Strategies">On Premise Strategies </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Applications">Applications </a>
@@ -226,9 +251,19 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Web-Identity-Federation---Cognito">Web Identity Federation - Cognito </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h3"><a href="#Security">Security </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Reducing-Security-Threats">Reducing Security Threats </a></li>
+<li class="toc-entry toc-h4"><a href="#Key-Management-Service">Key Management Service </a></li>
+<li class="toc-entry toc-h4"><a href="#CloudHSM">CloudHSM </a></li>
+<li class="toc-entry toc-h4"><a href="#System-Manager-Parameter-Score">System Manager Parameter Score </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Serverless">Serverless </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#Lambda">Lambda </a></li>
+<li class="toc-entry toc-h4"><a href="#Serverless-Application-Model">Serverless Application Model </a></li>
+<li class="toc-entry toc-h4"><a href="#Elastic-Container-Service">Elastic Container Service </a></li>
 </ul>
 </li>
 </ul><!--
@@ -370,7 +405,7 @@ S3 One Zone IA
     Lower cost option for S3 IA
     Do not require mutiple availability zone data resilience
 
-S3 Inteliigent Tiering
+S3 Inteligent Tiering
     Designed to optimise costs by automatically moving data to the most 
         cost effective access tier without performance impact or operational overhead
 
@@ -420,6 +455,7 @@ Encryption at rest Server Side
     AWS Key Management Service, Managed Keys - SSE-KMS
     Server Side Encryption with Customer provided keys - SSE-C
 Client side Encryption
+S3 bucket can be configured to create access logs
 
 </code></pre>
 <h4 id="Version-Control">
@@ -437,6 +473,36 @@ MFA Delete capability
 <pre><code>Automates moving object between the different storage tiers
 Can be used in conjuction with versioning
 Can be applied to current versions &amp; previous versions
+
+</code></pre>
+<h4 id="Lock-Policy">
+<a class="anchor" href="#Lock-Policy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lock Policy<a class="anchor-link" href="#Lock-Policy"> </a>
+</h4>
+<pre><code>S3 Object Lock - WORM - Can be put on individual object as well as bucket
+Prevent object deletion
+Governance Mode - Special user can change data
+Compliance Mode - No one can change for duration of retention period 
+Retention Period - Protects an object version for a fixed amount of time
+Legal Holds - Doesn't have any retention period, can be put by user with s3:PutObjectLegalHold
+
+GlacierVault - Policy can not be changed later    
+
+</code></pre>
+<h4 id="S3-Performance">
+<a class="anchor" href="#S3-Performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>S3 Performance<a class="anchor-link" href="#S3-Performance"> </a>
+</h4>
+<pre><code>S3 has extremely low latency
+First byte out of S3 in 100-200 ms
+3500 PUT/COPY/PASTE/DELETE &amp; 5000 HEAD/GET per second per prefix
+S3 limitation using KMS - Region specific - 5500,10000 or 30000 request per second
+Mutipart Upload - Required for 5 GB
+S3 Byte Range Fetches - Parallelize downloads by specifying byte ranges also allow partial download
+
+</code></pre>
+<h4 id="S3-Select-&amp;-Glacier-Select">
+<a class="anchor" href="#S3-Select-&amp;-Glacier-Select" aria-hidden="true"><span class="octicon octicon-link"></span></a>S3 Select &amp; Glacier Select<a class="anchor-link" href="#S3-Select-&amp;-Glacier-Select"> </a>
+</h4>
+<pre><code>Retrieves only a subset of data from an object by using simple SQL expressions    
 
 </code></pre>
 <h4 id="AWS-Organizations-&amp;-Consolidated-Billing">
@@ -483,6 +549,18 @@ As data arrives at an edge location it is routed over an optimized network path.
 Use distinct URL to upload directly to an edge location which will then transfer it to S3.
 
 </code></pre>
+<h4 id="Data-Sync">
+<a class="anchor" href="#Data-Sync" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Sync<a class="anchor-link" href="#Data-Sync"> </a>
+</h4>
+<pre><code>Encrypt data &amp; accelerates transfer over the WAN
+Datasync Agent is deployed as an agent on the server
+Connect to S3, EFS or FSx for Windows File Server
+Used to move large amount of data from on-premise to AWS
+Used with NFS and SMB compatible file system
+Replication can be done hourly, daily &amp; weekly
+Can be used to replicate EFS to EFS
+
+</code></pre>
 <h4 id="CloudFront">
 <a class="anchor" href="#CloudFront" aria-hidden="true"><span class="octicon octicon-link"></span></a>CloudFront<a class="anchor-link" href="#CloudFront"> </a>
 </h4>
@@ -495,10 +573,13 @@ Two Types
 
 Origin
     This is the origin of all the files that CDN will distribute.
-    This can be either an S3 bucket,an EC2 instance,an elastic load balancer or route 53.
+    This can be either an S3 bucket,an EC2 instance,an elastic load balancer or Route 53.
 
+Edge locations are not just read only    
 Objects are cached for the life of TTL(Time to Live)
 Can clear cached objects but it will be charged
+Signed URL - 1 file access
+Signed cookie - multiple file
 
 </code></pre>
 <h4 id="Snowball">
@@ -643,7 +724,7 @@ To move an EC2 volume from one region to another
     OS
     Launch Permission
     Storage for the root device
-        Instance Store(EPHEMERSL STORAGE)
+        Instance Store(EPHEMERAL STORAGE)
             Root device for an instance launched from the AMI is an instance store volume
                 created from a template stored in S3.
             Instance Store volumes cannot be stopped
@@ -670,16 +751,30 @@ ENA - Enhanced Networking
 
 EFA - Elastic Fabric Adaptor
       A network device that can be attach to EC2 instance to accelerate High Performance
-      Computing HPC &amp; machine learning aaplications.
+      Computing HPC &amp; machine learning applications.
       Provides lower &amp; more consistent latency &amp; higher througput
-      OS by pass
+      OS by pass -- Supported only in Linux
 
 </code></pre>
 <h4 id="Encrypted-Root-Device-Volumes-&amp;-Snapshots">
 <a class="anchor" href="#Encrypted-Root-Device-Volumes-&amp;-Snapshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encrypted Root Device Volumes &amp; Snapshots<a class="anchor-link" href="#Encrypted-Root-Device-Volumes-&amp;-Snapshots"> </a>
 </h4>
-<pre><code>Snapshot of encrypted volumes are encrypted auomatically
+<pre><code>Snapshot of encrypted volumes are encrypted automatically
 Can share snapshots if they are encrypted
+
+</code></pre>
+<h4 id="Spot-Instances-&amp;-Spot-Fleets">
+<a class="anchor" href="#Spot-Instances-&amp;-Spot-Fleets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spot Instances &amp; Spot Fleets<a class="anchor-link" href="#Spot-Instances-&amp;-Spot-Fleets"> </a>
+</h4>
+<pre><code>Can take advantage of unutilized EC2 instances
+Spot blocks to prevent Stop instances being terminated (1-6 hours)
+Fleets collection of spot instances or on demand instances
+
+</code></pre>
+<h4 id="EC2-Hibernate">
+<a class="anchor" href="#EC2-Hibernate" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 Hibernate<a class="anchor-link" href="#EC2-Hibernate"> </a>
+</h4>
+<pre><code>Saves the content from RAM to root volume
 
 </code></pre>
 <h4 id="CloudWatch">
@@ -781,6 +876,33 @@ Partitioned
     Mutiple Instances
 
 </code></pre>
+<h4 id="HPC-on-AWS">
+<a class="anchor" href="#HPC-on-AWS" aria-hidden="true"><span class="octicon octicon-link"></span></a>HPC on AWS<a class="anchor-link" href="#HPC-on-AWS"> </a>
+</h4>
+<pre><code>Data Transfer
+    Snowball ,Snowmobile
+    AWS DataSync
+    Direct Connect
+Compute &amp; Networking 
+    EC2 instances that are GPU or CPU optimised
+    EC2 fleets
+    Placement Groups
+    Enhanced Networking
+    Elastic Network Adapters
+    Elastic Fabric Adapters
+Storage Service
+    Instance-attached storage
+        EBS - Scale upto 64000 IOPS with PIOPS
+        Instance Store - Scale upto millions of IOPS; low latency
+    Network Storage
+        S3
+        EFS - Scale based on total size
+        FSx for Lustre - Millions of IOPS
+Orchestration
+    AWS Batch
+    AWS Parallel Cluster
+
+</code></pre>
 <h4 id="WAF---Web-Application-Firewall">
 <a class="anchor" href="#WAF---Web-Application-Firewall" aria-hidden="true"><span class="octicon octicon-link"></span></a>WAF - Web Application Firewall<a class="anchor-link" href="#WAF---Web-Application-Firewall"> </a>
 </h4>
@@ -850,7 +972,7 @@ Red Shift - Amazon's Data Warehouse Solution
     in the cloud.
 Support two open source in cache memory caching engines:
     Memcached - Simple , multithreading
-    Redis - Sopisticated Any other needs - Multi AZ, Backup/restore 
+    Redis - Sophisticated Any other needs - Multi AZ, Backup/restore 
 
 </code></pre>
 <h4 id="Pointers">
@@ -894,6 +1016,42 @@ Stored on SSD storage
 Spread across 3 geagraphically distinct data centers
 Eventaul Consistent Read (Default)  - Consistency usually reached within a second
 Strongly Consistent Read - Return a result that relects all successful writes
+
+</code></pre>
+<h4 id="Advanced-DynamoDB">
+<a class="anchor" href="#Advanced-DynamoDB" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced DynamoDB<a class="anchor-link" href="#Advanced-DynamoDB"> </a>
+</h4>
+<pre><code>DAX
+    Fully managed, highly available in memory cache
+    Reduce request time from milliseconds to microseconds
+    No need to code separate logic for enabling cache
+Transactions
+    Atomicity
+    Upto 25 items or 4 MB of data
+On Demand Capacity
+    Pay per request
+Point In Time Recovery
+    Protect against accidental writes or deletes
+    Restore to any point in the last 35 days
+    Incremental backups
+    Not enabled by default
+    Latest restorable: five minutes in the past
+Streams
+    Time ordered sequence of item level changes in a table
+    Stored for 24 hours
+    Combined with Lambda function to get functionality like stored procedures
+Global Table
+    Managed Multi Master, Multi Region Replication
+    Globally distributed applications
+    Based on DynamoDB streams
+    Multi region redundancy for DR or HA
+Database Migration Service
+    Source DB - DMS - Target DB
+Securtiy
+    Encryption at rest using KMS
+    Site to site VPN
+    Direct Connect (DX)
+    IAM Policies &amp; Roles
 
 </code></pre>
 <h4 id="Redshift">
@@ -946,7 +1104,119 @@ Serverless
     On demand, autoscaling configurations for MySQL &amp; PostgreSQL compatible editions of Aurora
     An Aurora Serverless DB Cluster automatically starts up,shuts down,and 
         scale as per applications's needs.
-    Cost effective for infrequent,intermittent, unpredictable loads.</code></pre>
+    Cost effective for infrequent,intermittent, unpredictable loads.  
+
+</code></pre>
+<h4 id="Database-Migration-Service">
+<a class="anchor" href="#Database-Migration-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Migration Service<a class="anchor-link" href="#Database-Migration-Service"> </a>
+</h4>
+<pre><code>Schema Conversion Tool SCT to create some or all of the target tables, indexes, views, triggers
+Support Homogenous &amp; Hetrogenous both migration
+SCT needed for Hetrogenous migration
+
+</code></pre>
+<h4 id="Caching-Strategies-on-AWS">
+<a class="anchor" href="#Caching-Strategies-on-AWS" aria-hidden="true"><span class="octicon octicon-link"></span></a>Caching Strategies on AWS<a class="anchor-link" href="#Caching-Strategies-on-AWS"> </a>
+</h4>
+<pre><code>CloudFront 
+API Gateway
+ElastiCache
+DAX
+
+</code></pre>
+<h4 id="EMR-Overview">
+<a class="anchor" href="#EMR-Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>EMR Overview<a class="anchor-link" href="#EMR-Overview"> </a>
+</h4>
+<pre><code>Central Component is the Cluster
+Cluster is a collection of EC2 instances
+Each instance is the cluster is called a node
+Master Node
+    Track the status of the task &amp; monitor the health of the cluster
+Core Node
+    Run tasks &amp; store data
+Task Node
+    Only run task</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Advanced-IAM">
+<a class="anchor" href="#Advanced-IAM" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced IAM<a class="anchor-link" href="#Advanced-IAM"> </a>
+</h3>
+<h4 id="AWS-Directory-Service">
+<a class="anchor" href="#AWS-Directory-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Directory Service<a class="anchor-link" href="#AWS-Directory-Service"> </a>
+</h4>
+<pre><code>Connect AWS resources with on-premise AD
+Standalone directory in the cloud
+Use existing corporate credentials
+SSO to any domain joined EC2 instances
+
+Active Directory
+    On Premises directory service
+    Hierarchical databases of users, groups, computers - trees &amp; forests
+    Group Policies
+    LDAP &amp; DNS
+    Kerberos, LDAP and NTLM authentication
+
+AWS Managed Microsoft AD
+    AD Domain Controller running Windows Server
+    Reachable by applications in your VPC
+    Add DC for HA and performance
+    Extend existing AD to on-premises using AD Trust
+
+Simple AD
+    Standalone managed directory 
+    Basic AD features
+    Small &lt;=500 Large&lt;= 5000 users
+    Does not support AD Trusts (can't join on-premises AD)
+
+AD Connector
+    Directory Gateway (Proxy) for on-premises AD
+    Avoid caching information in the cloud
+    Allow on-premises users to log into AWS using AD
+    Join EC2 instances to your existing AD domain
+
+ Cloud Directory
+     Directory based store for developers
+     Multiple hierarchies with hundreds of millions of objects
+     Use cases - org chart, course catalog, device registries
+
+ Cognito User Pools
+     Managed user directory for SaaS applications
+     Sign up &amp; Sign in for web or mobile
+     Works with social media identities
+
+</code></pre>
+<h4 id="IAM-Policies">
+<a class="anchor" href="#IAM-Policies" aria-hidden="true"><span class="octicon octicon-link"></span></a>IAM Policies<a class="anchor-link" href="#IAM-Policies"> </a>
+</h4>
+<pre><code>ARN 
+    starts with - arn: partition: service: region: account_id:
+    end with - resource
+               resource_type/resource/qualifier
+
+Identity Policy - User, Group, Roles
+Resource Policy - who access to resource
+Policy Statement - Effect , Action , Resource
+Permission Boundaries
+    Used to delegate admin to other users
+    Control scope of access granted by AWS managed policy
+
+</code></pre>
+<h4 id="Resource-Access-Manager">
+<a class="anchor" href="#Resource-Access-Manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resource Access Manager<a class="anchor-link" href="#Resource-Access-Manager"> </a>
+</h4>
+<pre><code>Allows resouce sharing between accounts
+
+</code></pre>
+<h4 id="AWS-Single-Sign-On">
+<a class="anchor" href="#AWS-Single-Sign-On" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Single Sign On<a class="anchor-link" href="#AWS-Single-Sign-On"> </a>
+</h4>
+<pre><code>Centrally manage access to AWS accounts &amp; business applications
+Granular account level permission</code></pre>
 
 </div>
 </div>
@@ -1076,7 +1346,7 @@ Edit route table to use NAT
 <h4 id="Network-ACL">
 <a class="anchor" href="#Network-ACL" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network ACL<a class="anchor-link" href="#Network-ACL"> </a>
 </h4>
-<pre><code>Default ACL which gets created with VPN allows everything
+<pre><code>Default ACL which gets created with VPC allows everything
 Deny everything by default when created new NACL
 Specify Inbound &amp; Outbound rule
 Rule apply in numerical order 
@@ -1152,7 +1422,38 @@ Two types
             for traffic designated to a supported service.
     Gateway End Point
         Amazon S3
-        DynamoDB</code></pre>
+        DynamoDB
+
+</code></pre>
+<h4 id="VPC-Private-Link">
+<a class="anchor" href="#VPC-Private-Link" aria-hidden="true"><span class="octicon octicon-link"></span></a>VPC Private Link<a class="anchor-link" href="#VPC-Private-Link"> </a>
+</h4>
+<pre><code>Connect VPC
+Require a NLB on the service VPC &amp; an ENI on the customer VPC
+
+</code></pre>
+<h4 id="Transit-Gateway">
+<a class="anchor" href="#Transit-Gateway" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transit Gateway<a class="anchor-link" href="#Transit-Gateway"> </a>
+</h4>
+<pre><code>Hub &amp; Spoke model
+Allows you to have transitive peering between VPCs &amp; on-premises center
+Can be used across multiple AWS accounts using RAM
+Support IP multicast
+
+</code></pre>
+<h4 id="VPN-CloudHub">
+<a class="anchor" href="#VPN-CloudHub" aria-hidden="true"><span class="octicon octicon-link"></span></a>VPN CloudHub<a class="anchor-link" href="#VPN-CloudHub"> </a>
+</h4>
+<pre><code>Multiple sites, each with its own VPN connection, you can use AWS VPN CloudHub to those sites together
+Communicate to different on premise centers to VPC
+
+</code></pre>
+<h4 id="Network-Cost-Diagram">
+<a class="anchor" href="#Network-Cost-Diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network Cost Diagram<a class="anchor-link" href="#Network-Cost-Diagram"> </a>
+</h4>
+<pre><code>Free traffic in
+Free traffic between instance in same AZ , charge inc as you move to different AZ or diff region
+Use private IP address over public IP addresses</code></pre>
 
 </div>
 </div>
@@ -1205,7 +1506,7 @@ Configuration Template
         for its EC2 instances.
 Scaling Options
     Configure a group to scale based on the occurence of specified conditions or schedule
-    Maintain current instance levela at all times
+    Maintain current instance level all times
     Scale manually
     Scale based on a schedule
     Scale based on demand
@@ -1231,7 +1532,27 @@ Scaling out &amp; scaling up
 </h4>
 <pre><code>Quickly deploy &amp; manage applications in the AWS Cloud without worrying about the 
     infrastucture that runs those applications.
-Beanstalk does capacity provisions, load balancing, scaling &amp; application health monitoring.</code></pre>
+Beanstalk does capacity provisions, load balancing, scaling &amp; application health monitoring.
+
+</code></pre>
+<h4 id="HA-with-Bastions-Hosts">
+<a class="anchor" href="#HA-with-Bastions-Hosts" aria-hidden="true"><span class="octicon octicon-link"></span></a>HA with Bastions Hosts<a class="anchor-link" href="#HA-with-Bastions-Hosts"> </a>
+</h4>
+<pre><code>Use NLB with static IP Address - since SSH is going to be level 4
+Cheaper option - Auto scaling group with one instance attach to Elastic IP Address
+
+</code></pre>
+<h4 id="On-Premise-Strategies">
+<a class="anchor" href="#On-Premise-Strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>On Premise Strategies<a class="anchor-link" href="#On-Premise-Strategies"> </a>
+</h4>
+<pre><code>Database Migration Service
+Server Migration Service
+Application Discovery Service
+    Help customer plan migration project by gathering info about their on-premises data centers
+    Build a server utilization map &amp; dependency map of on-premises environment
+    Data also available in Migration Hub which can track progress of server migration
+VM Import/Export
+Download Amazon Linux Image as ISO        </code></pre>
 
 </div>
 </div>
@@ -1327,6 +1648,7 @@ Retention - 24 hours to 7 days
 Types
     Streams
         Shards
+        Data is persistent
     Firehose
         Lambda can be running
         Data is not persistent
@@ -1349,6 +1671,50 @@ Identity Pools
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Security">
+<a class="anchor" href="#Security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security<a class="anchor-link" href="#Security"> </a>
+</h3>
+<h4 id="Reducing-Security-Threats">
+<a class="anchor" href="#Reducing-Security-Threats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reducing Security Threats<a class="anchor-link" href="#Reducing-Security-Threats"> </a>
+</h4>
+<pre><code>NACL - Level 4
+WAF -Level 7 , Can be attach to ELB or CloudFront    
+
+</code></pre>
+<h4 id="Key-Management-Service">
+<a class="anchor" href="#Key-Management-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Management Service<a class="anchor-link" href="#Key-Management-Service"> </a>
+</h4>
+<pre><code>Manage Customer Master Key , CMK never leave KMS
+Region level
+Encrypt and Decrypt Data upto 4 KB in size
+Pay per API call
+Audio capability using CloudTrail
+FIPS 140 2 Level 2
+AWS Managed CMK - Free
+AWS Owned CMK - Used by AWS on shared basis across many accounts
+Customer Managed CMK - Allow key rotation    
+
+</code></pre>
+<h4 id="CloudHSM">
+<a class="anchor" href="#CloudHSM" aria-hidden="true"><span class="octicon octicon-link"></span></a>CloudHSM<a class="anchor-link" href="#CloudHSM"> </a>
+</h4>
+<pre><code>Dedicated hardware security module HSM
+FIPS 140 2 Level 3
+Single Tenant, dedicated hardware multi AZ cluster
+
+</code></pre>
+<h4 id="System-Manager-Parameter-Score">
+<a class="anchor" href="#System-Manager-Parameter-Score" aria-hidden="true"><span class="octicon octicon-link"></span></a>System Manager Parameter Score<a class="anchor-link" href="#System-Manager-Parameter-Score"> </a>
+</h4>
+<pre><code>Secure serverless storage for configuration &amp; secrets
+Parameter organize in hierarchies</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Serverless">
 <a class="anchor" href="#Serverless" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serverless<a class="anchor-link" href="#Serverless"> </a>
 </h3>
@@ -1361,7 +1727,68 @@ In reponse to http request
 Pricing
     Number of requests
     Duration
-Scales out automatically</code></pre>
+Scales out automatically
+
+</code></pre>
+<h4 id="Serverless-Application-Model">
+<a class="anchor" href="#Serverless-Application-Model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serverless Application Model<a class="anchor-link" href="#Serverless-Application-Model"> </a>
+</h4>
+<pre><code>CloudFormation extension optimised for serverless applications
+Run serverlesss applications locally
+
+</code></pre>
+<h4 id="Elastic-Container-Service">
+<a class="anchor" href="#Elastic-Container-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic Container Service<a class="anchor-link" href="#Elastic-Container-Service"> </a>
+</h4>
+<pre><code>A container is a package that contain an application, libraries, runtime &amp; tools required to run it
+Run on a contianer engile like Docker
+Provides the isolation benefits of virtualization with less overhead &amp; faster starts than VMs
+Containerized application are portable &amp; offer a consistent environment
+
+ECS
+    Managed container orchestration service
+    Create clusters to manage fleets of container deployments
+    Manages EC2 or Fargate instances
+    Schedule container for optimal placement 
+    Define rules for CPU &amp; memory requirements
+    Monitor resource utilization
+    Free service
+
+ECS Components
+    Cluster
+        Logical collections of ECS resources
+    Task Definition
+        Defines your application
+        Similar to Docker File but for running container in ECS
+        Can contain multiple container
+    Container Definition
+        Inside a task definition
+        Define the individual container a task uses
+    Task
+        Single running copy of any container defined by a task definition
+    Service
+        Allows task definition to be scaled by adding tasks
+        Define minimum &amp; maximum values
+    Registry 
+        Storage for container images - Elastic Container Registry
+
+Fargate
+    Serverless Container Engine
+    Works with both ECS and EKS
+    Each workload runs in its own kernel
+    Isolation &amp; Security
+
+Elastic Kubernetes Services
+    K8 is open source software that lets you deploy and manage containerized application at scale
+    Containers are grouped in pods
+
+ECR
+    Managed Docker Container registry
+    Store, manage &amp; deploy images
+    Integrate with ECS &amp; EKS
+    Works with on-premises deployments
+
+EC2 Instance Role vs Task Role        </code></pre>
 
 </div>
 </div>
