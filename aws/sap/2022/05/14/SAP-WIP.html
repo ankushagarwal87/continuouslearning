@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SAP - C01 - Identity and Federation | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="SAP - C01 - Identity and Federation" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notes" />
+<meta property="og:description" content="Notes" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Notes","@type":"BlogPosting","headline":"SAP - C01 - Identity and Federation","url":"https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html","datePublished":"2022-05-14T00:00:00-05:00","dateModified":"2022-05-14T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SAP - C01 - Identity and Federation | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="SAP - C01 - Identity and Federation" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notes" />
+<meta property="og:description" content="Notes" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Notes","@type":"BlogPosting","headline":"SAP - C01 - Identity and Federation","url":"https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html","datePublished":"2022-05-14T00:00:00-05:00","dateModified":"2022-05-14T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SAP - C01 - Identity and Federation</h1><p class="page-description">Notes</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-14T00:00:00-05:00" itemprop="datePublished">
+        May 14, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#SAP">SAP</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h4"><a href="#IAM">IAM </a></li>
+<li class="toc-entry toc-h4"><a href="#STS">STS </a></li>
+<li class="toc-entry toc-h4"><a href="#Identity-Federation">Identity Federation </a></li>
+<li class="toc-entry toc-h4"><a href="#AWS-Directory-Service">AWS Directory Service </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-05-14-SAP-WIP.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="IAM">
+<a class="anchor" href="#IAM" aria-hidden="true"><span class="octicon octicon-link"></span></a>IAM<a class="anchor-link" href="#IAM"> </a>
+</h4>
+<pre><code>Types
+    Users  - Long Term Credentials
+    Groups
+    Roles   - Short Term Credentials
+        Service Roles
+            Allow AWS services like EC2, Lambda, or others to perform actions in this account.
+            Service Roles for EC2 Instance 
+                Only One role can be assigned to EC2 Instance at a time.
+            Service Linked Roles
+                Service-linked roles are predefined by the service and include all the permissions that the  
+                service requires to call other AWS services on your behalf.
+        Cross Account Roles
+            Allow entities in other AWS accounts belonging to perform actions.
+        Web identity
+            Allows users federated by the specified external web identity provider to assume this role.
+        SAML 2.0 federation
+            Allow users federated with SAML 2.0 from a corporate directory to perform actions.
+
+</code></pre>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html</a>)</p>
+
+<pre><code>Policies
+   AWS Managed
+   Customer Managed
+   Inline Policies
+   Resouce Based Policies
+        S3, SQS, SNS, KMS, etc
+
+   Policy Structure
+        Effect - Allow, Deny 
+        Action - Put, Get...
+        Resource - ARN
+        Condition - Ip Address....
+        Principal - At resource level policy
+
+    Explicit DENY precedence over ALLOW.
+
+IAM Security Tools
+    Credential Report - Account Level - Users
+    Access Advisor - User Level
+    Access Analyzer - Resource Level 
+
+IAM Role vs Resource Policy
+    when you assume a role,whether it be a user, an application or a service you're going to give 
+    up all your original permissions and you're going to take the permissions assigned to the role.
+
+IAM Permission Boundary 
+    Supported for users and roles, but not groups.
+    Allow you to set the maximum permissions an IAM entity can get.
+    Can be used with AWS Organization SCP</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="STS">
+<a class="anchor" href="#STS" aria-hidden="true"><span class="octicon octicon-link"></span></a>STS<a class="anchor-link" href="#STS"> </a>
+</h4>
+<pre><code>Allow us to assume roles across different accounts within the same accounts and enable identity federation.
+Credentials are going to be temporary between 15 minutes to 12 hours.
+Ability to revoke active session &amp; crdential for a role - AWSRevokeOlderSession
+Can Add MFA for assuming Role - which can add extra security 
+
+Provide access to AWS accounts owned by third parties
+    Zone of trust is all the accounts and organizations that you own.
+    Outside Zone of Trust = 3rd Parties
+    External ID is a secret between you and the third party, and you have to define it.
+
+    Confused Deputy 
+        If any other account try to use 3rd Party Account to assume Role
+        External ID - will prevent such attack
+
+STS API
+    AssumedRole
+    AssumedRoleWithSAML
+    AssumedRoleWithWebIdentity
+    GetSessionToken - For MFA
+    GetFederationToken
+         A typical use is in a proxy application that gets temporary security credentials on 
+         behalf of distributed applications inside a corporate network. 
+
+</code></pre>
+<p><a href="https://aws.amazon.com/blogs/security/understanding-the-api-options-for-securely-delegating-access-to-your-aws-account/">https://aws.amazon.com/blogs/security/understanding-the-api-options-for-securely-delegating-access-to-your-aws-account/</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Identity-Federation">
+<a class="anchor" href="#Identity-Federation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identity Federation<a class="anchor-link" href="#Identity-Federation"> </a>
+</h4>
+<pre><code>Corporate having own Identity System
+Mobile/Web Application access to AWS resources
+Flavours
+    SAML2.0            
+    Custom Identity Broker
+    Web Identity Federation with(out) Cognito
+    Web Identity Federation with Cognito
+    SSO       
+
+SAML2.0
+    No need to create IAM users for each employee
+    Need to setup trust between IAM &amp; SAML2.0 Identity Provider
+    Uses - AssumeRoleWithSAML
+    Old Way - AWS SSO is new, managed &amp; simpler way.
+
+Custom Identity Broker
+    Identity Broker authenticates users &amp; request temporary credential from AWS
+    Uses - AssumeRole or GetFederationToken
+
+Web Identity Federation with(out) Cognito
+    OpenID Connect Compatible IdP    - https://www.youtube.com/watch?v=t18YB3xDfXI
+    Google, Facebook, Amazon
+
+Web Identity Federation with Cognito
+    Support anonymous users
+    Support MFA
+    Data Synchronization
+
+Web Identity Federation IAM Policy
+    We can identify the user with an IAM policy variable &amp; apply conditions in Policy.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="AWS-Directory-Service">
+<a class="anchor" href="#AWS-Directory-Service" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Directory Service<a class="anchor-link" href="#AWS-Directory-Service"> </a>
+</h4>
+<pre><code>Microsoft Active Directory
+    Database of objects - User Accounts, Computers...
+Active Directory Federation Service
+    Provides SSO across applications
+    SAML across 3rd Party, AWS, Office 365
+
+AWS Managed Microsoft AD
+    Create your own AD in AWS
+    Managed uers locally
+    Supports MFA
+    Establish Trust relationship with on-premises AD
+
+AD Connector
+    Directory Gateway(proxy) to redirect to on-premises AD
+    Users are managed on on-premises AD
+    Supports MFA
+
+Simple AD
+    AD compatible managed directory on AWS
+    Cannot be joined with on-premises AD
+
+Connect with on-premises AD - AWS Managed Microsoft AD
+    Must Establish a Direct Connect or VPN Connection
+    Replication doesn't happen
+    Forest Trust Type
+        AWS trust On-prmises
+        On-premises trust AWS
+        Both trust each other     
+
+Active Directory Replication
+    Create a replica of AD in EC2
+    Establish trust between AWS Managed Microsoft AD &amp; EC2
+
+Connect with on-premises AD - AD Connector
+    No caching
+    Direct Connect or VPN Connection
+    Doesn't work with SQL Server
+
+Simple AD
+    Supports joining EC2 instances, manage users &amp; groups
+    Doesn't support MFA, RDS SQL Server, AWS SSO
+    Users - 500-5000
+    Lower Cost, Low Scale
+    No trust relationship</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

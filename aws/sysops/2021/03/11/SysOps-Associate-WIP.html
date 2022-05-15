@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SysOps Associate | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="SysOps Associate" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notes" />
+<meta property="og:description" content="Notes" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-11T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Notes","@type":"BlogPosting","headline":"SysOps Associate","url":"https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html","datePublished":"2021-03-11T00:00:00-06:00","dateModified":"2021-03-11T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SysOps Associate | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="SysOps Associate" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notes" />
+<meta property="og:description" content="Notes" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-11T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Notes","@type":"BlogPosting","headline":"SysOps Associate","url":"https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html","datePublished":"2021-03-11T00:00:00-06:00","dateModified":"2021-03-11T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SysOps Associate</h1><p class="page-description">Notes</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-11T00:00:00-06:00" itemprop="datePublished">
+        Mar 11, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#SysOps">SysOps</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Overview">Overview </a></li>
+<li class="toc-entry toc-h3"><a href="#EC2">EC2 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Enhanced-Networking">Enhanced Networking </a></li>
+<li class="toc-entry toc-h4"><a href="#Placement-Group">Placement Group </a></li>
+<li class="toc-entry toc-h4"><a href="#Shutdown-Behaviour-using-OS">Shutdown Behaviour using OS </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-Launch-Troubleshooting">EC2 Launch Troubleshooting </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-SSH-Trouble">EC2 SSH Trouble </a></li>
+<li class="toc-entry toc-h4"><a href="#Instance-Type">Instance Type </a></li>
+<li class="toc-entry toc-h4"><a href="#Spot-Instances-&-Spot-Fleet">Spot Instances &amp; Spot Fleet </a></li>
+<li class="toc-entry toc-h4"><a href="#Instance-Type">Instance Type </a></li>
+<li class="toc-entry toc-h4"><a href="#Elastic-IP">Elastic IP </a></li>
+<li class="toc-entry toc-h4"><a href="#CloudWatch-metrics-for-EC2">CloudWatch metrics for EC2 </a></li>
+<li class="toc-entry toc-h4"><a href="#Unified-CloudWatch-Agent">Unified CloudWatch Agent </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-Instances-Status-Check">EC2 Instances Status Check </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-Hibernate">EC2 Hibernate </a></li>
+<li class="toc-entry toc-h4"><a href="#AMI">AMI </a></li>
+<li class="toc-entry toc-h4"><a href="#EC2-Image-Builder">EC2 Image Builder </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Systems-Manager-(SSM)-&-Opswork">Systems Manager (SSM) &amp; Opswork </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#How-SSM-Works">How SSM Works </a></li>
+<li class="toc-entry toc-h4"><a href="#Start-EC2-instances-with-SSM-Agent">Start EC2 instances with SSM Agent </a></li>
+<li class="toc-entry toc-h4"><a href="#AWS-Tags-&-SSM-Resource-Groups">AWS Tags &amp; SSM Resource Groups </a></li>
+<li class="toc-entry toc-h4"><a href="#SSM-Documents-&-SSM-Run-Command">SSM Documents &amp; SSM Run Command </a></li>
+<li class="toc-entry toc-h4"><a href="#SSM---Automation">SSM - Automation </a></li>
+<li class="toc-entry toc-h4"><a href="#AWS-Parameter-Store">AWS Parameter Store </a></li>
+<li class="toc-entry toc-h4"><a href="#SSM-Inventory-&-Patches">SSM Inventory &amp; Patches </a></li>
+<li class="toc-entry toc-h4"><a href="#SSM-Secure-Shell">SSM Secure Shell </a></li>
+<li class="toc-entry toc-h4"><a href="#Opsworks">Opsworks </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#High-Availablity-&-Scalability">High Availablity &amp; Scalability </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Load-Balancer-Overview">Load Balancer Overview </a></li>
+<li class="toc-entry toc-h4"><a href="#Application-Load-Balancer">Application Load Balancer </a></li>
+<li class="toc-entry toc-h4"><a href="#Network-Load-Balancer">Network Load Balancer </a></li>
+<li class="toc-entry toc-h4"><a href="#Metrics,-Logging-&-Tracing-for-ELB">Metrics, Logging &amp; Tracing for ELB </a></li>
+<li class="toc-entry toc-h4"><a href="#Auto-Scaling-Group">Auto Scaling Group </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Elastic-Beanstalk">Elastic Beanstalk </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-11-SysOps Associate-WIP.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Overview">
+<a class="anchor" href="#Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview<a class="anchor-link" href="#Overview"> </a>
+</h3>
+<p><img src="/continuouslearning/images/copied_from_nb/Intro.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="EC2">
+<a class="anchor" href="#EC2" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2<a class="anchor-link" href="#EC2"> </a>
+</h3>
+<pre><code>Changing Instance Type  - Steps applicable only for EBS Backed Instance
+    Need to stop  
+    New instance will be assigned
+    EBS will get reasssigned
+
+</code></pre>
+<h4 id="Enhanced-Networking">
+<a class="anchor" href="#Enhanced-Networking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enhanced Networking<a class="anchor-link" href="#Enhanced-Networking"> </a>
+</h4>
+<pre><code>EC2 Enhanced Networking (SR-IOV)
+    Higher bandwidth, Higher PPS, Lower latency
+    Option 1:Elastic Network Adaptor(ENA) upto 100 Gbps
+    Option 2:Intel 82599 VF upto 10 Gbps - LEGACY
+    Works for newer generation EC2 instances
+Elastic Fabric Adaptor
+    Improved ENA for HPC, only works for Linux
+    Great for inter-node communications, tightly coupled workloads
+    Leverages Message Passing Interface (MPI) standard
+    Bypasses the underlying Linux OS to provide low latency, reliable transport
+
+</code></pre>
+<h4 id="Placement-Group">
+<a class="anchor" href="#Placement-Group" aria-hidden="true"><span class="octicon octicon-link"></span></a>Placement Group<a class="anchor-link" href="#Placement-Group"> </a>
+</h4>
+<pre><code>Cluster
+    is applicable only for specific instances
+    Great network - 10 Gbps bandwidth between instances
+Spread
+    Limited to 7 instances per AZ per placement group
+Partition
+    Upto 7 partitions per AZ
+    Upto 100s of EC2 instances
+
+</code></pre>
+<h4 id="Shutdown-Behaviour-using-OS">
+<a class="anchor" href="#Shutdown-Behaviour-using-OS" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shutdown Behaviour using OS<a class="anchor-link" href="#Shutdown-Behaviour-using-OS"> </a>
+</h4>
+<pre><code>Terminate Protection
+    Only from CLI or Console
+    Can enable/disable it on running instances
+Shutdown Behaviour 
+    Stop
+    Terminate
+
+</code></pre>
+<h4 id="EC2-Launch-Troubleshooting">
+<a class="anchor" href="#EC2-Launch-Troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 Launch Troubleshooting<a class="anchor-link" href="#EC2-Launch-Troubleshooting"> </a>
+</h4>
+<pre><code>#InstanceLimitExceeded
+    Default Running vCPU limit in each region - 64
+#InsuffientInstanceCapacity
+    Try again after sometime
+#Instance Terminate Immediately
+    Reached EBS Volume Limit
+    EBS Snapshot is corrupt
+    Do not have permission to access KMS key for decryption
+    Instance store backed AMI is missing a required part
+
+</code></pre>
+<h4 id="EC2-SSH-Trouble">
+<a class="anchor" href="#EC2-SSH-Trouble" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 SSH Trouble<a class="anchor-link" href="#EC2-SSH-Trouble"> </a>
+</h4>
+<pre><code>Possible reason of timeout
+    Security Group
+    CPU load of the instance is high
+    Instance does not have public IP 
+
+</code></pre>
+<h4 id="Instance-Type">
+<a class="anchor" href="#Instance-Type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance Type<a class="anchor-link" href="#Instance-Type"> </a>
+</h4>
+<pre><code>On Demand
+    Linux/Windows - Pay for seconds, other - hour
+Dedicated hosts
+    Physical server with a ec2 instance capacity fully dedicated to you
+    Allocated for 3 year reservation
+    Useful for software that have complicated licensing model - BYOL
+EC2 Dedicated Instances
+    Instances running on hardware that's dedicated to you
+    May share hardware with other instances in same account
+    No control over instance placement
+</code></pre>
+<p><img src="/continuouslearning/images/copied_from_nb/DedicatedHosts.png" alt=""></p>
+<h4 id="Spot-Instances-&amp;-Spot-Fleet">
+<a class="anchor" href="#Spot-Instances-&amp;-Spot-Fleet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spot Instances &amp; Spot Fleet<a class="anchor-link" href="#Spot-Instances-&amp;-Spot-Fleet"> </a>
+</h4>
+<pre><code>Can choose to stop or terminate your instances within 2 minutes grace period
+First cancel the spot request then cancel the spot instances
+
+</code></pre>
+<h4 id="Instance-Type">
+<a class="anchor" href="#Instance-Type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance Type<a class="anchor-link" href="#Instance-Type"> </a>
+</h4>
+<pre><code>R - RAM
+C - Compute
+M - Medium - web app
+I - I/o - Database 
+G - GPU
+T2/T3 burstable instances
+T2/T3 unlimited burst
+
+</code></pre>
+<p><img src="/continuouslearning/images/copied_from_nb/InstanceType.png" alt=""></p>
+<h4 id="Elastic-IP">
+<a class="anchor" href="#Elastic-IP" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic IP<a class="anchor-link" href="#Elastic-IP"> </a>
+</h4>
+<pre><code>When you stop then start the instance - public ip changes
+Avoid using Elastic IP
+    Use a random public IP &amp; register a DNS name to it
+    Use a Load balancer with a static host name
+
+</code></pre>
+<h4 id="CloudWatch-metrics-for-EC2">
+<a class="anchor" href="#CloudWatch-metrics-for-EC2" aria-hidden="true"><span class="octicon octicon-link"></span></a>CloudWatch metrics for EC2<a class="anchor-link" href="#CloudWatch-metrics-for-EC2"> </a>
+</h4>
+<pre><code>AWS provided metric
+    CPU, Network, Disk(only for instance store) and Status Check Metric
+Custom Metrics
+    Basic resolution - 1 minute
+    High Resolution - 1 second
+    Include RAM, application level metrics      
+Status Check
+    Instance Status - Check the EC2 VM
+    System Status - Check the underlying hardware        
+
+</code></pre>
+<h4 id="Unified-CloudWatch-Agent">
+<a class="anchor" href="#Unified-CloudWatch-Agent" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unified CloudWatch Agent<a class="anchor-link" href="#Unified-CloudWatch-Agent"> </a>
+</h4>
+<pre><code>Push logs &amp; metrics to CloudWatch from EC2 or on-premise server
+procstat plugin
+    Collect metrics &amp; monitor system utilization of individual processes
+Download &amp; Install cloudwatch agent in instance
+Run config wizard
+Can put config file in parameter Store
+Can download config file in other ec2 instances
+
+</code></pre>
+<h4 id="EC2-Instances-Status-Check">
+<a class="anchor" href="#EC2-Instances-Status-Check" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 Instances Status Check<a class="anchor-link" href="#EC2-Instances-Status-Check"> </a>
+</h4>
+<pre><code>System Status Checks
+    Stop &amp; Start
+Instance Status Checks
+    Reboot
+CloudWatch Metrics
+    StatusChedkFailed_System
+    StatusCheckFailed_Instance
+    StatusCheckFailed(for both)
+Recovery
+    CloudWatch Alarm
+    Auto Scaling Group
+
+SYSTEM status checks
+    System status checks monitor the AWS systems on which your instance runs
+    Problem with the underlying host. Example: 
+        Loss of network connectivity
+        Loss of system power
+        Software issues on the physical host
+        Hardware issues on the physical host that impact network reachability
+
+    Either wait for AWS to fix the host, OR
+    Move the EC2 instance to a new host = STOP &amp; START the instance (if EBS backed)
+
+INSTANCE status checks
+    Instance status checks monitor the software and network configuration of your individual instance
+    Example of issues
+        Incorrect networking or startup configuration
+        Exhausted memory
+        Corrupted file system
+        Incompatible kernel
+
+    Requires your involvement to fix
+        Restart the EC2 instance, OR
+        Change the EC2 instance configuration     
+
+</code></pre>
+<h4 id="EC2-Hibernate">
+<a class="anchor" href="#EC2-Hibernate" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 Hibernate<a class="anchor-link" href="#EC2-Hibernate"> </a>
+</h4>
+<pre><code>Stop : Data on disk(EBS) is kept intact
+Terminate : Any EBS volumes(root) also setup to be destroyed is lost
+Hibernate : In-memory state(RAM) is preserved
+    Root EBS must be encrypted
+
+</code></pre>
+<h4 id="AMI">
+<a class="anchor" href="#AMI" aria-hidden="true"><span class="octicon octicon-link"></span></a>AMI<a class="anchor-link" href="#AMI"> </a>
+</h4>
+<pre><code>AMI built are for a specific region
+AMI are private by default - locked for your account/region
+Stored in S3
+
+AWS Backup Plans to Create AMI
+    To maintain Integrity you need to reboot parameter while taking images
+    EventBridge + Lambda + CreateImage API with reboot
+
+</code></pre>
+<h4 id="EC2-Image-Builder">
+<a class="anchor" href="#EC2-Image-Builder" aria-hidden="true"><span class="octicon octicon-link"></span></a>EC2 Image Builder<a class="anchor-link" href="#EC2-Image-Builder"> </a>
+</h4>
+<pre><code>Used to automate the creation of VM or container Image
+Can be run on schedule</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Systems-Manager-(SSM)-&amp;-Opswork">
+<a class="anchor" href="#Systems-Manager-(SSM)-&amp;-Opswork" aria-hidden="true"><span class="octicon octicon-link"></span></a>Systems Manager (SSM) &amp; Opswork<a class="anchor-link" href="#Systems-Manager-(SSM)-&amp;-Opswork"> </a>
+</h3>
+<pre><code>Helps you manage your EC2 &amp; on-premise systems at scale
+Get operation insight about the state of your infrastructure
+Easily detects problem
+Patching automation for enhanced compliance
+Integrated with CloudWatch metrics/dashboard
+Integrated with AWS Config
+
+Resource Group
+Operations Management
+    Explorer
+    Ops Center
+    CloudWatch Dashboard
+    PHD
+    Incident Manager
+Shared Resources
+    Documents
+Change Management
+    Change Manager
+    Automation(shut down EC2, create AMIs)
+    Change Calendar
+    Maintainance Windows
+Application Management
+    Application Manager
+    AppConfig
+    Parameter Store
+Node Management
+    Fleet Manager
+    Compliance
+    Inventory:Discover &amp; Audit software installed
+    Hybrid Activations
+    Session Manager
+    Run command
+    State Manager:Define &amp; maintaining configuration
+    Patch Manager
+    Distributer        
+
+</code></pre>
+<h4 id="How-SSM-Works">
+<a class="anchor" href="#How-SSM-Works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How SSM Works<a class="anchor-link" href="#How-SSM-Works"> </a>
+</h4>
+<pre><code>We need to install SSM Agents onto the systems we control
+Installed by default on Linux AMI &amp; some Ubuntu AMI
+If an instance can't be controlled with SSM, probbaly an issue wih SSM Agent
+Make sure that EC2 instance have proper IAM role to allow SSM actions
+
+</code></pre>
+<h4 id="Start-EC2-instances-with-SSM-Agent">
+<a class="anchor" href="#Start-EC2-instances-with-SSM-Agent" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start EC2 instances with SSM Agent<a class="anchor-link" href="#Start-EC2-instances-with-SSM-Agent"> </a>
+</h4>
+<pre><code>Just add IAM role which allow connections to SSM, it will start showing in SSM Manage Instances
+
+</code></pre>
+<h4 id="AWS-Tags-&amp;-SSM-Resource-Groups">
+<a class="anchor" href="#AWS-Tags-&amp;-SSM-Resource-Groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Tags &amp; SSM Resource Groups<a class="anchor-link" href="#AWS-Tags-&amp;-SSM-Resource-Groups"> </a>
+</h4>
+<pre><code>Create, view or manage logical group of resources thanks to tags
+Allow creation of logical group of resources such as 
+    Applications
+    Different layers of an application stack
+    Production vs development environments
+Regional Service
+Works with EC2,S3,DynamoDB,Lambda
+
+</code></pre>
+<h4 id="SSM-Documents-&amp;-SSM-Run-Command">
+<a class="anchor" href="#SSM-Documents-&amp;-SSM-Run-Command" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSM Documents &amp; SSM Run Command<a class="anchor-link" href="#SSM-Documents-&amp;-SSM-Run-Command"> </a>
+</h4>
+<pre><code>Documents
+    Can be in JSON or YAML
+    You define parameters
+    You define actions
+    Many documents already exist in AWS
+    Can be applied to
+        State Manager
+        Patch Manager
+        Automation
+        Run command
+        Reference Parameter Store
+
+Run Commands
+    Execute a document(script) or just run a command
+    Run command across multiple instance using resource groups
+    Rate Control/Error Control
+    Integrated with IAM &amp; CloudTrail
+    No need for SSH
+    Results in the console or S3 or cloudwatch
+
+</code></pre>
+<h4 id="SSM---Automation">
+<a class="anchor" href="#SSM---Automation" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSM - Automation<a class="anchor-link" href="#SSM---Automation"> </a>
+</h4>
+<pre><code>Simplify common maintenance &amp; deployment tasks of EC2 instances &amp; other AWS resources
+Example - Restart Instances, Create an AMI, EBS Snapshots
+Automation Runbook
+    SSM Documents of Type Automation
+    Define actions performed on your EC2 instances or AWS resources
+    Pre-defined runbooks or create custom runbooks
+Can be Triggered
+    AWS Console, CLI, SDK
+    Event Bridge
+    On a schedule using Maintenance Window
+    By AWS Config for rules remediation
+
+</code></pre>
+<h4 id="AWS-Parameter-Store">
+<a class="anchor" href="#AWS-Parameter-Store" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Parameter Store<a class="anchor-link" href="#AWS-Parameter-Store"> </a>
+</h4>
+<pre><code>Secure storage for configurations &amp; secret
+Optional seamless encryption using KMS
+Serverless, scalable, durable, easy SDK, free
+Version tracking of configurations/secrets
+Configurations management using path &amp; IAM
+Notifications with CloudWatch Events
+Integration with CloudFormation
+
+</code></pre>
+<h4 id="SSM-Inventory-&amp;-Patches">
+<a class="anchor" href="#SSM-Inventory-&amp;-Patches" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSM Inventory &amp; Patches<a class="anchor-link" href="#SSM-Inventory-&amp;-Patches"> </a>
+</h4>
+<pre><code>Inventory - List Software on an Instance
+Inventory + Run Command - Patch Software
+Patch Manager + Maintenance Window - Patch OS
+Patch Manager - Gives you Compliance
+State Manager - Ensures instance are in a consistence state(compliance)
+
+</code></pre>
+<h4 id="SSM-Secure-Shell">
+<a class="anchor" href="#SSM-Secure-Shell" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSM Secure Shell<a class="anchor-link" href="#SSM-Secure-Shell"> </a>
+</h4>
+<pre><code>Session Manager allows you to start a secure shell on your VM
+Does not use SSH access &amp; bastions hosts
+Only EC2 now
+Log actions done through secure shells to S3 &amp; CloudWatch Logs
+IAM Permission:Access SSM + Write to S3 + write to CloudWatch
+CloudTrail can intercept StartSession events
+AWS Secure Shell versus SSH
+    No need to open the port 22 at all anymore (Security)
+    No need for bastions hosts
+    All commands are logged to S3/CloudWatch (auditing)
+    Access to Secure Shell is done through User IAM,not SSH keys
+
+</code></pre>
+<h4 id="Opsworks">
+<a class="anchor" href="#Opsworks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opsworks<a class="anchor-link" href="#Opsworks"> </a>
+</h4>
+<pre><code>Chef or Puppet help you perform server configurations automatically or repetitive actions  </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="High-Availablity-&amp;-Scalability">
+<a class="anchor" href="#High-Availablity-&amp;-Scalability" aria-hidden="true"><span class="octicon octicon-link"></span></a>High Availablity &amp; Scalability<a class="anchor-link" href="#High-Availablity-&amp;-Scalability"> </a>
+</h3>
+<h4 id="Load-Balancer-Overview">
+<a class="anchor" href="#Load-Balancer-Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load Balancer Overview<a class="anchor-link" href="#Load-Balancer-Overview"> </a>
+</h4>
+<pre><code>Expose a single point of DNS to your application
+Seamlessly handle failure of downstream instances
+Do regulare health check to your instances
+Provide SSL Termination(HTTPS) for your websites -- CLB &amp; ALB
+Enforce stickiness with cookies
+Can setup private or public Load Balancer
+Load Balancer Errors 503 means at capacity or no registered target
+If LB can't connect to your application, check your Security Groups
+
+Types
+    Classic - 2009
+    Application - 2016
+    Network - 2017
+
+</code></pre>
+<h4 id="Application-Load-Balancer">
+<a class="anchor" href="#Application-Load-Balancer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Load Balancer<a class="anchor-link" href="#Application-Load-Balancer"> </a>
+</h4>
+<pre><code>ALB (Layer 7) allows to do:
+    Load balancing to multiple HTTP applications across machine(target groups)
+    Load balancing to multiple applications on the same machine(containers)
+    Load balancing based on route in URL
+    Load balancing based on hostname in URL
+
+Are used for microservices &amp; container based application (Docker &amp; Amazon ECS)
+Has a port mapping feature to redirect to a dynamic url
+
+Stickiness can be enables at the target group level
+    Same request goes to the same instance
+    Stickiness is diretly generated by the ALB
+
+ALB supports HTTP/HTTPS &amp; WebSockets protocols
+
+</code></pre>
+<h4 id="Network-Load-Balancer">
+<a class="anchor" href="#Network-Load-Balancer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network Load Balancer<a class="anchor-link" href="#Network-Load-Balancer"> </a>
+</h4>
+<pre><code>NLB (Layer 4) allows to do:
+    Forward TCP traffic to your instances
+    Handles million of requests per seconds
+    Support for static IP or elastic IP
+    Less latency ~ 100 ms (vs 400 ms for ALB)
+Can directly see the client IP
+
+</code></pre>
+<h4 id="Metrics,-Logging-&amp;-Tracing-for-ELB">
+<a class="anchor" href="#Metrics,-Logging-&amp;-Tracing-for-ELB" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metrics, Logging &amp; Tracing for ELB<a class="anchor-link" href="#Metrics,-Logging-&amp;-Tracing-for-ELB"> </a>
+</h4>
+<pre><code>All LB metrics are directly pushed to CloudWatch metrics
+    BackendConnectionErrors
+    HealthyHostCount / UnHealthyHostCount
+    HTTPCode_Backend_2XX:Successful Request
+    HTTPCode_Backend_3XX:Redirect Request
+    HTTPCode_ELB_4XX:Client Error
+    HTTPCode_ELB_5XX:Server Error
+    Latency
+    RequestCount
+    SurgeQueueLength
+    SpillOverLength
+Access Log can be stored in S3
+
+</code></pre>
+<h4 id="Auto-Scaling-Group">
+<a class="anchor" href="#Auto-Scaling-Group" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto Scaling Group<a class="anchor-link" href="#Auto-Scaling-Group"> </a>
+</h4>
+<pre><code>A launch configuration
+    AMI + Instance Type
+    EC2 User Data
+    EBS volumes
+    SG
+    SSH Key Pair
+Min Size/Max Size/Initial Capacity
+Network + Subnets Information
+Load Balancer Information
+Scaling Policies
+
+Auto Scaling Alarms
+    Cloudwatch alarms
+    EC2 managed rules
+    Custom metrics
+
+AZ Rebalance
+    Launch new instance then terminate old instance
+
+    If you suspend the Launch process
+        AZ won't launch instance 
+        AZ won't terminate instance 
+
+    If you suspend the Terminate process
+        AZ can grow upto 10% of its size
+        AZ will remian at this capacity since it can't terminate instance</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Elastic-Beanstalk">
+<a class="anchor" href="#Elastic-Beanstalk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elastic Beanstalk<a class="anchor-link" href="#Elastic-Beanstalk"> </a>
+</h3>
+<pre><code>Manged Service
+Architecture Models
+    Single Instance Deployment: Good for Dev
+    LB + ASG: Good for Prod or Non-Prod
+    ASG only: Good for non-web apps in production (workers,etc..)
+
+Three components
+    Application
+    Application version
+    Environment name</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
