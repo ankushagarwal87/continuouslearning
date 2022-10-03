@@ -1,0 +1,77 @@
+Cloud Journey 
+	1. Learn
+	2. Measure
+	3. Improve
+
+
+Design Principal
+	1. Stop guessing your capacity
+	2. Test system at production scale
+	3. Automate to make architecture experiment easier
+	4. Allow for evolutionary architect
+	5. Drive architecture using data
+	6. Improve through game day
+
+
+Intent of Well Architected Review
+	1. Not a review - Working together to improve
+	2. Not architecture astronaut - pragmatic  - proven advise
+	3. Not a one-time check - Throughout cycle
+
+
+Operational Excellence Design Principles
+	1. Perform Operations as code
+	2. Make frequent, small, reversible changes
+	3. Refine operation changes frequently 
+	4. Anticipate failures
+	5. Learn from all operational failure
+
+
+Reliability Design Principles
+	1. Automatically recover from failure
+	2. Test recovery procedures
+	3. Scale horizontally to increase aggregate workload availability
+	4. Stop guessing capacity 
+	5. Manage change in automation 
+
+Stateless Service enable automatic recovery 
+Auto Scaling 
+
+
+Security Design Principles
+	1. Implement a strong identity foundation 
+	2. Implement traceability
+	3. Apply security at all layers
+	4. Automate security best practices
+	5. Protect data in transit & at rest 
+		a. Amazon Macie
+		b. AWS KMS
+		c. AWS CloudHSM
+		d. AWS Certificate Manager
+		e. AWS Secrets Manager
+		f. AWS VPN
+		g. Server Side Encryption
+	6. Keep people away from data
+	7. Prepare for security events
+		a. Amazon Detective
+		b. CloudEndure Disaster Recovery
+		c. AWS Config Rules
+		d. Lambda
+
+
+Performance Efficiency Design Principles
+
+	1. Democratize advanced technologies
+	2. Go global in minutes
+	3. Use serverless architectures
+	4. Experiment more often
+	5. Consider mechanical sympathy
+		a. Use what is appropriate for a use case
+
+
+Cost Optimisation Design Principles
+	1. Practice Cloud Financial Management
+	2. Adopt a consumption model 
+	3. Measure overall efficiency
+	4. Stop spending on undifferentiated heavy lifting
+Analyse & attribute expenditure
