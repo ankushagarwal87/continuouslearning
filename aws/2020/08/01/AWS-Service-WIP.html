@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Services | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Services" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Services" />
+<meta property="og:description" content="Introduction to AWS Services" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"AWS Services","dateModified":"2020-08-01T00:00:00-05:00","datePublished":"2020-08-01T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Services","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Services | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Services" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Services" />
+<meta property="og:description" content="Introduction to AWS Services" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"AWS Services","dateModified":"2020-08-01T00:00:00-05:00","datePublished":"2020-08-01T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Services","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AWS Services</h1><p class="page-description">Introduction to AWS Services</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-01T00:00:00-05:00" itemprop="datePublished">
+        Aug 1, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Analytics">Analytics </a></li>
+<li class="toc-entry toc-h3"><a href="#Application-Integration">Application Integration </a></li>
+<li class="toc-entry toc-h3"><a href="#AR-&-VR">AR &amp; VR </a></li>
+<li class="toc-entry toc-h3"><a href="#AWS-Cost-Management">AWS Cost Management </a></li>
+<li class="toc-entry toc-h3"><a href="#BlockChain">BlockChain </a></li>
+<li class="toc-entry toc-h3"><a href="#Business-Applications">Business Applications </a></li>
+<li class="toc-entry toc-h3"><a href="#Compute">Compute </a></li>
+<li class="toc-entry toc-h3"><a href="#Containers">Containers </a></li>
+<li class="toc-entry toc-h3"><a href="#Customer-Engagement">Customer Engagement </a></li>
+<li class="toc-entry toc-h3"><a href="#Databases">Databases </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-08-01-AWS Service - WIP.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Analytics">
+<a class="anchor" href="#Analytics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analytics<a class="anchor-link" href="#Analytics"> </a>
+</h3>
+<pre><code>Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using 
+standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the 
+queries that you run.
+
+Amazon EMR is the industry-leading cloud big data platform for processing vast amounts of data using open
+source tools such as Apache Spark, Apache Hive, Apache HBase, Apache Flink, Apache Hudi, and Presto.
+
+Amazon Redshift - The most popular and fastest cloud data warehouse 
+
+AWS Data Pipeline is a web service that helps you reliably process and move data between different AWS 
+compute and storage services, as well as on-premises data sources, at specified intervals. With AWS Data
+Pipeline, you can regularly access your data where it’s stored, transform and process it at scale, and
+efficiently transfer the results to AWS services such as Amazon S3, Amazon RDS, Amazon DynamoDB, and
+Amazon EMR.
+
+Amazon CloudSearch is a managed service in the AWS Cloud that makes it simple and cost-effective to set 
+up, manage, and scale a search solution for your website or application.
+
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get 
+timely insights and react quickly to new information. 
+
+Amazon QuickSight is a fast, cloud-powered business intelligence service that makes it easy to deliver 
+insights to everyone in your organization.As a fully managed service, QuickSight lets you easily create 
+and publish interactive dashboards that include ML Insights. Dashboards can then be accessed from any 
+device, and embedded into your applications, portals, and websites.
+
+AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers 
+to prepare and load their data for analytics
+
+Amazon Elasticsearch Service is a fully managed service that makes it easy for you to deploy, secure, and 
+run Elasticsearch cost effectively at scale.With Amazon Elasticsearch Service, you get the ELK stack you 
+need, without the operational overhead.
+
+Amazon MSK is a fully managed service that makes it easy for you to build and run applications that use 
+Apache Kafka to process streaming data
+
+AWS Data Exchange makes it easy to find, subscribe to, and use third-party data in the cloud.
+
+AWS Lake Formation is a service that makes it easy to set up a secure data lake in days. A data lake is 
+a centralized, curated, and secured repository that stores all your data, both in its original form and
+prepared for analysis</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Application-Integration">
+<a class="anchor" href="#Application-Integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Integration<a class="anchor-link" href="#Application-Integration"> </a>
+</h3>
+<pre><code>AWS Step Functions is a serverless function orchestrator that makes it easy to sequence AWS Lambda 
+functions and multiple AWS services into business-critical applications
+
+Amazon AppFlow is a fully managed integration service that enables you to securely transfer data between
+Software-as-a-Service (SaaS) applications like Salesforce, Marketo, Slack, and ServiceNow, and AWS services
+like Amazon S3 and Amazon Redshift, in just a few clicks
+
+Amazon EventBridge is a serverless event bus that makes it easy to connect applications together using 
+data from your own applications, integrated Software-as-a-Service (SaaS) applications, and AWS services.
+
+Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate
+message brokers in the cloud.
+
+Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub
+messaging service that enables you to decouple microservices, distributed systems, and serverless 
+applications.
+
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple
+and scale microservices, distributed systems, and serverless applications. 
+
+AWS AppSync simplifies application development by letting you create a flexible API to securely access,
+manipulate, and combine data from one or more data sources. AppSync is a managed service that uses GraphQL 
+to make it easy for applications to get exactly the data they need.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="AR-&amp;-VR">
+<a class="anchor" href="#AR-&amp;-VR" aria-hidden="true"><span class="octicon octicon-link"></span></a>AR &amp; VR<a class="anchor-link" href="#AR-&amp;-VR"> </a>
+</h3>
+<pre><code> Amazon Sumerian - Easily create and run browser-based 3D, augmented reality (AR), and virtual reality 
+ (VR) applications.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="AWS-Cost-Management">
+<a class="anchor" href="#AWS-Cost-Management" aria-hidden="true"><span class="octicon octicon-link"></span></a>AWS Cost Management<a class="anchor-link" href="#AWS-Cost-Management"> </a>
+</h3>
+<pre><code>AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your 
+AWS costs and usage over time.
+
+AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed 
+(or are forecasted to exceed) your budgeted amount.
+
+The AWS Cost &amp; Usage Report contains the most comprehensive set of AWS cost and usage data available, 
+including additional metadata about AWS services, pricing, and reservations (e.g., Amazon EC2 Reserved
+Instances (RIs)).
+
+The Reserved Instance Utilization and Coverage reports are available out-of-the-box in AWS Cost Explorer.
+Using these reports, you can set custom RI utilization and coverage targets, visualize how well you are
+tracking towards your goals, and access information associated with your savings as compared to On-Demand
+prices
+
+Savings Plans is a flexible pricing model that provides savings of up to 72% on your AWS compute usage.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="BlockChain">
+<a class="anchor" href="#BlockChain" aria-hidden="true"><span class="octicon octicon-link"></span></a>BlockChain<a class="anchor-link" href="#BlockChain"> </a>
+</h3>
+<pre><code>Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable
+blockchain networks using the popular open source frameworks Hyperledger Fabric and Ethereum*.
+
+Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and 
+cryptographically verifiable transaction log</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Business-Applications">
+<a class="anchor" href="#Business-Applications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Business Applications<a class="anchor-link" href="#Business-Applications"> </a>
+</h3>
+<pre><code>Alexa for Business is a service that enables organizations and employees to use Alexa to get more work done
+
+Amazon Chime is a communications service that lets you meet, chat, and place business calls inside and 
+outside your organization, all using a single application
+
+Amazon WorkDocs is a fully managed, secure content creation, storage, and collaboration service. 
+With Amazon WorkDocs, you can easily create, edit, and share content, and because it’s stored centrally 
+on AWS, access it from anywhere on any device
+
+Amazon WorkMail is a secure, managed business email and calendar service with support for existing 
+desktop and mobile email client applications</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Compute">
+<a class="anchor" href="#Compute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compute<a class="anchor-link" href="#Compute"> </a>
+</h3>
+<pre><code>Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity 
+in the cloud
+
+Amazon EC2 Auto Scaling helps you maintain application availability and allows you to automatically add 
+or remove EC2 instances according to conditions you define
+
+Lightsail is an easy-to-use cloud platform that offers you everything needed to build an application
+or website, plus a cost-effective, monthly plan
+
+AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands
+of batch computing jobs on AWS
+
+AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services 
+developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker 
+
+AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time 
+you consume.
+
+AWS Outposts is a fully managed service that extends AWS infrastructure, AWS services, APIs, and tools 
+to virtually any datacenter, co-location space, or on-premises facility for a truly consistent hybrid
+experience
+
+The AWS Serverless Application Repository is a managed repository for serverless applications. It enables
+teams, organizations, and individual developers to store and share reusable applications, and easily 
+assemble and deploy serverless architectures in powerful new ways.
+
+AWS Snow Family provides edge infrastructure and software that moves data processing and analysis as close 
+as necessary to where data is created in order to deliver intelligent, real-time responsiveness and 
+streamline the amount of data transferred
+
+AWS Wavelength enables developers to build applications that deliver single-digit millisecond latencies 
+to mobile devices and end-users. 
+
+With VMware Cloud™ on AWS you can migrate datacenters to the cloud for rapid datacenter evacuation, 
+disaster recovery, and application modernization</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Containers">
+<a class="anchor" href="#Containers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Containers<a class="anchor-link" href="#Containers"> </a>
+</h3>
+<pre><code>AWS App2Container (A2C) is a command-line tool for modernizing .NET and Java applications into containerized
+applications. A2C analyzes and builds an inventory of all applications running in virtual machines, 
+on-premises or in the cloud. You simply select the application you want to containerize, and A2C packages 
+the application artifact and identified dependencies into container images, configures the network ports, 
+and generates the ECS task and Kubernetes pod definition.
+
+Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for
+developers to store, manage, and deploy Docker container images. Amazon ECR is integrated with Amazon 
+Elastic Container Service (ECS), simplifying your development to production workflow.
+
+Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service.
+
+Amazon Elastic Kubernetes Service (Amazon EKS) is a fully managed Kubernetes service
+
+AWS Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container 
+Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Fargate makes it easy for you to focus on 
+building your applications. Fargate removes the need to provision and manage servers, lets you specify and 
+pay for resources per application, and improves security through application isolation by design.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Customer-Engagement">
+<a class="anchor" href="#Customer-Engagement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customer Engagement<a class="anchor-link" href="#Customer-Engagement"> </a>
+</h3>
+<pre><code>Amazon Connect is an easy to use omnichannel cloud contact center that helps companies provide superior
+customer service at a lower cost.
+
+Amazon Pinpoint is a flexible and scalable outbound and inbound marketing communications service. You can
+connect with customers over channels like email, SMS, push, or voice. 
+
+Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable email service that enables
+developers to send mail from within any application
+
+Contact Lens for Amazon Connect is a set of machine learning (ML) capabilities integrated into Amazon 
+Connect.With Contact Lens for Amazon Connect, contact center supervisors can better understand the 
+sentiment,trends, and compliance of customer conversations to effectively train agents, replicate 
+successful interactions, and identify crucial company and product feedback.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Databases">
+<a class="anchor" href="#Databases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Databases<a class="anchor-link" href="#Databases"> </a>
+</h3>
+<pre><code>Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines 
+thenperformance and availability of traditional enterprise databases with the simplicity and 
+cost-effectiveness of open source databases.
+
+Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at 
+any scale. It's a fully managed, multiregion, multimaster, durable database with built-in security, backup 
+and restore, and in-memory caching for internet-scale applications. DynamoDB can handle more than 10 
+trillion requests per day and can support peaks of more than 20 million requests per second.
+
+Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly available, and fully managed
+document database service that supports MongoDB workloads. As a document database, Amazon DocumentDB makes 
+it easy to store, query, and index JSON data.
+
+Amazon ElastiCache allows you to seamlessly set up, run, and scale popular open-Source compatible in-memory
+data stores in the cloud. Build data-intensive apps or boost the performance of your existing databases by
+retrieving data from high throughput and low latency in-memory data stores.
+
+Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache 
+Cassandra–compatible database service. 
+
+Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and 
+run applications that work with highly connected datasets. 
+
+Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically
+verifiable transaction log ‎owned by a central trusted authority. Amazon QLDB can be used to track each and
+every application data change and maintains a complete and verifiable history of changes over time.
+
+Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational
+database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming
+administration tasks such as hardware provisioning, database setup, patching and backups.
+
+Amazon Relational Database Service (RDS) on VMware lets you deploy managed databases in on-premises VMware
+environments using the Amazon RDS technology enjoyed by hundreds of thousands of AWS customers.
+
+Redshift makes it simple and cost effective to run high performance queries on petabytes of structured data 
+so that you can build powerful reports and dashboards using your existing business intelligence tools.
+
+Amazon Timestream is a fast, scalable, fully managed time series database service for IoT and operational
+applications that makes it easy to store and analyze trillions of events per day at 1/10th the cost of
+relational databases
+
+AWS Database Migration Service helps you migrate databases to AWS quickly and securely. The source database
+remains fully operational during the migration, minimizing downtime to applications that rely on the 
+database.The AWS Database Migration Service can migrate your data to and from most widely used commercial 
+and open-source databases.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

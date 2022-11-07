@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html</loc>
+<lastmod>2020-04-26T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-3.-Getting-started-with-neural-networks.html</loc>
+<lastmod>2020-04-26T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/aws/2020/05/19/AWS-Certified-Solutions-Architect-Associate.html</loc>
 <lastmod>2020-05-19T00:00:00-05:00</lastmod>
 </url>
@@ -89,6 +97,14 @@
 <lastmod>2020-07-26T00:00:00-05:00</lastmod>
 </url>
 <url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/aws/2020/08/01/AWS-Service-WIP.html</loc>
+<lastmod>2020-08-01T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html</loc>
+<lastmod>2020-08-02T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/aws/security/2020/08/09/Security-on-AWS.html</loc>
 <lastmod>2020-08-09T00:00:00-05:00</lastmod>
 </url>
@@ -101,12 +117,24 @@
 <lastmod>2020-08-15T00:00:00-05:00</lastmod>
 </url>
 <url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/aws/developer/2020/10/11/Developer-Associate.html</loc>
+<lastmod>2020-10-11T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/aws/sysops/2021/03/11/SysOps-Associate-WIP.html</loc>
 <lastmod>2021-03-11T00:00:00-06:00</lastmod>
 </url>
 <url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html</loc>
+<lastmod>2021-03-27T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/aws/sap/2022/05/14/SAP-WIP.html</loc>
 <lastmod>2022-05-14T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html</loc>
+<lastmod>2022-11-06T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/about/</loc>
@@ -122,5 +150,8 @@
 </url>
 <url>
 <loc>https://ankushagarwal87.github.io/continuouslearning/page2/</loc>
+</url>
+<url>
+<loc>https://ankushagarwal87.github.io/continuouslearning/page3/</loc>
 </url>
 </urlset>

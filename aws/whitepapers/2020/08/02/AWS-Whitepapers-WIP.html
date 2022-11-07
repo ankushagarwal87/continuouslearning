@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Whitepapers | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Whitepapers" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Additional Key Services" />
+<meta property="og:description" content="Introduction to AWS Additional Key Services" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"AWS Whitepapers","dateModified":"2020-08-02T00:00:00-05:00","datePublished":"2020-08-02T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Additional Key Services","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS Whitepapers | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AWS Whitepapers" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction to AWS Additional Key Services" />
+<meta property="og:description" content="Introduction to AWS Additional Key Services" />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"AWS Whitepapers","dateModified":"2020-08-02T00:00:00-05:00","datePublished":"2020-08-02T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"Introduction to AWS Additional Key Services","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AWS Whitepapers</h1><p class="page-description">Introduction to AWS Additional Key Services</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-02T00:00:00-05:00" itemprop="datePublished">
+        Aug 2, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#whitepapers">whitepapers</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h3"><a href="#The-Pillars-of-the-AWS-Well-Architected-Framework">The Pillars of the AWS Well-Architected Framework </a></li>
+<li class="toc-entry toc-h3"><a href="#Overview">Overview </a></li>
+<li class="toc-entry toc-h3"><a href="#General-Design-Principles">General Design Principles </a></li>
+<li class="toc-entry toc-h3"><a href="#Operational-Excellence">Operational Excellence </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Design-Principles">Design Principles </a></li>
+<li class="toc-entry toc-h4"><a href="#Practice-Areas">Practice Areas </a></li>
+<li class="toc-entry toc-h4"><a href="#Organization">Organization </a></li>
+<li class="toc-entry toc-h4"><a href="#Operational-Excellence-Organization-Questions">Operational Excellence Organization Questions </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Security">Security </a></li>
+<li class="toc-entry toc-h3"><a href="#Reliability">Reliability </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-08-02-AWS Whitepapers - WIP.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h3>
+<pre><code>The process for reviewing an architecture is a constructive conversation about architectural decisions,
+and is not an audit mechanism. 
+We believe that having well-architected systems greatly increases the likelihood of business success.
+
+AWS also provides a service for reviewing your workloads at no charge. The AWS Well-Architected
+Tool (AWS WA Tool) is a service in the cloud that provides a consistent process for you to review and
+measure your architecture using the AWS Well-Architected Framework. The AWS WA Tool provides
+recommendations for making your workloads more reliable, secure, efficient, and cost-effective.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Pillars-of-the-AWS-Well-Architected-Framework">
+<a class="anchor" href="#The-Pillars-of-the-AWS-Well-Architected-Framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Pillars of the AWS Well-Architected Framework<a class="anchor-link" href="#The-Pillars-of-the-AWS-Well-Architected-Framework"> </a>
+</h3>
+<pre><code>Operational Excellence 
+    The ability to support development and run workloads effectively, gain insight into their operations,
+    and to continuously improve supporting processes and procedures to deliver business value.
+
+Security
+    The security pillar describes how to take advantage of cloud technologies to protect data, systems,
+    and assets in a way that can improve your security posture.
+
+Reliability
+    The reliability pillar encompasses the ability of a workload to perform its intended function
+    correctly and consistently when it’s expected to. This includes the ability to operate and test the
+    workload through its total lifecycle. This paper provides in-depth, best practice guidance for
+    implementing reliable workloads on AWS.
+
+Performance Efficiency
+    The ability to use computing resources efficiently to meet system requirements, and to maintain
+    that efficiency as demand changes and technologies evolve.
+
+Cost Optimization
+    The ability to run systems to deliver business value at the lowest price point.
+
+Sustainability
+    The ability to continually improve sustainability impacts by reducing energy consumption and 
+    increasing efficiency across all components of a workload by maximizing the benefits from the
+    provisioned resources and minimizing the total resources required.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Overview">
+<a class="anchor" href="#Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview<a class="anchor-link" href="#Overview"> </a>
+</h3>
+<pre><code>Technology architecture teams typically include a set of roles such as: Technical Architect 
+(infrastructure), Solutions Architect (software), Data Architect, Networking Architect, and 
+Security Architect
+
+At AWS, we prefer to distribute capabilities into teams rather than having a centralized team with that
+capability. There are risks when you choose to distribute decision making authority, for example, ensure 
+that teams are meeting internal standards. We mitigate these risks in two ways. First, we have practices 
+that focus on enabling each team to have that capability, and we put in place experts who ensure that teams
+raise the bar on the standards they need to meet. Second, we implement mechanisms that carry out automated
+checks to ensure standards are being met. </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="General-Design-Principles">
+<a class="anchor" href="#General-Design-Principles" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Design Principles<a class="anchor-link" href="#General-Design-Principles"> </a>
+</h3>
+<pre><code>Stop guessing your capacity needs: 
+    If you make a poor capacity decision when deploying a workload, you might end up sitting on expensive
+    idle resources or dealing with the performance implications of limited capacity. 
+    With cloud computing, these problems can go away. You can use as much or as little capacity as you 
+    need, and scale up and down automatically.
+
+Test systems at production scale: 
+    In the cloud, you can create a production-scale test environment on demand, complete your testing, 
+    and then decommission the resources. Because you only pay for the test environment when it's 
+    running, you can simulate your live environment for a fraction of the cost of testing on premises.
+
+Automate to make architectural experimentation easier: 
+    Automation allows you to create and replicate your workloads at low cost and avoid the expense 
+    of manual effort. You can track changes to your automation, audit the impact, and revert to previous
+    parameters when necessary.
+
+Allow for evolutionary architectures: 
+    In a traditional environment, architectural decisions are often implemented as static, onetime 
+    events, with a few major versions of a system during its lifetime. As a business and its context
+    continue to evolve, these initial decisions might hinder the system's ability to deliver changing
+    business requirements. In the cloud, the capability to automate and test on demand lowers the risk 
+    of impact from design changes. This allows systems to evolve over time so that 
+    businesses can take advantage of innovations as a standard practice.
+
+Drive architectures using data: 
+    In the cloud, you can collect data on how your architectural choices affect the behavior of your
+    workload. This lets you make fact-based decisions on how to improve your workload. 
+    Your cloud infrastructure is code, so you can use that data to inform your architecture choices and 
+    improvements over time.
+
+Improve through game days: 
+    Test how your architecture and processes perform by regularly scheduling game days to simulate 
+    events in production. This will help you understand where improvements can be made and can help
+    develop organizational experience in dealing with events.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Operational-Excellence">
+<a class="anchor" href="#Operational-Excellence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operational Excellence<a class="anchor-link" href="#Operational-Excellence"> </a>
+</h3>
+<pre><code>The Operational Excellence pillar includes the ability to support development and run workloads
+effectively, gain insight into their operations, and to continuously improve supporting processes 
+and procedures to deliver business value</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Design-Principles">
+<a class="anchor" href="#Design-Principles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design Principles<a class="anchor-link" href="#Design-Principles"> </a>
+</h4>
+<pre><code>Perform operations as code:
+     In the cloud, you can apply the same engineering discipline that you use for application code to 
+     your entire environment. You can define your entire workload (applications, infrastructure) as 
+     code and update it with code. You can implement your operations procedures as code and automate 
+     their execution by triggering them in response to events. By performing operations as code, you 
+     limit human error and enable consistent responses to events.
+
+Make frequent, small, reversible changes: 
+    Design workloads to allow components to be updated regularly. Make changes in small increments 
+    that can be reversed if they fail (without affecting customers when possible).
+
+Refine operations procedures frequently: 
+    As you use operations procedures, look for opportunities to improve them. As you evolve your 
+    workload, evolve your procedures appropriately. Set up regular game days to review and validate
+    that all procedures are effective and that teams are familiar with them.
+
+Anticipate failure: 
+    Perform “pre-mortem” exercises to identify potential sources of failure so that they can be 
+    removed or mitigated. Test your failure scenarios and validate your understanding of their 
+    impact. Test your response procedures to ensure that they are effective, and that teams are 
+    familiar with their execution. Set up regular game days to test workloads and team responses 
+    to simulated events.
+
+Learn from all operational failures: 
+    Drive improvement through lessons learned from all operational events and failures. 
+    Share what is learned across teams and through the entire organization.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Practice-Areas">
+<a class="anchor" href="#Practice-Areas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Practice Areas<a class="anchor-link" href="#Practice-Areas"> </a>
+</h4>
+<pre><code>• Organization
+• Prepare
+• Operate
+• Evolve</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Organization">
+<a class="anchor" href="#Organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organization<a class="anchor-link" href="#Organization"> </a>
+</h4>
+<pre><code>Evaluate threats to the business (for example, business risk and liabilities, and information security
+threats) and maintain this information in a risk registry. Evaluate the impact of risks, and tradeoffs
+between competing interests or alternative approaches. For example, accelerating speed to market for
+new features may be emphasized over cost optimization, or you may choose a relational database for
+non-relational data to simplify the effort to migrate a system without refactoring. 
+Manage benefits and risks to make informed decisions when determining where to focus efforts. 
+Some risks or choices may be acceptable for a time, it may be possible to mitigate associated risks,
+or it may become unacceptable to allow a risk to remain, in which case you will take action to 
+address the risk.
+
+Ensure that there are identified owners for each application, workload, platform, and infrastructure
+component, and that each process and procedure has an identified owner responsible for its definition,
+and owners responsible for their performance.
+
+They should be the sponsor, advocate, and driver for the adoption of best practices and evolution of 
+the organization.
+Teams must grow their skill sets to adopt new technologies, and to support changes in demand and
+responsibilities.
+
+The Well-Architected Framework emphasizes learning, measuring, and improving. 
+You should use tools or services that enable you to centrally govern your environments across accounts,
+such as AWS Organizations, to help manage your operating models. 
+
+Services like AWS Control Tower expand this management capability by enabling you to define blueprints
+(supporting your operating models) for the setup of accounts, apply ongoing governance using AWS
+Organizations, and automate provisioning of new accounts.
+
+AWS provides the AWS Well-Architected Tool to help you review your approach prior to development, the 
+state of your workloads prior to production,and the state of your workloads in production. You can 
+compare workloads to the lat-est AWS architectural best practices, monitor their overall status, and 
+gain insight in-to potential risks. AWS Trusted Advisor is a tool that provides access to a core set
+of checks that recommend optimizations that may help shape your priorities.         </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Operational-Excellence-Organization-Questions">
+<a class="anchor" href="#Operational-Excellence-Organization-Questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operational Excellence Organization Questions<a class="anchor-link" href="#Operational-Excellence-Organization-Questions"> </a>
+</h4>
+<pre><code>OPS 1:  How do you determine what your priorities are?
+    Everyone needs to understand their part in enabling business success. Have shared goals inorder to set
+    priorities for resources. This will maximize the benefits of your efforts.
+
+OPS 2:  How do you structure your organization to support your business outcomes?
+    Your teams must understand their part in achieving business outcomes. Teams need to understand 
+    their roles in the success of other teams, the role of other teams in their success,and have 
+    shared goals. Understanding responsibility, ownership, how decisions are made,and who has authority 
+    to make decisions will help focus efforts and maximize the benefits from your teams.
+
+OPS 3:  How does your organizational culture support your business outcomes?
+    Provide support for your team members so that they can be more effective in taking action and 
+    supporting your business outcome.
+
+    Organizational culture has a direct impact on team member job satisfaction and re-tention. Enable 
+    the engagement and capabilities of your team members to enable the success of your business. 
+    Experimentation is required for innovation to happen and turn ideas into outcomes. Recognize that an 
+    undesired result is a successful experiment that has identified a path that will not lead to success.
+
+Prepare
+    Design your workload so that it provides the information necessary for you to under-stand its 
+    internal state (for example, metrics, logs, events, and traces)
+    Iterate to develop element necessary to monitor the health of your workload
+    Adopt approaches that provide fast feedback on quality and enable rapid recoveryfrom changes that 
+    do not have desired outcomes. 
+
+    AWS enables you to view your entire workload (applications, infrastructure, policy,governance,
+    and operations) as code.
+    Using AWS CloudFor-mation enables you to have consistent, templated, sandbox development, test,
+    and production environments with increasing levels of operations control.
+
+OPS 4:  How do you design your workload so that you can understand its state?
+Design your workload so that it provides the information necessary across all components(for example, 
+metrics, logs, and traces) for you to understand its internal state. This enablesyou to provide effective
+responses when appropriate.
+
+OPS 5:  How do you reduce defects, ease remediation, and improve flow into production?
+Adopt approaches that improve flow of changes into production, that enable refactoring,fast feedback on
+quality, and bug fixing. These accelerate beneficial changes entering pro-duction, limit issues deployed, 
+and enable rapid identification and remediation of issues in-troduced through deployment activities.
+
+OPS 6:  How do you mitigate deployment risks?
+Adopt approaches that provide fast feedback on quality and enable rapid recovery fromchanges that do not 
+have desired outcomes. Using these practices mitigates the impact of is-sues introduced through the 
+deployment of changes.
+
+OPS 7:  How do you know that you are ready to support a workload?
+Evaluate the operational readiness of your workload, processes and procedures, and personnel to understand 
+the operational risks related to your workload.
+
+Operate
+    Define expected outcomes, determine how success will be measured, and identify metrics that will be 
+    used in those calculations to determine if your workload and operations are successful
+
+    Operational health includes both the health of the workload and the health and success of the 
+    operations activities performed insupport of the workload (for example, deployment and incident 
+    response). Establish metrics baselines for improvement, investigation, and intervention, collect and 
+    analyze your metrics, and then validate your understanding of operations success and how it changes 
+    over time. 
+
+    You can leverage CloudWatch or third-party applications to aggregate and present business, workload, 
+    and operations level views of operations activities. AWS provides workload insights through logging
+    capabilities including AWS X-Ray, CloudWatch, CloudTrail, and VPC Flow Logs enabling the identification
+    of workload issues in support of root cause analysis and remediation.
+
+OPS 8:  How do you understand the health of your workload?
+Define, capture, and analyze workload metrics to gain visibility to workload events so that you can take
+appropriate action.
+
+OPS 9:  How do you understand the health of your operations?
+Define, capture, and analyze operations metrics to gain visibility to operations events so that you can 
+take appropriate action.
+
+OPS 10:  How do you manage workload and operations events?
+Prepare and validate procedures for responding to events to minimize their disruption to your workload.
+
+Evolve
+    On AWS, you can export your log data to Amazon S3 or send logs directly to Amazon S3 for long-term 
+    storage. Using AWS Glue, you can discover and prepare your log data in Amazon S3 for analytics, and 
+    store associated metadata in the AWS Glue Data Catalog. Amazon Athena, through its native integration 
+    with AWS Glue, can then be used to analyze your log data, querying it using standard SQL. Using a 
+    business intelligence tool like Amazon QuickSight, you can visualize, explore, and analyze your data.
+    Discovering trends and events of interest that may drive improvement.  
+
+OPS 11:  How do you evolve operations?
+Dedicate time and resources for continuous incremental improvement to evolve the effectiveness and 
+efficiency of your operations</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Security">
+<a class="anchor" href="#Security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security<a class="anchor-link" href="#Security"> </a>
+</h3>
+<pre><code>Design Principles
+    Implement a strong identity foundation
+    Enable traceability
+    Apply security at all layers
+    Automate security best practices
+    Protect data in transit and at rest
+    Keep people away from data
+    Prepare for security events
+
+Security
+    SEC 1:  How do you securely operate your workload?
+    To operate your workload securely, you must apply overarching best practices to every area of security. 
+    Take requirements and processes that you have defined in operational excellenceat an organizational and
+    workload level, and apply them to all areas. Staying up to date with AWS and industry recommendations 
+    and threat intelligence helps you evolve your threat model and control objectives. Automating 
+    security processes, testing, and validation allow you to scale your security operations.
+
+Identity and Access Management
+    SEC 2:  How do you manage identities for people and machines?
+    There are two types of identities you need to manage when approaching operating secure AWS workloads.
+    Understanding the type of identity you need to manage and grant access helps you ensure the right
+    identities have access to the right resources under the right conditions. 
+    Human Identities: Your administrators, developers, operators, and end users require an identity to 
+    access your AWS environments and applications. These are members of your organization, or external 
+    users with whom you collaborate, and who interact with your AWS resources via a web browser, client
+    application, or interactive command-line tools. 
+    Machine Identities: Your service applications, operational tools, and workloads require an identity 
+    to make requests to AWS services - for example, to read data. These identities include machines 
+    running in your AWS environment such as Amazon EC2 instances or AWS Lambda functions.You may also 
+    manage machine identities for external parties who need access. Additionally,you may also have machines
+    outside of AWS that need access to your AWS environment.
+
+    SEC 3:  How do you manage permissions for people and machines?
+    Manage permissions to control access to people and machine identities that require access to AWS and 
+    your workload. Permissions control who can access what, and under what conditions.
+
+    Programmatic access including API calls to AWS services should be performed using temporary and 
+    limited-privilege credentials such as those issued by the AWS Security Token Service.
+
+Detection
+    CloudTrail logs,AWS API calls, and CloudWatch provide monitoring of metrics with alarming, and AWS 
+    Config provides configuration history. Amazon GuardDuty is a managed threat detection service that
+    continuously monitors for malicious or unauthorized behavior to help you protect your AWS accounts 
+    and workloads. Service-level logs are also available, for example, you can use Amazon Simple Storage
+    Service (Amazon S3) to log access requests.
+
+    SEC 4:  How do you detect and investigate security events?
+    Capture and analyze events from logs and metrics to gain visibility. Take action on security events 
+    and potential threats to help secure your workload.
+
+Infrastructure Protection
+    SEC 5:  How do you protect your network resources?
+    Any workload that has some form of network connectivity, whether it’s the internet or a private network,
+    requires multiple layers of defense to help protect from external and internal network-based threats.
+
+    SEC 6:  How do you protect your compute resources?
+    Compute resources in your workload require multiple layers of defense to help protect from
+    external and internal threats. Compute resources include EC2 instances, containers, AWS Lambda 
+    functions,database services, IoT devices, and more.
+
+Data Protection
+    SEC 7:  How do you classify your data?
+    Classification provides a way to categorize data, based on criticality and sensitivity in orderto help 
+    you determine appropriate protection and retention controls.
+
+    SEC 8:  How do you protect your data at rest
+    Protect your data at rest by implementing multiple controls, to reduce the risk of unauthorized access
+    or mishandling.
+
+    SEC 9:  How do you protect your data in transit?
+    Protect your data in transit by implementing multiple controls to reduce the risk of unauthorized 
+    access or loss.
+
+Incident Response
+    SEC 10:  How do you anticipate, respond to, and recover from incidents?
+    Preparation is critical to timely and effective investigation, response to, and recovery from 
+    security incidents to help minimize disruption to your organization.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reliability">
+<a class="anchor" href="#Reliability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reliability<a class="anchor-link" href="#Reliability"> </a>
+</h3>
+<pre><code>Design Principles
+    Automatically recover from failure
+    Test recovery procedures
+    Scale horizontally to increase aggregate workload availability
+    Stop guessing capacity
+    Manage change in automation
+
+Foundations</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/aws/whitepapers/2020/08/02/AWS-Whitepapers-WIP.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

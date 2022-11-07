@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-26T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Title","dateModified":"2020-04-26T00:00:00-05:00","datePublished":"2020-04-26T00:00:00-05:00","description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-26T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Title","dateModified":"2020-04-26T00:00:00-05:00","datePublished":"2020-04-26T00:00:00-05:00","description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-26T00:00:00-05:00" itemprop="datePublished">
+        Apr 26, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-04-26-Chapter 2. Before we begin the mathematical building blocks of neural networks.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.1.-A-first-look-at-a-neural-network">2.1. A first look at a neural network<a class="anchor-link" href="#2.1.-A-first-look-at-a-neural-network"> </a></h3><h4 id="Loading-the-MNIST-dataset-in-Keras">Loading the MNIST dataset in Keras<a class="anchor-link" href="#Loading-the-MNIST-dataset-in-Keras"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Using TensorFlow backend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Downloading data from https://s3.amazonaws.com/img-datasets/mnist.npz
+11493376/11490434 [==============================] - 99s 9us/step
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-network-architecture">The network architecture<a class="anchor-link" href="#The-network-architecture"> </a></h4>
+<pre><code>The core building block of neural networks is the layer, a data-processing module that you can think of as a filter for data. Some data goes in, and it comes out in a more useful form. Specifically, layers extract representations out of the data fed into them—hopefully, representations that are more meaningful for the problem at hand. Most of deep learning consists of chaining together simple layers that will implement a form of progressive data distillation. A deep-learning model is like a sieve for data processing, made of a succession of increasingly refined data filters—the layers.</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">network</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,)))</span>
+<span class="n">network</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-compilation-step">The compilation step<a class="anchor-link" href="#The-compilation-step"> </a></h4>
+<pre><code>To make the network ready for training, we need to pick three more things, as part of the compilation step
+</code></pre>
+<h5 id="A-loss-function">A loss function<a class="anchor-link" href="#A-loss-function"> </a></h5>
+<pre><code>How the network will be able to measure its performance on the training data, and thus how it will be able to steer itself in the right direction.
+</code></pre>
+<h5 id="An-optimizer">An optimizer<a class="anchor-link" href="#An-optimizer"> </a></h5>
+<pre><code>The mechanism through which the network will update itself based on the data it sees and its loss function.
+</code></pre>
+<h5 id="Metrics">Metrics<a class="anchor-link" href="#Metrics"> </a></h5>
+<pre><code>To monitor during training and testing— Here, we’ll only care about accuracy (the fraction of the images that were correctly classified).</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">network</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+                <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Preparing-the-image-data">Preparing the image data<a class="anchor-link" href="#Preparing-the-image-data"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Preparing-the-labels">Preparing the labels<a class="anchor-link" href="#Preparing-the-labels"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="n">train_labels</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+<span class="n">test_labels</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">network</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+60000/60000 [==============================] - 8s 133us/step - loss: 0.2559 - acc: 0.9253
+Epoch 2/5
+60000/60000 [==============================] - 7s 125us/step - loss: 0.1024 - acc: 0.9698
+Epoch 3/5
+60000/60000 [==============================] - 8s 126us/step - loss: 0.0677 - acc: 0.9797
+Epoch 4/5
+60000/60000 [==============================] - 7s 122us/step - loss: 0.0485 - acc: 0.9856
+Epoch 5/5
+60000/60000 [==============================] - 7s 123us/step - loss: 0.0363 - acc: 0.9890
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fa3724570f0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_acc:&#39;</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10000/10000 [==============================] - 1s 79us/step
+test_acc: 0.9813
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.2.-Data-representations-for-neural-networks">2.2. Data representations for neural networks<a class="anchor-link" href="#2.2.-Data-representations-for-neural-networks"> </a></h3><h4 id="2.2.1.-Scalars-(0D-tensors)">2.2.1. Scalars (0D tensors)<a class="anchor-link" href="#2.2.1.-Scalars-(0D-tensors)"> </a></h4><h4 id="2.2.2.-Vectors-(1D-tensors)">2.2.2. Vectors (1D tensors)<a class="anchor-link" href="#2.2.2.-Vectors-(1D-tensors)"> </a></h4><h4 id="2.2.3.-Matrices-(2D-tensors)">2.2.3. Matrices (2D tensors)<a class="anchor-link" href="#2.2.3.-Matrices-(2D-tensors)"> </a></h4><h4 id="2.2.4.-3D-tensors-and-higher-dimensional-tensors">2.2.4. 3D tensors and higher-dimensional tensors<a class="anchor-link" href="#2.2.4.-3D-tensors-and-higher-dimensional-tensors"> </a></h4><h4 id="2.2.5.-Key-attributes">2.2.5. Key attributes<a class="anchor-link" href="#2.2.5.-Key-attributes"> </a></h4>
+<pre><code>Number of axes (rank)
+Shape
+Data type</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_images</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_images</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+(60000, 784)
+float32
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2.2.6.-Manipulating-tensors-in-Numpy">2.2.6. Manipulating tensors in Numpy<a class="anchor-link" href="#2.2.6.-Manipulating-tensors-in-Numpy"> </a></h4><h4 id="2.2.7.-The-notion-of-data-batches">2.2.7. The notion of data batches<a class="anchor-link" href="#2.2.7.-The-notion-of-data-batches"> </a></h4><h4 id="2.2.8.-Real-world-examples-of-data-tensors">2.2.8. Real-world examples of data tensors<a class="anchor-link" href="#2.2.8.-Real-world-examples-of-data-tensors"> </a></h4>
+<pre><code>Vector data— 2D tensors of shape (samples, features)
+Timeseries data or sequence data— 3D tensors of shape (samples, timesteps, features)
+Images— 4D tensors of shape (samples, height, width, channels) or (samples, channels, height, width)
+Video— 5D tensors of shape (samples, frames, height, width, channels) or (samples, frames, channels, height, width)
+
+</code></pre>
+<h4 id="2.2.9.-Vector-data">2.2.9. Vector data<a class="anchor-link" href="#2.2.9.-Vector-data"> </a></h4><h4 id="2.2.10.-Timeseries-data-or-sequence-data">2.2.10. Timeseries data or sequence data<a class="anchor-link" href="#2.2.10.-Timeseries-data-or-sequence-data"> </a></h4><h4 id="2.2.11.-Image-data">2.2.11. Image data<a class="anchor-link" href="#2.2.11.-Image-data"> </a></h4><h4 id="2.2.12.-Video-data">2.2.12. Video data<a class="anchor-link" href="#2.2.12.-Video-data"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.-The-gears-of-neural-networks:-tensor-operations">2.3. The gears of neural networks: tensor operations<a class="anchor-link" href="#2.3.-The-gears-of-neural-networks:-tensor-operations"> </a></h3><h4 id="2.3.1.-Element-wise-operations">2.3.1. Element-wise operations<a class="anchor-link" href="#2.3.1.-Element-wise-operations"> </a></h4><h4 id="2.3.2.-Broadcasting">2.3.2. Broadcasting<a class="anchor-link" href="#2.3.2.-Broadcasting"> </a></h4><h4 id="2.3.3.-Tensor-dot">2.3.3. Tensor dot<a class="anchor-link" href="#2.3.3.-Tensor-dot"> </a></h4><h4 id="2.3.4.-Tensor-reshaping">2.3.4. Tensor reshaping<a class="anchor-link" href="#2.3.4.-Tensor-reshaping"> </a></h4><h4 id="2.3.5.-Geometric-interpretation-of-tensor-operations">2.3.5. Geometric interpretation of tensor operations<a class="anchor-link" href="#2.3.5.-Geometric-interpretation-of-tensor-operations"> </a></h4><h4 id="2.3.6.-A-geometric-interpretation-of-deep-learning">2.3.6. A geometric interpretation of deep learning<a class="anchor-link" href="#2.3.6.-A-geometric-interpretation-of-deep-learning"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.-The-engine-of-neural-networks:-gradient-based-optimization">2.4. The engine of neural networks: gradient-based optimization<a class="anchor-link" href="#2.4.-The-engine-of-neural-networks:-gradient-based-optimization"> </a></h3>
+<pre><code>Draw a batch of training samples x and corresponding targets y.
+Run the network on x (a step called the forward pass) to obtain predictions y_pred.
+Compute the loss of the network on the batch, a measure of the mismatch between y_pred and y.
+Update all weights of the network in a way that slightly reduces the loss on this batch.
+
+</code></pre>
+<h4 id="2.4.1.-What&#8217;s-a-derivative?">2.4.1. What&#8217;s a derivative?<a class="anchor-link" href="#2.4.1.-What&#8217;s-a-derivative?"> </a></h4>
+<pre><code>Consider a continuous, smooth function f(x) = y, mapping a real number x to a new real number y. Because the function is continuous, a small change in x can only result in a small change in y—that’s the intuition behind continuity. Let’s say you increase x by a small factor epsilon_x: this results in a small epsilon_y change to y:
+f(x + epsilon_x) = y + epsilon_y
+
+because the function is smooth (its curve doesn’t have any abrupt angles), when epsilon_x is small enough, around a certain point p, it’s possible to approximate f as a linear function of slope a, so that epsilon_y becomes a * epsilon_x:
+f(x + epsilon_x) = y + a * epsilon_x
+
+The slope a is called the derivative of f in p. If a is negative, it means a small change of x around p will result in a decrease of f(x) (as shown in figure 2.10); and if a is positive, a small change in x will result in an increase of f(x). Further, the absolute value of a (the magnitude of the derivative) tells you how quickly this increase or decrease will happen.
+
+</code></pre>
+<h4 id="2.4.2.-Derivative-of-a-tensor-operation:-the-gradient">2.4.2. Derivative of a tensor operation: the gradient<a class="anchor-link" href="#2.4.2.-Derivative-of-a-tensor-operation:-the-gradient"> </a></h4>
+<pre><code>A gradient is the derivative of a tensor operation. It’s the generalization of the concept of derivatives to functions of multidimensional inputs: that is, to functions that take tensors as inputs.
+
+y_pred = dot(W, x)
+loss_value = loss(y_pred, y)
+loss_value = f(W)
+
+Let’s say the current value of W is W0. Then the derivative of f in the point W0 is a tensor gradient(f)(W0) with the same shape as W, where each coefficient gradient(f) (W0)[i, j] indicates the direction and magnitude of the change in loss_value you observe when modifying W0[i, j]. That tensor gradient(f)(W0) is the gradient of the function f(W) = loss_value in W0.
+
+You saw earlier that the derivative of a function f(x) of a single coefficient can be interpreted as the slope of the curve of f. Likewise, gradient(f)(W0) can be interpreted as the tensor describing the curvature of f(W) around W0.
+
+For this reason, in much the same way that, for a function f(x), you can reduce the value of f(x) by moving x a little in the opposite direction from the derivative, with a function f(W) of a tensor, you can reduce f(W) by moving W in the opposite direction from the gradient: for example, W1 = W0 - step * gradient(f)(W0) (where step is a small scaling factor). That means going against the curvature, which intuitively should put you lower on the curve. Note that the scaling factor step is needed because gradient(f)(W0) only approximates the curvature when you’re close to W0, so you don’t want to get too far from W0.
+
+</code></pre>
+<h4 id="2.4.3.-Stochastic-gradient-descent">2.4.3. Stochastic gradient descent<a class="anchor-link" href="#2.4.3.-Stochastic-gradient-descent"> </a></h4>
+<pre><code>Draw a batch of training samples x and corresponding targets y.
+Run the network on x to obtain predictions y_pred.
+Compute the loss of the network on the batch, a measure of the mismatch between y_pred and y.
+Compute the gradient of the loss with regard to the network’s parameters (a backward pass).
+Move the parameters a little in the opposite direction from the gradient—for example W = step * gradient—thus reducing the loss on the batch a bit.
+
+The term stochastic refers to the fact that each batch of data is drawn at random (stochastic is a scientific synonym of random)
+
+Additionally, there exist multiple variants of SGD that differ by taking into account previous weight updates when computing the next weight update, rather than just looking at the current value of the gradients. There is, for instance, SGD with momentum, as well as Adagrad, RMSProp, and several others. Such variants are known as optimization methods or optimizers. In particular, the concept of momentum, which is used in many of these variants, deserves your attention. Momentum addresses two issues with SGD: convergence speed and local minima
+
+As you can see, around a certain parameter value, there is a local minimum: around that point, moving left would result in the loss increasing, but so would moving right. If the parameter under consideration were being optimized via SGD with a small learning rate, then the optimization process would get stuck at the local minimum instead of making its way to the global minimum.
+
+You can avoid such issues by using momentum, which draws inspiration from physics. A useful mental image here is to think of the optimization process as a small ball rolling down the loss curve. If it has enough momentum, the ball won’t get stuck in a ravine and will end up at the global minimum. Momentum is implemented by moving the ball at each step based not only on the current slope value (current acceleration) but also on the current velocity (resulting from past acceleration). In practice, this means updating the parameter w based not only on the current gradient value but also on the previous parameter update, such as in this naive implementation:
+
+</code></pre>
+<h4 id="2.4.4.-Chaining-derivatives:-the-Backpropagation-algorithm">2.4.4. Chaining derivatives: the Backpropagation algorithm<a class="anchor-link" href="#2.4.4.-Chaining-derivatives:-the-Backpropagation-algorithm"> </a></h4><h4 id="2.5.-Looking-back-at-our-first-example">2.5. Looking back at our first example<a class="anchor-link" href="#2.5.-Looking-back-at-our-first-example"> </a></h4>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/continuouslearning/2020/04/26/Chapter-2.-Before-we-begin-the-mathematical-building-blocks-of-neural-networks.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Java Interview Question | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Java Interview Question" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-27T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Java Interview Question","dateModified":"2021-03-27T00:00:00-05:00","datePublished":"2021-03-27T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Java Interview Question | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Java Interview Question" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-27T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Java Interview Question","dateModified":"2021-03-27T00:00:00-05:00","datePublished":"2021-03-27T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Java Interview Question</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-27T00:00:00-05:00" itemprop="datePublished">
+        Mar 27, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      18 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#interview">interview</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Topics">Topics </a></li>
+<li class="toc-entry toc-h3"><a href="#Association,-Composition-and-Aggregation-in-Java">Association, Composition and Aggregation in Java </a></li>
+<li class="toc-entry toc-h3"><a href="#Abstract-class-and-Interface.">Abstract class and Interface. </a></li>
+<li class="toc-entry toc-h3"><a href="#ArrayList-and-LinkedList">ArrayList and LinkedList </a></li>
+<li class="toc-entry toc-h3"><a href="#I-want-to-implement-cache-storage-which-datastructure-you-will-prefer">I want to implement cache storage which datastructure you will prefer </a></li>
+<li class="toc-entry toc-h3"><a href="#Synchronized-Hashmap-and-ConcurrentHashMap">Synchronized Hashmap and ConcurrentHashMap </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-27-Interview Question - Congnizant.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Topics">
+<a class="anchor" href="#Topics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topics<a class="anchor-link" href="#Topics"> </a>
+</h3>
+<pre><code>OOPS
+Core Java 
+    JVM
+    Collection
+    Generics
+    Concurrency
+    Synchronised
+    Serializable
+    Sticky
+    Inner Class
+    Beans
+    Exception
+Webservice 
+    SOAP
+    REST
+EE
+    Spring
+    Microservices
+Java 8
+    Lambda
+    Streams
+DB Framework
+    Hibernate
+    JDBC
+Messaging Framework
+    JMS
+    Camel
+Version Control
+    Git
+Build
+    Maven
+    Packaging
+Deployment
+    Jenkins
+    Bamboo
+Scan
+    Sonar
+    Fortify
+    Whitesource
+Automation
+    Selenium
+    Cucumber
+Junit
+    Mockito
+Code Coverage
+    Jacoco
+Logging
+    Different framework
+    Kibana
+    ELK
+Design Pattern
+Security</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Association,-Composition-and-Aggregation-in-Java">
+<a class="anchor" href="#Association,-Composition-and-Aggregation-in-Java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Association, Composition and Aggregation in Java<a class="anchor-link" href="#Association,-Composition-and-Aggregation-in-Java"> </a>
+</h3>
+<pre><code>Different type of association
+Difference between Composition &amp; Aggregation
+When to use Composition or Aggregation
+How to create Composition
+Dept - Students --- Aggregation
+Building -- Rooms --- Composition
+- I have three classes A, B, and C and i want to access methods of A and B class into C class and you have below option which one you will prefer.
+  a. Aggregation   ---ideally this but also depends on relationship &amp; lifecycle
+  b. Composition   ---
+  c. Inheritance   ---variable not needed so should not use it
+
+
+https://www.geeksforgeeks.org/association-composition-aggregation-java/
+In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association.
+Association is relation between two separate classes which establishes through their Objects. 
+Association can be one-to-one, one-to-many, many-to-one, many-to-many.
+
+    Dependency: Aggregation implies a relationship where the child can exist independently of the parent. For example, Bank and Employee, delete the Bank and the Employee still exist. whereas Composition implies a relationship where the child cannot exist independent of the parent. Example: Human and heart, heart don’t exist separate to a Human
+Type of Relationship: Aggregation relation is “has-a” and composition is “part-of” relation.
+Type of association: Composition is a strong Association whereas Aggregation is a weak Association.
+
+https://www.baeldung.com/java-composition-aggregation-association
+Composition is a “belongs-to” type of relationship. It means that one of the objects is a logically larger     structure, which contains the other object. In other words, it's part or member of the other object.
+Alternatively, we often call it a “has-a” relationship (as opposed to an “is-a” relationship, which is inheritance).
+
+Aggregation is also a “has-a” relationship. What distinguishes it from composition, that it doesn't involve owning. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
+
+https://howtodoinjava.com/java/oops/association-aggregation-composition/
+We call association those relationships whose objects have an independent lifecycle and where there is no ownership between the objects.
+
+https://stackoverflow.com/questions/11881552/implementation-difference-between-aggregation-and-composition-in-java
+In the case of composition, the Engine is completely encapsulated by the Car. There is no way for the outside world to get a reference to the Engine. The Engine lives and dies with the car. With aggregation, the Car also performs its functions through an Engine, but the Engine is not always an internal part of the Car. Engines may be swapped, or even completely removed. Not only that, but the outside world can still have a reference to the Engine, and tinker with it regardless of whether it's in the Car. 
+
+For Composition it is necessary that the dependent object is always created with the identity of its associated object. You can use an inner class for the same.
+
+https://javarevisited.blogspot.com/2014/02/ifference-between-association-vs-composition-vs-aggregation.html#axzz6q96CC4zv
+The composition is stronger than Aggregation.  In Short, a relationship between two objects is referred to as an association, and an association is known as composition when one object owns another while an association is known as aggregation when one object uses another object.
+
+Read more: https://javarevisited.blogspot.com/2014/02/ifference-between-association-vs-composition-vs-aggregation.html#ixzz6q9S2LNNc</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Abstract-class-and-Interface.">
+<a class="anchor" href="#Abstract-class-and-Interface." aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract class and Interface.<a class="anchor-link" href="#Abstract-class-and-Interface."> </a>
+</h3>
+<pre><code>Difference between Abstract class and Interface in Java 8
+Why constructor in Abstract class if it can't be instantiated
+Why difference in Interface was being done in Java 8
+when to use abstract class and interface
+
+Read more: https://www.java67.com/2017/08/difference-between-abstract-class-and-interface-in-java8.html#ixzz6qF6pGuYn
+Ever since JDK 8 has allowed concrete (non-abstract) methods on the interface like default and static methods, many of my readers have asked me how should they answer the classical abstract class vs interface questions. Earlier, an interface cannot have any concrete methods and that was the main difference between abstract class and interface but now that is not the case.
+
+the main difference between an abstract class and interface in Java 8 is the fact that an abstract class is a class and an interface is an interface. A class can have a state which can be modified by non-abstract methods but an interface cannot have the state because they can't have instance variables.
+
+The second difference is that an interface cannot have a constructor even in Java 8 but you may remember that abstract class can also have a constructor in Java.
+
+https://www.journaldev.com/1607/difference-between-abstract-class-and-interface-in-java
+Interface or Abstract Class
+
+Whether to choose between Interface or abstract class for providing a contract for subclasses is a design decision and depends on many factors. Let’s see when Interfaces are the best choice and when can we use abstract classes.
+
+Java doesn’t support multiple class level inheritance, so every class can extend only one superclass. But a class can implement multiple interfaces. So most of the times Interfaces are a good choice for providing the base for class hierarchy and contract. Also coding in terms of interfaces is one of the best practices for coding in java.
+If there are a lot of methods in the contract, then abstract class is more useful because we can provide a default implementation for some of the methods that are common for all the subclasses. Also if subclasses don’t need to implement a particular method, they can avoid providing the implementation but in case of interface, the subclass will have to provide the implementation for all the methods even though it’s of no use and implementation is just empty block.
+If our base contract keeps on changing then interfaces can cause issues because we can’t declare additional methods to the interface without changing all the implementation classes, with the abstract class we can provide the default implementation and only change the implementation classes that are actually going to use the new methods.
+
+Use Abstract classes and Interface both
+
+Using interfaces and abstract classes together is the best approach to design a system. For example, in JDK java.util.List is an interface that contains a lot of methods, so there is an abstract class java.util.AbstractList that provides a skeletal implementation for all the methods of List interface so that any subclass can extend this class and implement only required methods.
+
+We should always start with an interface as the base and define methods that every subclass should implement and then if there are some methods that only certain subclass should implement, we can extend the base interface and create a new interface with those methods.
+
+The subclasses will have the option to chose between the base interface or the child interface to implement according to its requirements.
+
+If the number of methods grows a lot, it’s not a bad idea to provide a skeletal abstract class implementing the child interface and providing flexibility to the subclasses to chose between interface and an abstract class.
+
+An abstract class is a special type of class that cannot be instantiated. An abstract class is designed to be inherited by subclasses that either implement or override its methods.
+
+https://www.guru99.com/interface-vs-abstract-class-java.html
+
+https://dzone.com/articles/when-to-use-abstract-class-and-intreface
+Consider using abstract classes if any of these statements apply to your situation:
+
+You want to share code among several closely related classes.
+You expect that classes that extend your abstract class have many common methods or fields or require access modifiers other than public (such as protected and private).
+You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.
+
+Consider using interfaces if any of these statements apply to your situation:
+
+You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
+You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+You want to take advantage of multiple inheritances.
+
+A constructor is used to initializing non-static data members and as there are no non-static data members in the interface, there is no need of constructor in Interface
+
+The main purpose of the constructor is to initialize the newly created object. In abstract class, we have an instance variable, abstract methods, and non-abstract methods. We need to initialize the non-abstract methods and instance variables, therefore abstract classes have a constructor. 
+
+The constructor inside the abstract class can only be called during constructor chaining i.e. when we create an instance of sub-classes. This is also one of the reasons abstract class can have a constructor.
+
+
+https://stackoverflow.com/questions/2170500/why-do-abstract-classes-in-java-have-constructors
+A constructor in Java doesn't actually "build" the object, it is used to initialize fields.
+
+Imagine that your abstract class has fields x and y, and that you always want them to be initialized in a certain way, no matter what actual concrete subclass is eventually created. So you create a constructor and initialize these fields.
+
+Now, if you have two different subclasses of your abstract class, when you instantiate them their constructors will be called, and then the parent constructor will be called and the fields will be initialized.
+
+If you don't do anything, the default constructor of the parent will be called. However, you can use the super keyword to invoke specific constructor on the parent class.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="ArrayList-and-LinkedList">
+<a class="anchor" href="#ArrayList-and-LinkedList" aria-hidden="true"><span class="octicon octicon-link"></span></a>ArrayList and LinkedList<a class="anchor-link" href="#ArrayList-and-LinkedList"> </a>
+</h3>
+<pre><code>When will you use LinkedList vs ArrayList
+Which one should I use if I need synchronised structure  -- No
+How can I make them synchronize  --Collections.synchronizedList
+Which can act as a Queue  -- LinkedList since it implement Deque interface too    
+Can you implement custom LinkedList
+What is the complexity of adding a element in ArrayList -- O(n)  -- array need to be resized
+When can you have ConcurrentModificationException 
+
+https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
+
+https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/    
+ArrayList is a part of the collection framework. It is present in the java.util package and provides us dynamic arrays in Java. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed. We can dynamically add and remove items. It automatically resizes itself. 
+
+This class implements the LinkedList Data Structure. Linked List are linear data structures where the elements are not stored in contiguous locations and every element is a separate object with a data part and address part. The elements are linked using pointers and addresses. Each element is known as a node. Due to the dynamicity and ease of insertions and deletions, they are preferred over the arrays.
+
+This class implements both the List interface and the Deque interface. Therefore, it can act as a list and a deque.
+
+https://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/
+ArrayList Vs LinkedList
+1) Search: ArrayList search operation is pretty fast compared to the LinkedList search operation. get(int index) in ArrayList gives the performance of O(1) while LinkedList performance is O(n).
+
+2) Deletion: LinkedList remove operation gives O(1) performance while ArrayList gives variable performance: O(n) in worst case (while removing first element) and O(1) in best case (While removing last element).
+
+3) Inserts Performance: LinkedList add method gives O(1) performance while ArrayList gives O(n) in worst case. Reason is same as explained for remove.
+
+4) Memory Overhead: ArrayList maintains indexes and element data while LinkedList maintains element data and two pointers for neighbor nodes hence the memory consumption is high in LinkedList comparatively.
+
+Both these classes are non-synchronized and can be made synchronized explicitly by using Collections.synchronizedList method.
+
+When to use LinkedList and when to use ArrayList?
+
+1) As explained above the insert and remove operations give good performance (O(1)) in LinkedList compared to ArrayList(O(n)). Hence if there is a requirement of frequent addition and deletion in application then LinkedList is a best choice.
+
+2) Search (get method) operations are fast in Arraylist (O(1)) but not in LinkedList (O(n)) so If there are less add and remove operations and more search operations requirement, ArrayList would be your best bet.
+
+https://www.baeldung.com/java-arraylist-linkedlist
+To add a new item, we should first initialize a brand new array with more capacity and copy all existing items to the new array. Only after copying current elements can we add the new item. Hence, the time complexity is O(n) in the worst case since we have to copy n elements first.
+
+https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java
+Also, if you have large lists, keep in mind that memory usage is also different. Each element of a LinkedList has more overhead since pointers to the next and previous elements are also stored. ArrayLists don't have this overhead. However, ArrayLists take up as much memory as is allocated for the capacity, regardless of whether elements have actually been added.
+
+Practice is very different, as LinkedList is a Cache Hostile Data structure. From performance POV - there are very little cases where LinkedList could be better performing than the Cache-friendly ArrayList.
+
+LinkedList takes much more time to accomplish the same job. source Source Code
+
+There are two main reasons for this:
+
+Mainly - that the nodes of the LinkedList are scattered randomly across the memory. RAM ("Random Access Memory") isn't really random and blocks of memory need to be fetched to cache. This operation takes time, and when such fetches happen frequently - the memory pages in the cache need to be replaced all the time -&gt; Cache misses -&gt; Cache is not efficient. ArrayList elements are stored on continuous memory - which is exactly what the modern CPU architecture is optimizing for.
+
+Secondary LinkedList required to hold back/forward pointers, which means 3 times the memory consumption per value stored compared to ArrayList.
+
+Reverse Iterator
+LinkedList can be iterated in reverse direction using descendingIterator() while there is no descendingIterator() in ArrayList , so we need to write our own code to iterate over the ArrayList in reverse direction.
+
+Memory Overhead
+Memory overhead in LinkedList is more as compared to ArrayList as a node in LinkedList needs to maintain the addresses of the next and previous node. While In ArrayList each index only holds the actual object(data).
+
+The iterator and listIterator returned by these classes are fail-fast (if list is structurally modified at any time after the iterator is created, in any way except through the iterator’s own remove or add methods, the iterator will throw a ConcurrentModificationException).</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="I-want-to-implement-cache-storage-which-datastructure-you-will-prefer">
+<a class="anchor" href="#I-want-to-implement-cache-storage-which-datastructure-you-will-prefer" aria-hidden="true"><span class="octicon octicon-link"></span></a>I want to implement cache storage which datastructure you will prefer<a class="anchor-link" href="#I-want-to-implement-cache-storage-which-datastructure-you-will-prefer"> </a>
+</h3>
+<pre><code>https://www.geeksforgeeks.org/lru-cache-implementation/
+LinkedHashSet that maintains insertion order of elements
+
+http://java-planet.blogspot.com/2005/08/how-to-set-up-simple-lru-cache-using.html
+The other feature - the one we're interested in here - is that LinkedHashMap has an option to use access-order instead of insertion order, and includes a way to remove the least-recently accessed entries automatically. This makes it well suited for creating LRU caches.
+
+https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/map/LRUMap.html</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Synchronized-Hashmap-and-ConcurrentHashMap">
+<a class="anchor" href="#Synchronized-Hashmap-and-ConcurrentHashMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronized Hashmap and ConcurrentHashMap<a class="anchor-link" href="#Synchronized-Hashmap-and-ConcurrentHashMap"> </a>
+</h3>
+<pre><code>How a HashMap can be Synchronized in Java
+Which one is better in term of performance
+ConcurrentHashMap vs Hashtable vs Synchronized Map
+fail-fast-and-fail-safe-iterators-in-java-
+
+https://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
+HashMap is a non-synchronized collection class
+
+If you have very highly concurrent application in which you may want to modify or read key value in different threads then it’s ideal to use Concurrent Hashmap    
+So what does the thread-safe Map means? If multiple threads access a hash map concurrently, and at least one of the threads modifies the map structurally, it must be synchronized externally to avoid an inconsistent view of the contents.
+
+There are two ways we could synchronized HashMap
+Java Collections synchronizedMap() method
+Use ConcurrentHashMap
+
+ConcurrentHashMap
+You should use ConcurrentHashMap when you need very high concurrency in your project.
+It is thread safe without synchronizing the whole map.
+Reads can happen very fast while write is done with a lock.
+There is no locking at the object level.
+The locking is at a much finer granularity at a segment level .
+
+SynchronizedHashMap
+Synchronization at Object level.
+Every read/write operation needs to acquire lock.
+Locking the entire collection is a performance overhead.
+This essentially gives access to only one thread to the entire map &amp; blocks all the other threads.
+It may cause contention.
+SynchronizedHashMap returns Iterator, which fails-fast on concurrent modification.
+
+https://stackoverflow.com/questions/1291836/concurrenthashmap-vs-synchronized-hashmap
+
+https://dzone.com/articles/java-7-hashmap-vs
+The performance boost is definitely due to the improved ConcurrentHashMap performance such as the non-blocking get() operation.
+
+https://www.baeldung.com/java-synchronizedmap-vs-concurrenthashmap   
+In ConcurrentHashMap, read operations are non-blocking, whereas write operations take a lock on a particular segment or bucket. The default bucket or concurrency level is 16, which means 16 threads can write at any instant after taking a lock on a segment or bucket.
+
+For objects like HashMap, performing concurrent operations is not allowed. Therefore, if we try to update a HashMap while iterating over it, we will receive a ConcurrentModificationException. This will also occur when using synchronizedMap():
+
+Collections.synchronizedMap() and ConcurrentHashMap handle null keys and values differently.
+ConcurrentHashMap doesn't allow null in keys or values:
+However, when using Collections.synchronizedMap(), null support depends on the input Map. We can have one null as a key and any number of null values when Collections.synchronizedMap() is backed by HashMap or LinkedHashMap, whereas if we're using TreeMap, we can have null values but not null keys.
+
+https://javarevisited.blogspot.com/2011/04/difference-between-concurrenthashmap.html#axzz6qJaVm856
+Though all three collection classes are thread-safe and can be used in multi-threaded, concurrent Java application, there is a significant difference between them, which arise from the fact that how they achieve their thread-safety. Hashtable is a legacy class from JDK 1.1 itself, which uses synchronized methods to achieve thread-safety. 
+All methods of Hashtable are synchronized which makes them quite slow due to contention if a number of thread increases. 
+Synchronized Map is also not very different than Hashtable and provides similar performance in concurrent Java programs. 
+The only difference between Hashtable and Synchronized Map is that later is not a legacy and you can wrap any Map to create it's synchronized version by using Collections.synchronizedMap() method.
+On the other hand, ConcurrentHashMap is specially designed for concurrent use i.e. more than one thread. By default it simultaneously allows 16 threads to read and write from Map without any external synchronization
+
+
+https://javaconceptoftheday.com/fail-fast-and-fail-safe-iterators-in-java-with-examples/
+A system is called fail-fast if it is shut down immediately when an error is occurred. These systems don’t carry on with the errors. They immediately stop operating when a fault is occurred in the system. The errors in the fail-fast systems are immediately exposed. But, fail-safe systems are not like that. They don’t stop operating even when a fault is occurred in the system. They continue the operation by hiding the errors.
+
+Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. Because, they operate on the clone of the collection, not on the actual collection
+
+Fail-Fast Iterators In Java :
+
+Fail-Fast iterators, returned by most of the collection types, doesn’t tolerate any structural modifications to a collection while iterating over it. (Structural modifications means add, remove or updating an element in the collection). They throw ConcurrentModificationException if a collection is structurally modified while iteration is going on the collection. But, they don’t throw any exceptions if the collection is modified by the iterator’s own methods like remove().
+
+Fail-Safe iterators don’t throw any exceptions if the collection is modified while iterating over it. Because, they iterate on the clone of the collection not on the original collection. So, any structural modifications done on the original collection goes unnoticed by these iterators.
+
+But, these iterators have some drawbacks. One of them is that it is not always guaranteed that you will get up-to-date data while iterating. Because, any modifications to the collection after the creation of iterator is not updated in the iterator. One more disadvantage of these iterators is that there will be additional overhead of creating the copy of the collection in the terms of both time and memory.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/interview/2021/03/27/Interview-Question-Congnizant.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

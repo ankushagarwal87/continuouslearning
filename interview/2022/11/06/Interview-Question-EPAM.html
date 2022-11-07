@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Java Interview Question | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Java Interview Question" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Java Interview Question","dateModified":"2022-11-06T00:00:00-05:00","datePublished":"2022-11-06T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/continuouslearning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" /><link rel="shortcut icon" type="image/x-icon" href="/continuouslearning/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Java Interview Question | continuouslearning</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Java Interview Question" />
+<meta name="author" content="Ankush Agarwal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html" />
+<meta property="og:url" content="https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html" />
+<meta property="og:site_name" content="continuouslearning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Java Interview Question","dateModified":"2022-11-06T00:00:00-05:00","datePublished":"2022-11-06T00:00:00-05:00","author":{"@type":"Person","name":"Ankush Agarwal"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","mainEntityOfPage":{"@type":"WebPage","@id":"https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html"},"@type":"BlogPosting","url":"https://ankushagarwal87.github.io/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://ankushagarwal87.github.io/continuouslearning/feed.xml" title="continuouslearning" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/continuouslearning/">continuouslearning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/continuouslearning/about/">About Me</a><a class="page-link" href="/continuouslearning/search/">Search</a><a class="page-link" href="/continuouslearning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Java Interview Question</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-06T00:00:00-05:00" itemprop="datePublished">
+        Nov 6, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ankush Agarwal</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/continuouslearning/categories/#interview">interview</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Abstraction">Abstraction </a></li>
+<li class="toc-entry toc-h3"><a href="#Exception">Exception </a></li>
+<li class="toc-entry toc-h3"><a href="#Singleton">Singleton </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-4-05-Interview Question - EPAM.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Abstraction">
+<a class="anchor" href="#Abstraction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstraction<a class="anchor-link" href="#Abstraction"> </a>
+</h3>
+<pre><code>OOPS Concept
+Difference between Abstraction and Encapsulation
+What is the use of polymorphism
+types of polymorphism  --static &amp; dynamic
+
+https://www.guru99.com/java-data-abstraction.html
+What is Abstraction in OOP?
+
+Abstraction is the concept of object-oriented programming that "shows" only essential attributes and "hides" unnecessary information.
+
+Abstraction in Object Oriented Programming solves the issues at the design level.   
+Encapsulation solves it implementation level.
+Abstraction in Programming is about hiding unwanted details while showing most essential information.
+Encapsulation means binding the code and data into a single unit.
+Data Abstraction in Java allows focussing on what the information object must contain   
+Encapsulation means hiding the internal details or mechanics of how an object does something for security reasons. 
+
+https://www.geeksforgeeks.org/abstraction-in-java-2/
+In java, abstraction is achieved by interfaces and abstract classes. We can achieve 100% abstraction using interfaces.
+Encapsulation is data hiding(information hiding) while Abstraction is detail hiding(implementation hiding).
+While encapsulation groups together data and methods that act upon the data, data abstraction deals with exposing the interface to the user and hiding the details of implementation
+
+https://www.geeksforgeeks.org/difference-between-abstraction-and-encapsulation-in-java-with-examples/?ref=rp
+Another way to think about encapsulation is, it is a protective shield that prevents the data from being accessed by the code outside this shield.
+Encapsulation can be achieved by Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.
+
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user. The trivial or the non-essentials units are not displayed to the user.
+
+https://beginnersbook.com/2013/04/oops-concepts/
+
+
+Why And When To Use "Inheritance" and "Polymorphism"?
+It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+
+https://stackoverflow.com/questions/11064409/why-to-use-polymorphism
+One of the best cases one can make for using polymorphism is the ability to refer to interfaces rather than implementations.
+
+https://stackify.com/oop-concept-polymorphism/
+Within an inheritance hierarchy, a subclass can override a method of its superclass. That enables the developer of the subclass to customize or completely replace the behavior of that method.
+It also creates a form of polymorphism. Both methods, implemented by the super- and subclass, share the same name and parameters but provide different functionality.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exception">
+<a class="anchor" href="#Exception" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exception<a class="anchor-link" href="#Exception"> </a>
+</h3>
+<pre><code>why is there checked exceptions
+Checked vs Unchecked
+synchronous and asynchronous exceptions
+Why we need custom exceptions-How to define it
+Should we catch Throwable class
+New Try-With-Resource
+
+https://howtodoinjava.com/java/exception-handling/checked-vs-unchecked-exceptions-in-java/
+Java forces you to handle these error scenarios in some manner in your application code. 
+They will come immediately into your face, once you start compiling your program
+
+Java also provides UncheckedExceptions, the occurrences of which are not checked by the compiler. 
+They will come into life/occur into your program, once any buggy code is executed.
+
+A method is not forced by compiler to declare the unchecked exceptions thrown by its implementation. 
+Generally, such methods almost always do not declare them, as well.
+Unchecked Exceptions are subclasses of RuntimeException. 
+Example of unchecked exceptions are : ArithmeticException, ArrayStoreException, ClassCastException and so on.
+
+Remember the biggest difference between checked and unchecked exceptions is that checked exceptions are forced by compiler and used to indicate exceptional conditions that are out of the control of the program (for example, I/O errors), while unchecked exceptions are occurred during runtime and used to indicate programming errors (for example, a null pointer).
+
+https://howtodoinjava.com/java/exception-handling/asynchronous-and-synchronous-exceptions-in-java/
+Synchronous exceptions happen at a specific program statement
+Asynchronous exceptions can raise practically anywhere
+Examples of naturally asynchronous events include pressing Ctrl-C to interrupt a program
+
+https://howtodoinjava.com/best-practices/java-exception-handling-best-practices/
+
+https://www.baeldung.com/java-catch-throwable-bad-practice
+The Throwable class has two direct sub-classes – namely, the Error and Exception classes.
+Error and its sub-classes are unchecked exceptions, while the sub-classes of Exception can be either checked or unchecked exceptions.
+
+The general rule in handling exceptions is that the try-catch block must be as specific as possible in catching exceptions. That is, a catch-all scenario must be avoided.
+Catching Throwable in our case violates this general rule. 
+To react to recoverable and irrecoverable situations separately, the calling code would have to inspect the instance of the Throwable object inside the catch block.
+
+https://stackoverflow.com/questions/6083248/is-it-a-bad-practice-to-catch-throwable
+Throwable is the superclass of all the errors and excetions. If you use Throwable in a catch clause, it will not only catch all exceptions, it will also catch all errors. Errors are thrown by the JVM to indicate serious problems that are not intended to be handled by an application. Typical examples for that are the OutOfMemoryError or the StackOverflowError. Both are caused by situations that are outside of the control of the application and can’t be handled. So you shouldn't catch Throwables unless your are pretty confident that it will only be an exception reside inside Throwable
+
+https://stackify.com/best-practices-exceptions-java/
+You can use it if your resource implements the AutoCloseable interface. That’s what most Java standard resources do.When you open the resource in the try clause, it will get automatically closed after the try block got executed, or an exception handled.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Singleton">
+<a class="anchor" href="#Singleton" aria-hidden="true"><span class="octicon octicon-link"></span></a>Singleton<a class="anchor-link" href="#Singleton"> </a>
+</h3>
+<pre><code>what is singleton class.
+How to create one
+Can multiple instance call the method at once -- what will happen -using synchronised &amp; double locking
+Early vs Lazy Initialisation
+Serializable     
+
+https://www.geeksforgeeks.org/singleton-class-java/
+In object-oriented programming, a singleton class is a class that can have only one object (an instance of the class) at a time.
+
+To design a singleton class:
+
+Make constructor as private.
+Write a static method that has return type object of this singleton class. 
+Here, the concept of Lazy initialization is used to write this static method.
+
+https://www.javatpoint.com/singleton-design-pattern-in-java
+
+Static member: It gets memory only once because of static, it contains the instance of the Singleton class.
+Private constructor: It will prevent to instantiate the Singleton class from outside the class.
+Static factory method: This provides the global point of access to the Singleton object and returns the instance to the caller.
+
+https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
+Serialization and Singleton
+It destroys the singleton pattern, to overcome this scenario all we need to do it provide the implementation of readResolve() method.
+
+https://en.wikipedia.org/wiki/Singleton_pattern
+Anti-pattern considerations
+
+The Singleton Pattern is generally considered an "Anti-Pattern" for the following reasons:
+Singleton classes break object-oriented design principles
+
+It cannot be inherited from. To add new functionality, a new class cannot be descended to contain that functionality, breaking Separation of Concern.
+No control over creation. It is impossible to tell if a reference is of an existing instance or a new instance.
+Prevents dependency injection. As there is only a single instance of the class, a dependency cannot be injected into it. If done via a property, the dependency is changed for all references to that instance.
+
+Singleton classes do not allow for test-driven development (TDD).
+
+As there is no control over creation, a "clean" instance of the object cannot be used for each test.
+Without dependency injection mock objects cannot be used in tests.
+
+https://www.edureka.co/blog/singleton-class-in-java/
+What is a Singleton Class in Java?
+
+In layman terms, a Singleton class in Java is the class which allows access to it through a single instance at a time. This design pattern is for restricting the unnecessary instantiation of a class and ensuring that only one object of the class exists at any point of time per JVM instance
+
+But why do we need a Singleton Class in the first place?
+
+Well, by restricting the instance creation of a class it saves memory space as now the object won’t be created each time a new request is made. Instead, a single object will be used repeatedly. This is the reason the Singleton pattern in Java is mostly used with multi-threaded and database applications. It is basically used for logging, caching, thread pooling, configuration settings and many more.
+
+https://www.oracle.com/technical-resources/articles/java/singleton.html
+Multiple Singletons in Two or More Virtual Machines
+
+When copies of the Singleton class run in multiple VMs, an instance is created for each machine. That each VM can hold its own Singleton might seem obvious but, in distributed systems such as those using EJBs, Jini, and RMI, it's not so simple. Since intermediate layers can hide the distributed technologies, to tell where an object is really instantiated may be difficult.
+
+Multiple Singletons Simultaneously Loaded by Different Class Loaders
+
+When two class loaders load a class, you actually have two copies of the class, and each one can have its own Singleton instance. That is particularly relevant in servlets running in certain servlet engines (iPlanet for example), where each servlet by default uses its own class loader. Two different servlets accessing a joint Singleton will, in fact, get two different objects.</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ankushagarwal87/continuouslearning"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/continuouslearning/interview/2022/11/06/Interview-Question-EPAM.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/continuouslearning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/continuouslearning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/continuouslearning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ankushagarwal87" target="_blank" title="ankushagarwal87"><svg class="svg-icon grey"><use xlink:href="/continuouslearning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
